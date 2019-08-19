@@ -1,0 +1,5 @@
+<RCC>
+    <qresource prefix="/">
+        <file>../../../Docs/ueg.ico</file>
+    </qresource>
+</RCC>
