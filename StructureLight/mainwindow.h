@@ -37,6 +37,7 @@ public:
     ~MainWindow();
     void TestThread_1();
     void cameraCalibration_1_Thread(bool isIntri);
+    void projectorCalibration_1_Thread(bool isIntri);
     static int cameraMode;
     static int cameraModeOlder ;
     static int thread_mode;
@@ -79,6 +80,16 @@ private slots:
 
     void on_pushButton_cam_save_clicked();
     void on_pushButton_cam_extri_clicked();
+    void on_pushButton_camReadSetting_3_clicked();
+    void on_pushButton_camWriteSetting_3_clicked();
+    void on_pushButton_camReadSetting_2_clicked();
+    void on_toolButton_cam_intri_3_clicked();
+    void on_toolButton_projector_homo_dir_clicked();
+    void on_toolButton_projector_imgPath_clicked();
+    void on_toolButton_cam_extri_3_clicked();
+    void on_pushButton_cam_intri_3_clicked();
+    void on_pushButton_cam_extri_3_clicked();
+    void on_pushButton_cam_save_3_clicked();
 };
 
 

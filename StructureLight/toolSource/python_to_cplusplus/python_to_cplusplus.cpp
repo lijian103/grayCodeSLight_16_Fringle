@@ -1,5 +1,17 @@
 #include "python_to_cplusplus.h"
 #include <opencv2/opencv.hpp>
+
+//*********************example**********************
+ //    Mat temp=cv::imread(t.imgFilesPath[0].c_str());
+ //    Mat temp1=cv::imread(t.imgFilesPath[1].c_str());
+ //    PythonToCplusplus mytest;
+ //    mytest.Py_plotShowWave("../Pictures/Grap_frame/0_20190704183036.jpg","00",500);
+ //    mytest.Py_plotShowWave("../Pictures/Grap_frame/0_20190629143411.jpg","0",500);
+ //    mytest.Py_plotShowWave(temp,"1",500);
+ //    mytest.Py_plotShowWave(temp1,"11",500);
+ //    mytest.pltShow();
+ //    mytest.pyFinalize();
+
 PythonToCplusplus::PythonToCplusplus()
 {
     //添加python根目录，不添加会找不到python
@@ -136,13 +148,4 @@ void PythonToCplusplus::pyFinalize()
  }
 
 
-//*********************example**********************
- //    Mat temp=cv::imread(t.imgFilesPath[0].c_str());
- //    Mat temp1=cv::imread(t.imgFilesPath[1].c_str());
- //    PythonToCplusplus mytest;
- //    mytest.Py_plotShowWave("../Pictures/Grap_frame/0_20190704183036.jpg","00",500);
- //    mytest.Py_plotShowWave("../Pictures/Grap_frame/0_20190629143411.jpg","0",500);
- //    mytest.Py_plotShowWave(temp,"1",500);
- //    mytest.Py_plotShowWave(temp1,"11",500);
- //    mytest.pltShow();
- //    mytest.pyFinalize();
+

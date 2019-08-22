@@ -13,6 +13,7 @@
 //camraCalibration
 #include "toolSource/structured_light/virtualCamera.h"
 #include "toolSource/structured_light/camera_calibration.h"
+#include "toolSource/structured_light/projector_calibration.h"
 
 
 using namespace cv;
@@ -55,10 +56,10 @@ MainWindow::MainWindow(QWidget *parent) :
    ui->tableWidget_camDistortion->setColumnWidth(2,60);
    ui->tableWidget_camDistortion->setColumnWidth(3,60);
    ui->tableWidget_camDistortion->setColumnWidth(4,60);
-   ui->tableWidget_camSetting->setColumnWidth(0,80);
-   ui->tableWidget_camSetting->setColumnWidth(1,80);
-   ui->tableWidget_camSetting->setColumnWidth(2,80);
-   ui->tableWidget_camSetting->setColumnWidth(3,80);
+   ui->tableWidget_camSetting->setColumnWidth(0,76);
+   ui->tableWidget_camSetting->setColumnWidth(1,76);
+   ui->tableWidget_camSetting->setColumnWidth(2,76);
+   ui->tableWidget_camSetting->setColumnWidth(3,76);
 
 
 
@@ -68,10 +69,10 @@ MainWindow::MainWindow(QWidget *parent) :
    ui->tableWidget_camDistortion_2->setColumnWidth(2,60);
    ui->tableWidget_camDistortion_2->setColumnWidth(3,60);
    ui->tableWidget_camDistortion_2->setColumnWidth(4,60);
-   ui->tableWidget_camSetting_2->setColumnWidth(0,80);
-   ui->tableWidget_camSetting_2->setColumnWidth(1,80);
-   ui->tableWidget_camSetting_2->setColumnWidth(2,80);
-   ui->tableWidget_camSetting_2->setColumnWidth(3,80);
+   ui->tableWidget_camSetting_2->setColumnWidth(0,76);
+   ui->tableWidget_camSetting_2->setColumnWidth(1,76);
+   ui->tableWidget_camSetting_2->setColumnWidth(2,76);
+   ui->tableWidget_camSetting_2->setColumnWidth(3,76);
 
 
 
@@ -80,6 +81,12 @@ MainWindow::MainWindow(QWidget *parent) :
    ui->tableWidget_camDistortion_3->setColumnWidth(2,60);
    ui->tableWidget_camDistortion_3->setColumnWidth(3,60);
    ui->tableWidget_camDistortion_3->setColumnWidth(4,60);
+   ui->tableWidget_camSetting_3->setColumnWidth(0,55);
+   ui->tableWidget_camSetting_3->setColumnWidth(1,55);
+   ui->tableWidget_camSetting_3->setColumnWidth(2,55);
+   ui->tableWidget_camSetting_3->setColumnWidth(3,55);
+   ui->tableWidget_camSetting_3->setColumnWidth(4,55);
+   ui->tableWidget_camSetting_3->setColumnWidth(5,55);
 
 
 //this->showMinimized();
@@ -145,6 +152,23 @@ MainWindow::MainWindow(QWidget *parent) :
     }
     ui->lineEdit_cam_intri->setText(QString::fromStdString(cameraParam[4]));
     ui->lineEdit_cam_extri->setText(QString::fromStdString(cameraParam[5]));
+
+
+
+
+    std::vector<std::string> projectorParam(10,"#####");
+    CameraCalibration::loadCameraConfig("../calibrationData/projector/input/camConfig.xml",projectorParam);
+
+    for(size_t i = 0; i < projectorParam.size()-6; i++)
+    {
+         ui->tableWidget_camSetting_3->setItem(1,i,new QTableWidgetItem(QString::fromStdString(projectorParam[i])));
+    }
+    ui->lineEdit_cam_intri_3->setText(QString::fromStdString(projectorParam[4]));
+    ui->lineEdit_cam_extri_3->setText(QString::fromStdString(projectorParam[5]));
+    ui->tableWidget_camSetting_3->setItem(1,4,new QTableWidgetItem(QString::fromStdString(projectorParam[6])));
+    ui->tableWidget_camSetting_3->setItem(1,5,new QTableWidgetItem(QString::fromStdString(projectorParam[7])));
+    ui->lineEdit_projector_imgPath->setText(QString::fromStdString(projectorParam[8]));
+     ui->lineEdit_projector_homo_dir->setText(QString::fromStdString(projectorParam[9]));
 }
 
 MainWindow::~MainWindow()
@@ -382,10 +406,103 @@ void MainWindow::showHardwarePictures()
        ui->tableWidget_camError->setItem(1,0,new QTableWidgetItem("exError: "+QString("%1").arg(cam_1.calibrationError.at<float>(1,0))));
 
 
-
-
+       //***************************相机2*************************
         VirtualCamera cam_2;
-        VirtualCamera cam_3;
+        cam_2.loadCameraMatrix("../calibrationData/camera2/output/cam_matrix.txt");
+        cam_2.loadDistortion("../calibrationData/camera2/output/cam_distortion.txt");
+        cam_2.loadRotationMatrix("../calibrationData/camera2/output/cam_rotation_matrix.txt");
+        cam_2.loadTranslationVector("../calibrationData/camera2/output/cam_trans_vectror.txt");
+        cam_2.loadCalibrationError("../calibrationData/camera2/output/cam_error.txt");
+
+        for(int i=0;i<cam_2.cameraMatrix.rows;i++)
+        {
+            for(int j=0;j<cam_2.cameraMatrix.cols;j++)
+            {
+                ui->tableWidget_camMatrix_2->setItem(i,j,new QTableWidgetItem(QString("%1").arg(cam_2.cameraMatrix.at<float>(i,j))));
+            }
+        }
+
+        for(int i=0;i<cam_2.rotationMatrix.rows;i++)
+        {
+            for(int j=0;j<cam_2.rotationMatrix.cols;j++)
+            {
+                ui->tableWidget_camRotationMatrix_2->setItem(i,j,new QTableWidgetItem(QString("%1").arg(cam_2.rotationMatrix.at<float>(i,j))));
+
+            }
+        }
+
+        for(int i=0;i<cam_2.translationVector.rows;i++)
+        {
+            for(int j=0;j<cam_2.translationVector.cols;j++)
+            {
+                ui->tableWidget_camTranslationVector_2->setItem(i,j,new QTableWidgetItem(QString("%1").arg(cam_2.translationVector.at<float>(i,j))));
+
+            }
+        }
+
+        for(int i=0;i<cam_2.distortion.rows;i++)
+        {
+            for(int j=0;j<cam_2.distortion.cols;j++)
+            {
+                ui->tableWidget_camDistortion_2->setItem(j+1,i,new QTableWidgetItem(QString("%1").arg(cam_2.distortion.at<float>(i,j))));
+
+            }
+        }
+
+
+       ui->tableWidget_camError_2->setItem(0,0,new QTableWidgetItem("Error: "+QString("%1").arg(cam_2.calibrationError.at<float>(0,0))));
+       ui->tableWidget_camError_2->setItem(1,0,new QTableWidgetItem("exError: "+QString("%1").arg(cam_2.calibrationError.at<float>(1,0))));
+
+
+
+        //*************************投影仪*****************************
+        VirtualCamera proj;
+        proj.loadCameraMatrix("../calibrationData/projector/output/cam_matrix.txt");
+        proj.loadDistortion("../calibrationData/projector/output/cam_distortion.txt");
+        proj.loadRotationMatrix("../calibrationData/projector/output/cam_rotation_matrix.txt");
+        proj.loadTranslationVector("../calibrationData/projector/output/cam_trans_vectror.txt");
+        proj.loadCalibrationError("../calibrationData/projector/output/cam_error.txt");
+
+        for(int i=0;i<proj.cameraMatrix.rows;i++)
+        {
+            for(int j=0;j<proj.cameraMatrix.cols;j++)
+            {
+                ui->tableWidget_camMatrix_3->setItem(i,j,new QTableWidgetItem(QString("%1").arg(proj.cameraMatrix.at<float>(i,j))));
+            }
+        }
+
+        for(int i=0;i<proj.rotationMatrix.rows;i++)
+        {
+            for(int j=0;j<proj.rotationMatrix.cols;j++)
+            {
+                ui->tableWidget_camRotationMatrix_3->setItem(i,j,new QTableWidgetItem(QString("%1").arg(proj.rotationMatrix.at<float>(i,j))));
+
+            }
+        }
+
+        for(int i=0;i<proj.translationVector.rows;i++)
+        {
+            for(int j=0;j<proj.translationVector.cols;j++)
+            {
+                ui->tableWidget_camTranslationVector_3->setItem(i,j,new QTableWidgetItem(QString("%1").arg(proj.translationVector.at<float>(i,j))));
+
+            }
+        }
+
+        for(int i=0;i<proj.distortion.rows;i++)
+        {
+            for(int j=0;j<proj.distortion.cols;j++)
+            {
+                ui->tableWidget_camDistortion_3->setItem(j+1,i,new QTableWidgetItem(QString("%1").arg(proj.distortion.at<float>(i,j))));
+
+            }
+        }
+
+
+       ui->tableWidget_camError_3->setItem(0,0,new QTableWidgetItem("Error: "+QString("%1").arg(proj.calibrationError.at<float>(0,0))));
+       ui->tableWidget_camError_3->setItem(1,0,new QTableWidgetItem("exError: "+QString("%1").arg(proj.calibrationError.at<float>(1,0))));
+
+
     }
 
 
@@ -435,6 +552,14 @@ void MainWindow::changeEvent(QEvent *event)
         ui->tableWidget_camDistortion_3->setColumnWidth(2,100);
         ui->tableWidget_camDistortion_3->setColumnWidth(3,100);
         ui->tableWidget_camDistortion_3->setColumnWidth(4,100);
+
+        ui->tableWidget_camSetting_3->setColumnWidth(0,76);
+        ui->tableWidget_camSetting_3->setColumnWidth(1,76);
+        ui->tableWidget_camSetting_3->setColumnWidth(2,76);
+        ui->tableWidget_camSetting_3->setColumnWidth(3,76);
+        ui->tableWidget_camSetting_3->setColumnWidth(4,76);
+        ui->tableWidget_camSetting_3->setColumnWidth(5,76);
+
         flag=0;
     }
 
@@ -457,6 +582,13 @@ void MainWindow::changeEvent(QEvent *event)
         ui->tableWidget_camDistortion_3->setColumnWidth(2,60);
         ui->tableWidget_camDistortion_3->setColumnWidth(3,60);
         ui->tableWidget_camDistortion_3->setColumnWidth(4,60);
+
+        ui->tableWidget_camSetting_3->setColumnWidth(0,55);
+        ui->tableWidget_camSetting_3->setColumnWidth(1,55);
+        ui->tableWidget_camSetting_3->setColumnWidth(2,55);
+        ui->tableWidget_camSetting_3->setColumnWidth(3,55);
+        ui->tableWidget_camSetting_3->setColumnWidth(4,55);
+        ui->tableWidget_camSetting_3->setColumnWidth(5,55);
         flag=1;
     }
 }
@@ -500,7 +632,7 @@ void MainWindow::TestThread_1()
            case 0:
                MainWindow::cameraModeOlder=0;
                qDebug()<<QString::fromStdWString(L"******相机关闭状态*******");
-               Sleep(10000);
+               Sleep(3000);
                break;
            case 1:
               //切换抓取模式初始化
@@ -681,92 +813,98 @@ void MainWindow::cameraCalibration_1_Thread(bool isIntri)
 
 
  //************************************test find homography*********************
-        VirtualCamera cam_1;
-        cam_1.loadCameraMatrix("../calibrationData/camera1/output/cam_matrix.txt");
-        cam_1.loadDistortion("../calibrationData/camera1/output/cam_distortion.txt");
-        cam_1.loadRotationMatrix("../calibrationData/camera1/output/cam_rotation_matrix.txt");
-        cam_1.loadTranslationVector("../calibrationData/camera1/output/cam_trans_vectror.txt");
-        cam_1.computeHomographyMatrix();
-        std::cout<<cam_1.homographyMatrix<<std::endl;
+//        VirtualCamera cam_1;
+//        cam_1.loadCameraMatrix("../calibrationData/camera1/output/cam_matrix.txt");
+//        cam_1.loadDistortion("../calibrationData/camera1/output/cam_distortion.txt");
+//        cam_1.loadRotationMatrix("../calibrationData/camera1/output/cam_rotation_matrix.txt");
+//        cam_1.loadTranslationVector("../calibrationData/camera1/output/cam_trans_vectror.txt");
+//        cam_1.computeHomographyMatrix();
+//        std::cout<<cam_1.homographyMatrix<<std::endl;
 
 
 
-        std::vector<cv::Point2f> imgPoints;
-        std::vector<cv::Point3f> objPoints3D;
+//        std::vector<cv::Point2f> imgPoints;
+//        std::vector<cv::Point3f> objPoints3D;
 
-        std::vector<cv::Point3f> calculateObjPoints3D;
-        CameraCalib_1.findCornersInCamImg(CameraCalib_1.extrImg, &imgPoints);
-        CameraCalib_1.findCornersInObjetBoard(&objPoints3D);
+//        std::vector<cv::Point3f> calculateObjPoints3D;
+//        CameraCalib_1.findCornersInCamImg(CameraCalib_1.extrImg, &imgPoints);
+//        CameraCalib_1.findCornersInObjetBoard(&objPoints3D);
 
-        std::vector<cv::Point2f> objPoints2d(objPoints3D.size());
-        std::vector<cv::Point2f> imgcal(objPoints3D.size());
+//        std::vector<cv::Point2f> objPoints2d(objPoints3D.size());
+//        std::vector<cv::Point2f> imgcal(objPoints3D.size());
 
-        for(int i=0; i < objPoints3D.size(); i++)
-        {
-             objPoints2d[i].x=objPoints3D[i].x;
-             objPoints2d[i].y=objPoints3D[i].y;
-        }
-
-
-        CameraCalib_1.perspectiveTransformation(objPoints2d,cam_1.homographyMatrix,calculateObjPoints3D);
-
-        int  index =0;
-        foreach (cv::Point3f var,calculateObjPoints3D)
-        {
-
-            imgcal[index].x=calculateObjPoints3D[index].x;
-            imgcal[index].y=calculateObjPoints3D[index].y;
-            std::cout<<imgPoints[index]<<std::endl;
-            std::cout<<imgcal[index]<<std::endl;
-            index++;
-        }
-
-      std::cout<< cv::norm(imgcal, imgPoints, cv::NORM_L2)/imgcal.size()<<std::endl;//平方和误差（没有开方）,这个误差也可以叫做重投影误差，这个是评价相机标定结果的一个指标。
-
-      calculateObjPoints3D.clear();
-      CameraCalib_1.perspectiveTransformation(imgPoints,cam_1.homographyMatrix.inv(DECOMP_LU),calculateObjPoints3D);
-      index =0;
-      foreach (cv::Point3f var,calculateObjPoints3D)
-      {
-          std::cout<<objPoints3D[index]<<std::endl;
-          std::cout<<calculateObjPoints3D[index]<<std::endl;
-          index++;
-      }
+//        for(int i=0; i < objPoints3D.size(); i++)
+//        {
+//             objPoints2d[i].x=objPoints3D[i].x;
+//             objPoints2d[i].y=objPoints3D[i].y;
+//        }
 
 
+//        CameraCalib_1.perspectiveTransformation(objPoints2d,cam_1.homographyMatrix,calculateObjPoints3D);
+
+//        int  index =0;
+//        foreach (cv::Point3f var,calculateObjPoints3D)
+//        {
+
+//            imgcal[index].x=calculateObjPoints3D[index].x;
+//            imgcal[index].y=calculateObjPoints3D[index].y;
+//            std::cout<<imgPoints[index]<<std::endl;
+//            std::cout<<imgcal[index]<<std::endl;
+//            index++;
+//        }
+
+//        std::vector<cv::Point2f> undisImgPoints(imgPoints.size());
+//       CameraCalib_1.undistortCameraImgPoints(imgPoints,undisImgPoints);
+
+//      // 0.038936
+//      std::cout<< cv::norm(imgcal, undisImgPoints, cv::NORM_L2)/imgcal.size()<<std::endl;//平方和误差（没有开方）,这个误差也可以叫做重投影误差，这个是评价相机标定结果的一个指标。
+
+//      calculateObjPoints3D.clear();
+//      CameraCalib_1.perspectiveTransformation(imgPoints,cam_1.homographyMatrix.inv(DECOMP_LU),calculateObjPoints3D);
+//      index =0;
+//      foreach (cv::Point3f var,calculateObjPoints3D)
+//      {
+//          std::cout<<objPoints3D[index]<<std::endl;
+//          std::cout<<calculateObjPoints3D[index]<<std::endl;
+//          index++;
+//      }
 
 
 
 
 
-       cv::Mat homo=cv::findHomography(objPoints2d,imgPoints);
-        std::cout<<cv::findHomography(objPoints2d,imgPoints)<<std::endl;
-
-        calculateObjPoints3D.clear();
-        CameraCalib_1.perspectiveTransformation(objPoints2d,homo,calculateObjPoints3D);
-        int  tt =0;
-        foreach (cv::Point3f var,calculateObjPoints3D)
-        {
 
 
-            imgcal[tt].x=calculateObjPoints3D[tt].x;
-            imgcal[tt].y=calculateObjPoints3D[tt].y;
-            std::cout<<imgPoints[tt]<<std::endl;
-            std::cout<<imgcal[tt]<<std::endl;
-            tt++;
+//       cv::Mat homo=cv::findHomography(objPoints2d,imgPoints);
+//        std::cout<<cv::findHomography(objPoints2d,imgPoints)<<std::endl;
 
-        }
-  std::cout<< cv::norm(imgcal, imgPoints, cv::NORM_L2)/imgcal.size()<<std::endl;//平方和误差（没有开方）,这个误差也可以叫做重投影误差，这个是评价相机标定结果的一个指标。
+//        calculateObjPoints3D.clear();
+//        CameraCalib_1.perspectiveTransformation(objPoints2d,homo,calculateObjPoints3D);
+//        int  tt =0;
+//        foreach (cv::Point3f var,calculateObjPoints3D)
+//        {
 
-  calculateObjPoints3D.clear();
-  CameraCalib_1.perspectiveTransformation(imgPoints,homo.inv(DECOMP_LU),calculateObjPoints3D);
-  index =0;
-  foreach (cv::Point3f var,calculateObjPoints3D)
-  {
-      std::cout<<objPoints3D[index]<<std::endl;
-      std::cout<<calculateObjPoints3D[index]<<std::endl;
-      index++;
-  }
+
+//            imgcal[tt].x=calculateObjPoints3D[tt].x;
+//            imgcal[tt].y=calculateObjPoints3D[tt].y;
+//            std::cout<<imgPoints[tt]<<std::endl;
+//            std::cout<<imgcal[tt]<<std::endl;
+//            tt++;
+
+//        }
+
+//  //0.0392449
+//  std::cout<< cv::norm(imgcal, imgPoints, cv::NORM_L2)/imgcal.size()<<std::endl;//平方和误差（没有开方）,这个误差也可以叫做重投影误差，这个是评价相机标定结果的一个指标。
+
+//  calculateObjPoints3D.clear();
+//  CameraCalib_1.perspectiveTransformation(imgPoints,homo.inv(DECOMP_LU),calculateObjPoints3D);
+//  index =0;
+//  foreach (cv::Point3f var,calculateObjPoints3D)
+//  {
+//      std::cout<<objPoints3D[index]<<std::endl;
+//      std::cout<<calculateObjPoints3D[index]<<std::endl;
+//      index++;
+//  }
 
   //************************************test find homography*********************
 
@@ -861,8 +999,259 @@ void MainWindow::on_toolButton_cam_extri_clicked()
 
 void MainWindow::on_pushButton_cam_save_clicked()
 {
-
-    this->saveFileFlag=1;
+    if(this->ptrThread_cameraCalibration != nullptr)
+    {
+        this->saveFileFlag=1;
+    }
 }
 
 
+
+void MainWindow::on_pushButton_camReadSetting_3_clicked()
+{
+    std::vector<std::string> cameraParam(10,"#####");
+    CameraCalibration::loadCameraConfig("../calibrationData/projector/input/camConfig.xml",cameraParam);
+
+    for(size_t i = 0; i < cameraParam.size()-6; i++)
+    {
+         ui->tableWidget_camSetting_3->setItem(1,i,new QTableWidgetItem(QString::fromStdString(cameraParam[i])));
+    }
+    ui->lineEdit_cam_intri_3->setText(QString::fromStdString(cameraParam[4]));
+    ui->lineEdit_cam_extri_3->setText(QString::fromStdString(cameraParam[5]));
+    ui->tableWidget_camSetting_3->setItem(1,4,new QTableWidgetItem(QString::fromStdString(cameraParam[6])));
+    ui->tableWidget_camSetting_3->setItem(1,5,new QTableWidgetItem(QString::fromStdString(cameraParam[7])));
+    ui->lineEdit_projector_imgPath->setText(QString::fromStdString(cameraParam[8]));
+    ui->lineEdit_projector_homo_dir->setText(QString::fromStdString(cameraParam[9]));
+}
+
+void MainWindow::on_pushButton_camWriteSetting_3_clicked()
+{
+    std::vector<std::string> cameraParam;
+    cameraParam.push_back((this->ui->tableWidget_camSetting_3->item(1,0)->text()).toStdString());
+    cameraParam.push_back((this->ui->tableWidget_camSetting_3->item(1,1)->text()).toStdString());
+    cameraParam.push_back((this->ui->tableWidget_camSetting_3->item(1,2)->text()).toStdString());
+    cameraParam.push_back((this->ui->tableWidget_camSetting_3->item(1,3)->text()).toStdString());
+    cameraParam.push_back((this->ui->lineEdit_cam_intri_3->text()).toStdString());
+    cameraParam.push_back((this->ui->lineEdit_cam_extri_3->text()).toStdString());
+    cameraParam.push_back((this->ui->tableWidget_camSetting_3->item(1,4)->text()).toStdString());
+    cameraParam.push_back((this->ui->tableWidget_camSetting_3->item(1,5)->text()).toStdString());
+    cameraParam.push_back((this->ui->lineEdit_projector_imgPath->text()).toStdString());
+    cameraParam.push_back((this->ui->lineEdit_projector_homo_dir->text()).toStdString());
+
+    CameraCalibration::saveCameraConfig("../calibrationData/projector/input/camConfig.xml",cameraParam);
+    CameraCalibration::loadCameraConfig("../calibrationData/projector/input/camConfig.xml",cameraParam);
+
+    for(size_t i = 0; i < cameraParam.size()-6; i++)
+    {
+         ui->tableWidget_camSetting_3->setItem(1,i,new QTableWidgetItem(QString::fromStdString(cameraParam[i])));
+    }
+    ui->lineEdit_cam_intri_3->setText(QString::fromStdString(cameraParam[4]));
+    ui->lineEdit_cam_extri_3->setText(QString::fromStdString(cameraParam[5]));
+    ui->tableWidget_camSetting_3->setItem(1,4,new QTableWidgetItem(QString::fromStdString(cameraParam[6])));
+    ui->tableWidget_camSetting_3->setItem(1,5,new QTableWidgetItem(QString::fromStdString(cameraParam[7])));
+    ui->lineEdit_projector_imgPath->setText(QString::fromStdString(cameraParam[8]));
+    ui->lineEdit_projector_homo_dir->setText(QString::fromStdString(cameraParam[9]));
+
+}
+
+void MainWindow::on_pushButton_camReadSetting_2_clicked()
+{
+
+}
+
+void MainWindow::on_toolButton_cam_intri_3_clicked()
+{
+    QString file_path = QFileDialog::getExistingDirectory(this,QString::fromStdWString(L"请选择文件夹路径"), "../Pictures/Grap_frame/projector/");
+    ui->lineEdit_cam_intri_3->setText(file_path);
+}
+
+void MainWindow::on_toolButton_projector_homo_dir_clicked()
+{
+    QString file_path = QFileDialog::getExistingDirectory(this,QString::fromStdWString(L"请选择文件夹路径"), "../Pictures/Grap_frame/projector/");
+    ui->lineEdit_projector_homo_dir->setText(file_path);
+}
+
+void MainWindow::on_toolButton_projector_imgPath_clicked()
+{
+    QString file_path = QFileDialog::getOpenFileName(this,QString::fromStdWString(L"请选择外参文件路径"), "../calibrationData/projector/input/");
+    ui->lineEdit_projector_imgPath->setText(file_path);
+}
+
+void MainWindow::on_toolButton_cam_extri_3_clicked()
+{
+    QString file_path = QFileDialog::getOpenFileName(this,QString::fromStdWString(L"请选择外参文件路径"), "../Pictures/Grap_frame/projector/projector/");
+    ui->lineEdit_cam_extri_3->setText(file_path);
+}
+
+void MainWindow::on_pushButton_cam_intri_3_clicked()
+{
+    //开一个新进程，用于相机标定，在标定未完成前，继续按标定按钮无效，标定完，可以继续标定
+    if(this->ptrThread_cameraCalibration==nullptr)
+    {
+        this->ptrThread_cameraCalibration = new std::thread(&MainWindow::projectorCalibration_1_Thread,this,true);
+        this->ptrThread_cameraCalibration->detach();
+    }
+    else
+    {
+        std::cout<<"*****************正在标定******************************"<<std::endl;
+    }
+
+}
+
+void MainWindow::on_pushButton_cam_extri_3_clicked()
+{
+    //开一个新进程，用于相机标定，在标定未完成前，继续按标定按钮无效，标定完，可以继续标定
+    if(this->ptrThread_cameraCalibration==nullptr)
+    {
+        this->ptrThread_cameraCalibration = new std::thread(&MainWindow::projectorCalibration_1_Thread,this,false);
+        this->ptrThread_cameraCalibration->detach();
+    }
+    else
+    {
+        std::cout<<"*****************正在标定******************************"<<std::endl;
+    }
+}
+
+void MainWindow::projectorCalibration_1_Thread(bool isIntri)
+{
+    ProjectorCalibration  ProjectorCalib_1;
+    ProjectorCalib_1.loadCalibData("../calibrationData/projector/output/calib.xml");
+
+    std::vector<std::string> cameraParam(10,"#####");
+    CameraCalibration::loadCameraConfig("../calibrationData/projector/input/camConfig.xml",cameraParam);
+
+    //开启相机标定
+    ProjectorCalib_1.setSquareSize(cv::Size2d(atof(cameraParam[2].c_str()),atof(cameraParam[3].c_str())));
+    ProjectorCalib_1.setCornersSize(cv::Size(atoi(cameraParam[0].c_str()),atoi(cameraParam[1].c_str())));
+    ProjectorCalib_1.setProjectorCornersSize(cv::Size(atoi(cameraParam[6].c_str()),atoi(cameraParam[7].c_str())));
+
+
+    if(isIntri)
+    {
+        //导入求homo的图像序列到calibImgs.求完homo后导入投影的图像到calibImgs，类似于相机标定
+        ProjectorCalib_1.loadCameraImgs(QString::fromStdString(cameraParam[9]));
+
+        //求图像序列的3D点和图像点集合
+        ProjectorCalib_1.extractImageCorners();
+
+        //求图像序列的homo
+        ProjectorCalib_1.findCameraAllHomography_imgTo3D();
+
+        //求完homo后，重新导入projector图像序列到calibImgs
+        ProjectorCalib_1.loadCameraImgs(QString::fromStdString(cameraParam[4]));
+
+        //求完homo后，重新设置格点数
+        ProjectorCalib_1.reSetProjectParm();
+
+        //求完homo后，需要导入投影图片
+        ProjectorCalib_1.loadProjectorImgs(QString::fromStdString(cameraParam[8]));
+
+        //此处要设置阈值76，根据图片效果来改
+        //这里设置一个全局的阈值很困难，因此增加对比度后设置一个全局的阈值后效果较好。增加对比度也并不能解决问题，否定前面结论。
+        //此处找一个全局阈值，观察图片，如果结果存在较大的偏差，就删除该图片，使用其他效果较好的图片。
+        ProjectorCalib_1.extractImageCorners_projector();
+
+
+        //标定内参，可以不需要导入外参图片
+       //ProjectorCalib_1.loadCameraExtriImgs(QString::fromStdString(cameraParam[5]));
+
+        ProjectorCalib_1.calibrateCamera();
+        foreach (double var, ProjectorCalib_1.err_of_each_calibImgs)
+        {
+            std::cout<<var<<std::endl;
+        }
+        //保存内参、畸变参数、内参误差
+        ProjectorCalib_1.exportTxtFiles("../calibrationData/projector/output/cam_matrix.txt",CAMCALIB_OUT_MATRIX);
+        ProjectorCalib_1.exportTxtFiles("../calibrationData/projector/output/cam_distortion.txt",CAMCALIB_OUT_DISTORTION);
+        ProjectorCalib_1.exportTxtFiles("../calibrationData/projector/output/cam_error.txt",CAMCALIB_OUT_ERROR);
+
+        while(1)
+        {
+
+            std::cout<<"Esc键不保存标定结果...\nEenter键保存标定结果...\n保存按钮保存标定结果..."<<std::endl;
+            if(this->saveFileFlag==1)
+            {
+                //保存xml文件
+                std::cout<<"保存标定结果"<<std::endl;
+                ProjectorCalib_1.saveCalibData("../calibrationData/projector/output/calib.xml");
+                this->saveFileFlag=0;
+                break;
+            }
+            Sleep(2000);
+
+            if(cv::waitKey(10)==27)
+            {
+                std::cout<<"不保存标定结果"<<std::endl;
+                this->saveFileFlag=0;
+                break;
+            }
+
+            if(cv::waitKey(10)==13)
+            {
+                std::cout<<"保存标定结果"<<std::endl;
+                ProjectorCalib_1.saveCalibData("../calibrationData/projector/output/calib.xml");
+                this->saveFileFlag=0;
+                break;
+            }
+        }
+   }
+    else
+    {
+        //标定外参
+        ProjectorCalib_1.loadProjectorImgs(QString::fromStdString(cameraParam[8]));
+        //外参图片
+        ProjectorCalib_1.loadCameraExtriImgs(QString::fromStdString(cameraParam[5]));
+
+        ProjectorCalib_1.findProjectorExtrisics(QString::fromStdString(cameraParam[4]),QString::fromStdString(cameraParam[9]),cameraParam[5]);
+
+        //保存外参、外参误差
+//        ProjectorCalib_1.exportTxtFiles("../calibrationData/projector/output/cam_matrix.txt",CAMCALIB_OUT_MATRIX);
+//        ProjectorCalib_1.exportTxtFiles("../calibrationData/projector/output/cam_distortion.txt",CAMCALIB_OUT_DISTORTION);
+        ProjectorCalib_1.exportTxtFiles("../calibrationData/projector/output/cam_error.txt",CAMCALIB_OUT_ERROR);
+        ProjectorCalib_1.exportTxtFiles("../calibrationData/projector/output/cam_rotation_matrix.txt",CAMCALIB_OUT_ROTATION);
+        ProjectorCalib_1.exportTxtFiles("../calibrationData/projector/output/cam_trans_vectror.txt",CAMCALIB_OUT_TRANSLATION);
+        while(1)
+        {
+
+            std::cout<<"Esc键不保存标定结果...\nEenter键保存标定结果...\n保存按钮保存标定结果..."<<std::endl;
+            if(this->saveFileFlag==1)
+            {
+                //保存xml文件
+                std::cout<<"保存标定结果"<<std::endl;
+                ProjectorCalib_1.saveCalibData("../calibrationData/projector/output/calib.xml");
+                this->saveFileFlag=0;
+                break;
+            }
+            Sleep(3000);
+
+            if(cv::waitKey(10)==27)
+            {
+                std::cout<<"不保存标定结果"<<std::endl;
+                this->saveFileFlag=0;
+                break;
+            }
+
+            if(cv::waitKey(10)==13)
+            {
+                std::cout<<"保存标定结果"<<std::endl;
+                ProjectorCalib_1.saveCalibData("../calibrationData/projector/output/calib.xml");
+                this->saveFileFlag=0;
+                break;
+            }
+        }
+
+
+    }
+
+
+    delete this->ptrThread_cameraCalibration;
+    this->ptrThread_cameraCalibration=nullptr;
+}
+
+void MainWindow::on_pushButton_cam_save_3_clicked()
+{
+    if(this->ptrThread_cameraCalibration != nullptr)
+    {
+        this->saveFileFlag = 1;
+    }
+}

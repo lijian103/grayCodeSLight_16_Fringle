@@ -92,6 +92,7 @@ public:
     std::vector<std::vector<cv::Point2f>> imgBoardCornersCam;
     std::vector<std::vector<cv::Point3f>> objBoardCornersCam;
 
+private:
 
 };
 

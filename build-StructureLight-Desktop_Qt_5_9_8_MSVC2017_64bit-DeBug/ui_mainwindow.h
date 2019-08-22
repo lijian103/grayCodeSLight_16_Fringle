@@ -55,12 +55,6 @@ public:
     QPushButton *pushButton;
     QWidget *tab_1;
     QGridLayout *gridLayout_5;
-    QSpacerItem *horizontalSpacer_4;
-    QSpacerItem *horizontalSpacer_5;
-    QSpacerItem *horizontalSpacer_6;
-    QFrame *line;
-    QFrame *line_2;
-    QSpacerItem *verticalSpacer_4;
     QGroupBox *groupBox_4;
     QVBoxLayout *verticalLayout_11;
     QVBoxLayout *verticalLayout_9;
@@ -95,34 +89,13 @@ public:
     QHBoxLayout *horizontalLayout_14;
     QPushButton *pushButton_cam_save_2;
     QSpacerItem *horizontalSpacer_13;
-    QSpacerItem *verticalSpacer_6;
-    QGroupBox *groupBox_3;
-    QVBoxLayout *verticalLayout_3;
-    QVBoxLayout *verticalLayout_22;
-    QVBoxLayout *verticalLayout_14;
-    QLabel *label_camMatrix_3;
-    QTableWidget *tableWidget_camMatrix_3;
-    QLabel *label_camRotationMatrix_3;
-    QTableWidget *tableWidget_camRotationMatrix_3;
-    QLabel *label_camTranslationVector_3;
-    QTableWidget *tableWidget_camTranslationVector_3;
-    QLabel *label_camDistortion_3;
-    QTableWidget *tableWidget_camDistortion_3;
-    QLabel *label_camError_3;
-    QTableWidget *tableWidget_camError_3;
-    QHBoxLayout *horizontalLayout_17;
-    QPushButton *pushButton_cam_intri_3;
-    QToolButton *toolButton_cam_intri_3;
-    QLineEdit *lineEdit_cam_intri_3;
-    QHBoxLayout *horizontalLayout_18;
-    QPushButton *pushButton_cam_extri_3;
-    QToolButton *toolButton_cam_extri_3;
-    QLineEdit *lineEdit_cam_extri_3;
-    QHBoxLayout *horizontalLayout_19;
-    QPushButton *pushButton_cam_save_3;
-    QSpacerItem *horizontalSpacer_14;
-    QPushButton *pushButton_cam_flush_3;
-    QSpacerItem *verticalSpacer_12;
+    QSpacerItem *verticalSpacer_7;
+    QSpacerItem *horizontalSpacer_4;
+    QSpacerItem *horizontalSpacer_5;
+    QSpacerItem *horizontalSpacer_6;
+    QFrame *line_2;
+    QSpacerItem *verticalSpacer_4;
+    QFrame *line;
     QGroupBox *groupBox_2;
     QVBoxLayout *verticalLayout_8;
     QVBoxLayout *verticalLayout_7;
@@ -158,6 +131,48 @@ public:
     QPushButton *pushButton_cam_save;
     QSpacerItem *horizontalSpacer_12;
     QSpacerItem *verticalSpacer_5;
+    QGroupBox *groupBox_3;
+    QVBoxLayout *verticalLayout_3;
+    QVBoxLayout *verticalLayout_12;
+    QLabel *label_camMatrix_3;
+    QTableWidget *tableWidget_camMatrix_3;
+    QLabel *label_camRotationMatrix_3;
+    QTableWidget *tableWidget_camRotationMatrix_3;
+    QVBoxLayout *verticalLayout_30;
+    QHBoxLayout *horizontalLayout_24;
+    QLabel *label_camTranslationVector_3;
+    QLabel *label_camError_3;
+    QHBoxLayout *horizontalLayout_25;
+    QTableWidget *tableWidget_camTranslationVector_3;
+    QTableWidget *tableWidget_camError_3;
+    QLabel *label_camDistortion_3;
+    QTableWidget *tableWidget_camDistortion_3;
+    QHBoxLayout *horizontalLayout_15;
+    QLabel *label_camSetting_3;
+    QPushButton *pushButton_camReadSetting_3;
+    QPushButton *pushButton_camWriteSetting_3;
+    QSpacerItem *horizontalSpacer_17;
+    QTableWidget *tableWidget_camSetting_3;
+    QHBoxLayout *horizontalLayout_26;
+    QLabel *label_3;
+    QToolButton *toolButton_projector_homo_dir;
+    QLineEdit *lineEdit_projector_homo_dir;
+    QHBoxLayout *horizontalLayout_19;
+    QLabel *label_2;
+    QToolButton *toolButton_projector_imgPath;
+    QLineEdit *lineEdit_projector_imgPath;
+    QHBoxLayout *horizontalLayout_16;
+    QPushButton *pushButton_cam_intri_3;
+    QToolButton *toolButton_cam_intri_3;
+    QLineEdit *lineEdit_cam_intri_3;
+    QHBoxLayout *horizontalLayout_17;
+    QPushButton *pushButton_cam_extri_3;
+    QToolButton *toolButton_cam_extri_3;
+    QLineEdit *lineEdit_cam_extri_3;
+    QHBoxLayout *horizontalLayout_18;
+    QPushButton *pushButton_cam_save_3;
+    QSpacerItem *horizontalSpacer_14;
+    QSpacerItem *verticalSpacer_6;
     QWidget *tab_2;
     QLabel *label_10;
     QWidget *tab_3;
@@ -198,7 +213,7 @@ public:
     {
         if (MainWindow->objectName().isEmpty())
             MainWindow->setObjectName(QStringLiteral("MainWindow"));
-        MainWindow->resize(1292, 846);
+        MainWindow->resize(1292, 891);
         QPalette palette;
         QBrush brush(QColor(255, 255, 255, 255));
         brush.setStyle(Qt::SolidPattern);
@@ -368,57 +383,16 @@ public:
         gridLayout_5->setSpacing(6);
         gridLayout_5->setContentsMargins(11, 11, 11, 11);
         gridLayout_5->setObjectName(QStringLiteral("gridLayout_5"));
-        horizontalSpacer_4 = new QSpacerItem(40, 4, QSizePolicy::Expanding, QSizePolicy::Minimum);
-
-        gridLayout_5->addItem(horizontalSpacer_4, 0, 0, 1, 1);
-
-        horizontalSpacer_5 = new QSpacerItem(40, 2, QSizePolicy::Expanding, QSizePolicy::Minimum);
-
-        gridLayout_5->addItem(horizontalSpacer_5, 0, 2, 1, 1);
-
-        horizontalSpacer_6 = new QSpacerItem(40, 2, QSizePolicy::Expanding, QSizePolicy::Minimum);
-
-        gridLayout_5->addItem(horizontalSpacer_6, 0, 5, 1, 1);
-
-        line = new QFrame(tab_1);
-        line->setObjectName(QStringLiteral("line"));
-        QSizePolicy sizePolicy1(QSizePolicy::Fixed, QSizePolicy::Minimum);
-        sizePolicy1.setHorizontalStretch(0);
-        sizePolicy1.setVerticalStretch(0);
-        sizePolicy1.setHeightForWidth(line->sizePolicy().hasHeightForWidth());
-        line->setSizePolicy(sizePolicy1);
-        QPalette palette4;
-        line->setPalette(palette4);
-        line->setFrameShadow(QFrame::Plain);
-        line->setLineWidth(2);
-        line->setFrameShape(QFrame::VLine);
-
-        gridLayout_5->addWidget(line, 1, 1, 1, 1);
-
-        line_2 = new QFrame(tab_1);
-        line_2->setObjectName(QStringLiteral("line_2"));
-        QPalette palette5;
-        line_2->setPalette(palette5);
-        line_2->setFrameShadow(QFrame::Plain);
-        line_2->setLineWidth(2);
-        line_2->setFrameShape(QFrame::VLine);
-
-        gridLayout_5->addWidget(line_2, 1, 3, 1, 1);
-
-        verticalSpacer_4 = new QSpacerItem(4, 40, QSizePolicy::Minimum, QSizePolicy::Expanding);
-
-        gridLayout_5->addItem(verticalSpacer_4, 1, 6, 1, 1);
-
         groupBox_4 = new QGroupBox(tab_1);
         groupBox_4->setObjectName(QStringLiteral("groupBox_4"));
-        QPalette palette6;
-        palette6.setBrush(QPalette::Active, QPalette::Base, brush);
-        palette6.setBrush(QPalette::Active, QPalette::Window, brush);
-        palette6.setBrush(QPalette::Inactive, QPalette::Base, brush);
-        palette6.setBrush(QPalette::Inactive, QPalette::Window, brush);
-        palette6.setBrush(QPalette::Disabled, QPalette::Base, brush);
-        palette6.setBrush(QPalette::Disabled, QPalette::Window, brush);
-        groupBox_4->setPalette(palette6);
+        QPalette palette4;
+        palette4.setBrush(QPalette::Active, QPalette::Base, brush);
+        palette4.setBrush(QPalette::Active, QPalette::Window, brush);
+        palette4.setBrush(QPalette::Inactive, QPalette::Base, brush);
+        palette4.setBrush(QPalette::Inactive, QPalette::Window, brush);
+        palette4.setBrush(QPalette::Disabled, QPalette::Base, brush);
+        palette4.setBrush(QPalette::Disabled, QPalette::Window, brush);
+        groupBox_4->setPalette(palette4);
         groupBox_4->setFont(font1);
         groupBox_4->setAutoFillBackground(true);
         verticalLayout_11 = new QVBoxLayout(groupBox_4);
@@ -769,11 +743,11 @@ public:
         toolButton_cam_intri_2 = new QToolButton(groupBox_4);
         toolButton_cam_intri_2->setObjectName(QStringLiteral("toolButton_cam_intri_2"));
         toolButton_cam_intri_2->setEnabled(true);
-        QSizePolicy sizePolicy2(QSizePolicy::Preferred, QSizePolicy::Preferred);
-        sizePolicy2.setHorizontalStretch(0);
-        sizePolicy2.setVerticalStretch(0);
-        sizePolicy2.setHeightForWidth(toolButton_cam_intri_2->sizePolicy().hasHeightForWidth());
-        toolButton_cam_intri_2->setSizePolicy(sizePolicy2);
+        QSizePolicy sizePolicy1(QSizePolicy::Preferred, QSizePolicy::Preferred);
+        sizePolicy1.setHorizontalStretch(0);
+        sizePolicy1.setVerticalStretch(0);
+        sizePolicy1.setHeightForWidth(toolButton_cam_intri_2->sizePolicy().hasHeightForWidth());
+        toolButton_cam_intri_2->setSizePolicy(sizePolicy1);
         toolButton_cam_intri_2->setBaseSize(QSize(10, 10));
         QFont font6;
         font6.setFamily(QString::fromUtf8("\345\256\213\344\275\223"));
@@ -803,8 +777,8 @@ public:
         toolButton_cam_extri_2 = new QToolButton(groupBox_4);
         toolButton_cam_extri_2->setObjectName(QStringLiteral("toolButton_cam_extri_2"));
         toolButton_cam_extri_2->setEnabled(true);
-        sizePolicy2.setHeightForWidth(toolButton_cam_extri_2->sizePolicy().hasHeightForWidth());
-        toolButton_cam_extri_2->setSizePolicy(sizePolicy2);
+        sizePolicy1.setHeightForWidth(toolButton_cam_extri_2->sizePolicy().hasHeightForWidth());
+        toolButton_cam_extri_2->setSizePolicy(sizePolicy1);
         toolButton_cam_extri_2->setBaseSize(QSize(10, 10));
         toolButton_cam_extri_2->setFont(font6);
 
@@ -838,15 +812,56 @@ public:
 
         verticalLayout_11->addLayout(verticalLayout_9);
 
-        verticalSpacer_6 = new QSpacerItem(20, 40, QSizePolicy::Minimum, QSizePolicy::Expanding);
+        verticalSpacer_7 = new QSpacerItem(20, 40, QSizePolicy::Minimum, QSizePolicy::Expanding);
 
-        verticalLayout_11->addItem(verticalSpacer_6);
+        verticalLayout_11->addItem(verticalSpacer_7);
 
 
         gridLayout_5->addWidget(groupBox_4, 1, 5, 1, 1);
 
-        groupBox_3 = new QGroupBox(tab_1);
-        groupBox_3->setObjectName(QStringLiteral("groupBox_3"));
+        horizontalSpacer_4 = new QSpacerItem(40, 4, QSizePolicy::Expanding, QSizePolicy::Minimum);
+
+        gridLayout_5->addItem(horizontalSpacer_4, 0, 0, 1, 1);
+
+        horizontalSpacer_5 = new QSpacerItem(40, 2, QSizePolicy::Expanding, QSizePolicy::Minimum);
+
+        gridLayout_5->addItem(horizontalSpacer_5, 0, 2, 1, 1);
+
+        horizontalSpacer_6 = new QSpacerItem(40, 2, QSizePolicy::Expanding, QSizePolicy::Minimum);
+
+        gridLayout_5->addItem(horizontalSpacer_6, 0, 5, 1, 1);
+
+        line_2 = new QFrame(tab_1);
+        line_2->setObjectName(QStringLiteral("line_2"));
+        QPalette palette5;
+        line_2->setPalette(palette5);
+        line_2->setFrameShadow(QFrame::Plain);
+        line_2->setLineWidth(2);
+        line_2->setFrameShape(QFrame::VLine);
+
+        gridLayout_5->addWidget(line_2, 1, 3, 1, 1);
+
+        verticalSpacer_4 = new QSpacerItem(4, 40, QSizePolicy::Minimum, QSizePolicy::Expanding);
+
+        gridLayout_5->addItem(verticalSpacer_4, 1, 6, 1, 1);
+
+        line = new QFrame(tab_1);
+        line->setObjectName(QStringLiteral("line"));
+        QSizePolicy sizePolicy2(QSizePolicy::Fixed, QSizePolicy::Minimum);
+        sizePolicy2.setHorizontalStretch(0);
+        sizePolicy2.setVerticalStretch(0);
+        sizePolicy2.setHeightForWidth(line->sizePolicy().hasHeightForWidth());
+        line->setSizePolicy(sizePolicy2);
+        QPalette palette6;
+        line->setPalette(palette6);
+        line->setFrameShadow(QFrame::Plain);
+        line->setLineWidth(2);
+        line->setFrameShape(QFrame::VLine);
+
+        gridLayout_5->addWidget(line, 1, 1, 1, 1);
+
+        groupBox_2 = new QGroupBox(tab_1);
+        groupBox_2->setObjectName(QStringLiteral("groupBox_2"));
         QPalette palette7;
         palette7.setBrush(QPalette::Active, QPalette::Base, brush);
         palette7.setBrush(QPalette::Active, QPalette::Window, brush);
@@ -854,346 +869,7 @@ public:
         palette7.setBrush(QPalette::Inactive, QPalette::Window, brush);
         palette7.setBrush(QPalette::Disabled, QPalette::Base, brush);
         palette7.setBrush(QPalette::Disabled, QPalette::Window, brush);
-        groupBox_3->setPalette(palette7);
-        groupBox_3->setFont(font1);
-        groupBox_3->setAutoFillBackground(true);
-        verticalLayout_3 = new QVBoxLayout(groupBox_3);
-        verticalLayout_3->setSpacing(6);
-        verticalLayout_3->setContentsMargins(11, 11, 11, 11);
-        verticalLayout_3->setObjectName(QStringLiteral("verticalLayout_3"));
-        verticalLayout_22 = new QVBoxLayout();
-        verticalLayout_22->setSpacing(6);
-        verticalLayout_22->setObjectName(QStringLiteral("verticalLayout_22"));
-        verticalLayout_14 = new QVBoxLayout();
-        verticalLayout_14->setSpacing(6);
-        verticalLayout_14->setObjectName(QStringLiteral("verticalLayout_14"));
-        label_camMatrix_3 = new QLabel(groupBox_3);
-        label_camMatrix_3->setObjectName(QStringLiteral("label_camMatrix_3"));
-        label_camMatrix_3->setFont(font4);
-
-        verticalLayout_14->addWidget(label_camMatrix_3);
-
-        tableWidget_camMatrix_3 = new QTableWidget(groupBox_3);
-        if (tableWidget_camMatrix_3->columnCount() < 3)
-            tableWidget_camMatrix_3->setColumnCount(3);
-        QTableWidgetItem *__qtablewidgetitem42 = new QTableWidgetItem();
-        tableWidget_camMatrix_3->setHorizontalHeaderItem(0, __qtablewidgetitem42);
-        QTableWidgetItem *__qtablewidgetitem43 = new QTableWidgetItem();
-        tableWidget_camMatrix_3->setHorizontalHeaderItem(1, __qtablewidgetitem43);
-        QTableWidgetItem *__qtablewidgetitem44 = new QTableWidgetItem();
-        tableWidget_camMatrix_3->setHorizontalHeaderItem(2, __qtablewidgetitem44);
-        if (tableWidget_camMatrix_3->rowCount() < 3)
-            tableWidget_camMatrix_3->setRowCount(3);
-        QTableWidgetItem *__qtablewidgetitem45 = new QTableWidgetItem();
-        tableWidget_camMatrix_3->setVerticalHeaderItem(0, __qtablewidgetitem45);
-        QTableWidgetItem *__qtablewidgetitem46 = new QTableWidgetItem();
-        tableWidget_camMatrix_3->setVerticalHeaderItem(1, __qtablewidgetitem46);
-        QTableWidgetItem *__qtablewidgetitem47 = new QTableWidgetItem();
-        tableWidget_camMatrix_3->setVerticalHeaderItem(2, __qtablewidgetitem47);
-        tableWidget_camMatrix_3->setObjectName(QStringLiteral("tableWidget_camMatrix_3"));
-        tableWidget_camMatrix_3->setFrameShape(QFrame::NoFrame);
-        tableWidget_camMatrix_3->setFrameShadow(QFrame::Sunken);
-        tableWidget_camMatrix_3->setMidLineWidth(1);
-        tableWidget_camMatrix_3->setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
-        tableWidget_camMatrix_3->setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
-        tableWidget_camMatrix_3->setSizeAdjustPolicy(QAbstractScrollArea::AdjustToContents);
-        tableWidget_camMatrix_3->setAutoScroll(true);
-        tableWidget_camMatrix_3->setProperty("showDropIndicator", QVariant(true));
-        tableWidget_camMatrix_3->setShowGrid(true);
-        tableWidget_camMatrix_3->setGridStyle(Qt::SolidLine);
-        tableWidget_camMatrix_3->setWordWrap(true);
-        tableWidget_camMatrix_3->setCornerButtonEnabled(true);
-        tableWidget_camMatrix_3->horizontalHeader()->setVisible(false);
-        tableWidget_camMatrix_3->verticalHeader()->setVisible(false);
-        tableWidget_camMatrix_3->verticalHeader()->setHighlightSections(true);
-
-        verticalLayout_14->addWidget(tableWidget_camMatrix_3);
-
-        label_camRotationMatrix_3 = new QLabel(groupBox_3);
-        label_camRotationMatrix_3->setObjectName(QStringLiteral("label_camRotationMatrix_3"));
-        label_camRotationMatrix_3->setFont(font4);
-
-        verticalLayout_14->addWidget(label_camRotationMatrix_3);
-
-        tableWidget_camRotationMatrix_3 = new QTableWidget(groupBox_3);
-        if (tableWidget_camRotationMatrix_3->columnCount() < 3)
-            tableWidget_camRotationMatrix_3->setColumnCount(3);
-        QTableWidgetItem *__qtablewidgetitem48 = new QTableWidgetItem();
-        tableWidget_camRotationMatrix_3->setHorizontalHeaderItem(0, __qtablewidgetitem48);
-        QTableWidgetItem *__qtablewidgetitem49 = new QTableWidgetItem();
-        tableWidget_camRotationMatrix_3->setHorizontalHeaderItem(1, __qtablewidgetitem49);
-        QTableWidgetItem *__qtablewidgetitem50 = new QTableWidgetItem();
-        tableWidget_camRotationMatrix_3->setHorizontalHeaderItem(2, __qtablewidgetitem50);
-        if (tableWidget_camRotationMatrix_3->rowCount() < 3)
-            tableWidget_camRotationMatrix_3->setRowCount(3);
-        QTableWidgetItem *__qtablewidgetitem51 = new QTableWidgetItem();
-        tableWidget_camRotationMatrix_3->setVerticalHeaderItem(0, __qtablewidgetitem51);
-        QTableWidgetItem *__qtablewidgetitem52 = new QTableWidgetItem();
-        tableWidget_camRotationMatrix_3->setVerticalHeaderItem(1, __qtablewidgetitem52);
-        QTableWidgetItem *__qtablewidgetitem53 = new QTableWidgetItem();
-        tableWidget_camRotationMatrix_3->setVerticalHeaderItem(2, __qtablewidgetitem53);
-        tableWidget_camRotationMatrix_3->setObjectName(QStringLiteral("tableWidget_camRotationMatrix_3"));
-        tableWidget_camRotationMatrix_3->setFrameShape(QFrame::NoFrame);
-        tableWidget_camRotationMatrix_3->setFrameShadow(QFrame::Sunken);
-        tableWidget_camRotationMatrix_3->setMidLineWidth(1);
-        tableWidget_camRotationMatrix_3->setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
-        tableWidget_camRotationMatrix_3->setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
-        tableWidget_camRotationMatrix_3->setSizeAdjustPolicy(QAbstractScrollArea::AdjustToContents);
-        tableWidget_camRotationMatrix_3->setAutoScroll(true);
-        tableWidget_camRotationMatrix_3->setProperty("showDropIndicator", QVariant(true));
-        tableWidget_camRotationMatrix_3->setShowGrid(true);
-        tableWidget_camRotationMatrix_3->setGridStyle(Qt::SolidLine);
-        tableWidget_camRotationMatrix_3->setWordWrap(true);
-        tableWidget_camRotationMatrix_3->setCornerButtonEnabled(true);
-        tableWidget_camRotationMatrix_3->horizontalHeader()->setVisible(false);
-        tableWidget_camRotationMatrix_3->verticalHeader()->setVisible(false);
-        tableWidget_camRotationMatrix_3->verticalHeader()->setHighlightSections(true);
-
-        verticalLayout_14->addWidget(tableWidget_camRotationMatrix_3);
-
-        label_camTranslationVector_3 = new QLabel(groupBox_3);
-        label_camTranslationVector_3->setObjectName(QStringLiteral("label_camTranslationVector_3"));
-        label_camTranslationVector_3->setFont(font4);
-
-        verticalLayout_14->addWidget(label_camTranslationVector_3);
-
-        tableWidget_camTranslationVector_3 = new QTableWidget(groupBox_3);
-        if (tableWidget_camTranslationVector_3->columnCount() < 1)
-            tableWidget_camTranslationVector_3->setColumnCount(1);
-        QTableWidgetItem *__qtablewidgetitem54 = new QTableWidgetItem();
-        tableWidget_camTranslationVector_3->setHorizontalHeaderItem(0, __qtablewidgetitem54);
-        if (tableWidget_camTranslationVector_3->rowCount() < 3)
-            tableWidget_camTranslationVector_3->setRowCount(3);
-        QTableWidgetItem *__qtablewidgetitem55 = new QTableWidgetItem();
-        tableWidget_camTranslationVector_3->setVerticalHeaderItem(0, __qtablewidgetitem55);
-        QTableWidgetItem *__qtablewidgetitem56 = new QTableWidgetItem();
-        tableWidget_camTranslationVector_3->setVerticalHeaderItem(1, __qtablewidgetitem56);
-        QTableWidgetItem *__qtablewidgetitem57 = new QTableWidgetItem();
-        tableWidget_camTranslationVector_3->setVerticalHeaderItem(2, __qtablewidgetitem57);
-        tableWidget_camTranslationVector_3->setObjectName(QStringLiteral("tableWidget_camTranslationVector_3"));
-        tableWidget_camTranslationVector_3->setEnabled(true);
-        tableWidget_camTranslationVector_3->setFrameShape(QFrame::NoFrame);
-        tableWidget_camTranslationVector_3->setFrameShadow(QFrame::Sunken);
-        tableWidget_camTranslationVector_3->setMidLineWidth(1);
-        tableWidget_camTranslationVector_3->setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
-        tableWidget_camTranslationVector_3->setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
-        tableWidget_camTranslationVector_3->setSizeAdjustPolicy(QAbstractScrollArea::AdjustToContents);
-        tableWidget_camTranslationVector_3->setAutoScroll(true);
-        tableWidget_camTranslationVector_3->setProperty("showDropIndicator", QVariant(true));
-        tableWidget_camTranslationVector_3->setShowGrid(true);
-        tableWidget_camTranslationVector_3->setGridStyle(Qt::SolidLine);
-        tableWidget_camTranslationVector_3->setWordWrap(true);
-        tableWidget_camTranslationVector_3->setCornerButtonEnabled(true);
-        tableWidget_camTranslationVector_3->horizontalHeader()->setVisible(false);
-        tableWidget_camTranslationVector_3->verticalHeader()->setVisible(false);
-        tableWidget_camTranslationVector_3->verticalHeader()->setHighlightSections(true);
-
-        verticalLayout_14->addWidget(tableWidget_camTranslationVector_3);
-
-        label_camDistortion_3 = new QLabel(groupBox_3);
-        label_camDistortion_3->setObjectName(QStringLiteral("label_camDistortion_3"));
-        label_camDistortion_3->setFont(font4);
-
-        verticalLayout_14->addWidget(label_camDistortion_3);
-
-        tableWidget_camDistortion_3 = new QTableWidget(groupBox_3);
-        if (tableWidget_camDistortion_3->columnCount() < 5)
-            tableWidget_camDistortion_3->setColumnCount(5);
-        QTableWidgetItem *__qtablewidgetitem58 = new QTableWidgetItem();
-        tableWidget_camDistortion_3->setHorizontalHeaderItem(0, __qtablewidgetitem58);
-        QTableWidgetItem *__qtablewidgetitem59 = new QTableWidgetItem();
-        tableWidget_camDistortion_3->setHorizontalHeaderItem(1, __qtablewidgetitem59);
-        QTableWidgetItem *__qtablewidgetitem60 = new QTableWidgetItem();
-        tableWidget_camDistortion_3->setHorizontalHeaderItem(2, __qtablewidgetitem60);
-        QTableWidgetItem *__qtablewidgetitem61 = new QTableWidgetItem();
-        tableWidget_camDistortion_3->setHorizontalHeaderItem(3, __qtablewidgetitem61);
-        QTableWidgetItem *__qtablewidgetitem62 = new QTableWidgetItem();
-        tableWidget_camDistortion_3->setHorizontalHeaderItem(4, __qtablewidgetitem62);
-        if (tableWidget_camDistortion_3->rowCount() < 2)
-            tableWidget_camDistortion_3->setRowCount(2);
-        QTableWidgetItem *__qtablewidgetitem63 = new QTableWidgetItem();
-        tableWidget_camDistortion_3->setVerticalHeaderItem(0, __qtablewidgetitem63);
-        QTableWidgetItem *__qtablewidgetitem64 = new QTableWidgetItem();
-        tableWidget_camDistortion_3->setVerticalHeaderItem(1, __qtablewidgetitem64);
-        QTableWidgetItem *__qtablewidgetitem65 = new QTableWidgetItem();
-        __qtablewidgetitem65->setBackground(brush4);
-        tableWidget_camDistortion_3->setItem(0, 0, __qtablewidgetitem65);
-        QTableWidgetItem *__qtablewidgetitem66 = new QTableWidgetItem();
-        __qtablewidgetitem66->setBackground(brush4);
-        tableWidget_camDistortion_3->setItem(0, 1, __qtablewidgetitem66);
-        QTableWidgetItem *__qtablewidgetitem67 = new QTableWidgetItem();
-        __qtablewidgetitem67->setBackground(brush4);
-        tableWidget_camDistortion_3->setItem(0, 2, __qtablewidgetitem67);
-        QTableWidgetItem *__qtablewidgetitem68 = new QTableWidgetItem();
-        __qtablewidgetitem68->setBackground(brush4);
-        tableWidget_camDistortion_3->setItem(0, 3, __qtablewidgetitem68);
-        QTableWidgetItem *__qtablewidgetitem69 = new QTableWidgetItem();
-        __qtablewidgetitem69->setBackground(brush4);
-        tableWidget_camDistortion_3->setItem(0, 4, __qtablewidgetitem69);
-        tableWidget_camDistortion_3->setObjectName(QStringLiteral("tableWidget_camDistortion_3"));
-        tableWidget_camDistortion_3->setFrameShape(QFrame::NoFrame);
-        tableWidget_camDistortion_3->setFrameShadow(QFrame::Sunken);
-        tableWidget_camDistortion_3->setMidLineWidth(1);
-        tableWidget_camDistortion_3->setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
-        tableWidget_camDistortion_3->setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
-        tableWidget_camDistortion_3->setSizeAdjustPolicy(QAbstractScrollArea::AdjustToContents);
-        tableWidget_camDistortion_3->setAutoScroll(true);
-        tableWidget_camDistortion_3->setProperty("showDropIndicator", QVariant(true));
-        tableWidget_camDistortion_3->setShowGrid(true);
-        tableWidget_camDistortion_3->setGridStyle(Qt::SolidLine);
-        tableWidget_camDistortion_3->setWordWrap(true);
-        tableWidget_camDistortion_3->setCornerButtonEnabled(true);
-        tableWidget_camDistortion_3->horizontalHeader()->setVisible(false);
-        tableWidget_camDistortion_3->verticalHeader()->setVisible(false);
-        tableWidget_camDistortion_3->verticalHeader()->setHighlightSections(true);
-
-        verticalLayout_14->addWidget(tableWidget_camDistortion_3);
-
-        label_camError_3 = new QLabel(groupBox_3);
-        label_camError_3->setObjectName(QStringLiteral("label_camError_3"));
-        label_camError_3->setFont(font4);
-
-        verticalLayout_14->addWidget(label_camError_3);
-
-        tableWidget_camError_3 = new QTableWidget(groupBox_3);
-        if (tableWidget_camError_3->columnCount() < 2)
-            tableWidget_camError_3->setColumnCount(2);
-        QTableWidgetItem *__qtablewidgetitem70 = new QTableWidgetItem();
-        tableWidget_camError_3->setHorizontalHeaderItem(0, __qtablewidgetitem70);
-        QTableWidgetItem *__qtablewidgetitem71 = new QTableWidgetItem();
-        tableWidget_camError_3->setHorizontalHeaderItem(1, __qtablewidgetitem71);
-        if (tableWidget_camError_3->rowCount() < 2)
-            tableWidget_camError_3->setRowCount(2);
-        QTableWidgetItem *__qtablewidgetitem72 = new QTableWidgetItem();
-        tableWidget_camError_3->setVerticalHeaderItem(0, __qtablewidgetitem72);
-        QTableWidgetItem *__qtablewidgetitem73 = new QTableWidgetItem();
-        tableWidget_camError_3->setVerticalHeaderItem(1, __qtablewidgetitem73);
-        QTableWidgetItem *__qtablewidgetitem74 = new QTableWidgetItem();
-        __qtablewidgetitem74->setBackground(brush4);
-        tableWidget_camError_3->setItem(0, 0, __qtablewidgetitem74);
-        QTableWidgetItem *__qtablewidgetitem75 = new QTableWidgetItem();
-        __qtablewidgetitem75->setBackground(brush4);
-        tableWidget_camError_3->setItem(0, 1, __qtablewidgetitem75);
-        tableWidget_camError_3->setObjectName(QStringLiteral("tableWidget_camError_3"));
-        tableWidget_camError_3->setFrameShape(QFrame::NoFrame);
-        tableWidget_camError_3->setFrameShadow(QFrame::Sunken);
-        tableWidget_camError_3->setMidLineWidth(1);
-        tableWidget_camError_3->setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
-        tableWidget_camError_3->setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
-        tableWidget_camError_3->setSizeAdjustPolicy(QAbstractScrollArea::AdjustToContents);
-        tableWidget_camError_3->setAutoScroll(true);
-        tableWidget_camError_3->setProperty("showDropIndicator", QVariant(true));
-        tableWidget_camError_3->setShowGrid(true);
-        tableWidget_camError_3->setGridStyle(Qt::SolidLine);
-        tableWidget_camError_3->setWordWrap(true);
-        tableWidget_camError_3->setCornerButtonEnabled(true);
-        tableWidget_camError_3->horizontalHeader()->setVisible(false);
-        tableWidget_camError_3->verticalHeader()->setVisible(false);
-        tableWidget_camError_3->verticalHeader()->setHighlightSections(true);
-
-        verticalLayout_14->addWidget(tableWidget_camError_3);
-
-
-        verticalLayout_22->addLayout(verticalLayout_14);
-
-        horizontalLayout_17 = new QHBoxLayout();
-        horizontalLayout_17->setSpacing(6);
-        horizontalLayout_17->setObjectName(QStringLiteral("horizontalLayout_17"));
-        pushButton_cam_intri_3 = new QPushButton(groupBox_3);
-        pushButton_cam_intri_3->setObjectName(QStringLiteral("pushButton_cam_intri_3"));
-        pushButton_cam_intri_3->setFont(font5);
-
-        horizontalLayout_17->addWidget(pushButton_cam_intri_3);
-
-        toolButton_cam_intri_3 = new QToolButton(groupBox_3);
-        toolButton_cam_intri_3->setObjectName(QStringLiteral("toolButton_cam_intri_3"));
-        toolButton_cam_intri_3->setEnabled(true);
-        sizePolicy2.setHeightForWidth(toolButton_cam_intri_3->sizePolicy().hasHeightForWidth());
-        toolButton_cam_intri_3->setSizePolicy(sizePolicy2);
-        toolButton_cam_intri_3->setBaseSize(QSize(10, 10));
-        toolButton_cam_intri_3->setFont(font6);
-
-        horizontalLayout_17->addWidget(toolButton_cam_intri_3);
-
-        lineEdit_cam_intri_3 = new QLineEdit(groupBox_3);
-        lineEdit_cam_intri_3->setObjectName(QStringLiteral("lineEdit_cam_intri_3"));
-        lineEdit_cam_intri_3->setFont(font4);
-
-        horizontalLayout_17->addWidget(lineEdit_cam_intri_3);
-
-
-        verticalLayout_22->addLayout(horizontalLayout_17);
-
-        horizontalLayout_18 = new QHBoxLayout();
-        horizontalLayout_18->setSpacing(6);
-        horizontalLayout_18->setObjectName(QStringLiteral("horizontalLayout_18"));
-        pushButton_cam_extri_3 = new QPushButton(groupBox_3);
-        pushButton_cam_extri_3->setObjectName(QStringLiteral("pushButton_cam_extri_3"));
-        pushButton_cam_extri_3->setFont(font5);
-
-        horizontalLayout_18->addWidget(pushButton_cam_extri_3);
-
-        toolButton_cam_extri_3 = new QToolButton(groupBox_3);
-        toolButton_cam_extri_3->setObjectName(QStringLiteral("toolButton_cam_extri_3"));
-        toolButton_cam_extri_3->setEnabled(true);
-        sizePolicy2.setHeightForWidth(toolButton_cam_extri_3->sizePolicy().hasHeightForWidth());
-        toolButton_cam_extri_3->setSizePolicy(sizePolicy2);
-        toolButton_cam_extri_3->setBaseSize(QSize(10, 10));
-        toolButton_cam_extri_3->setFont(font6);
-
-        horizontalLayout_18->addWidget(toolButton_cam_extri_3);
-
-        lineEdit_cam_extri_3 = new QLineEdit(groupBox_3);
-        lineEdit_cam_extri_3->setObjectName(QStringLiteral("lineEdit_cam_extri_3"));
-        lineEdit_cam_extri_3->setFont(font4);
-
-        horizontalLayout_18->addWidget(lineEdit_cam_extri_3);
-
-
-        verticalLayout_22->addLayout(horizontalLayout_18);
-
-        horizontalLayout_19 = new QHBoxLayout();
-        horizontalLayout_19->setSpacing(6);
-        horizontalLayout_19->setObjectName(QStringLiteral("horizontalLayout_19"));
-        pushButton_cam_save_3 = new QPushButton(groupBox_3);
-        pushButton_cam_save_3->setObjectName(QStringLiteral("pushButton_cam_save_3"));
-        pushButton_cam_save_3->setFont(font5);
-
-        horizontalLayout_19->addWidget(pushButton_cam_save_3);
-
-        horizontalSpacer_14 = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
-
-        horizontalLayout_19->addItem(horizontalSpacer_14);
-
-        pushButton_cam_flush_3 = new QPushButton(groupBox_3);
-        pushButton_cam_flush_3->setObjectName(QStringLiteral("pushButton_cam_flush_3"));
-        pushButton_cam_flush_3->setFont(font5);
-
-        horizontalLayout_19->addWidget(pushButton_cam_flush_3);
-
-
-        verticalLayout_22->addLayout(horizontalLayout_19);
-
-        verticalSpacer_12 = new QSpacerItem(20, 40, QSizePolicy::Minimum, QSizePolicy::Expanding);
-
-        verticalLayout_22->addItem(verticalSpacer_12);
-
-
-        verticalLayout_3->addLayout(verticalLayout_22);
-
-
-        gridLayout_5->addWidget(groupBox_3, 1, 2, 1, 1);
-
-        groupBox_2 = new QGroupBox(tab_1);
-        groupBox_2->setObjectName(QStringLiteral("groupBox_2"));
-        QPalette palette8;
-        palette8.setBrush(QPalette::Active, QPalette::Base, brush);
-        palette8.setBrush(QPalette::Active, QPalette::Window, brush);
-        palette8.setBrush(QPalette::Inactive, QPalette::Base, brush);
-        palette8.setBrush(QPalette::Inactive, QPalette::Window, brush);
-        palette8.setBrush(QPalette::Disabled, QPalette::Base, brush);
-        palette8.setBrush(QPalette::Disabled, QPalette::Window, brush);
-        groupBox_2->setPalette(palette8);
+        groupBox_2->setPalette(palette7);
         groupBox_2->setFont(font1);
         groupBox_2->setAutoFillBackground(true);
         verticalLayout_8 = new QVBoxLayout(groupBox_2);
@@ -1215,20 +891,20 @@ public:
         tableWidget_camMatrix = new QTableWidget(groupBox_2);
         if (tableWidget_camMatrix->columnCount() < 3)
             tableWidget_camMatrix->setColumnCount(3);
-        QTableWidgetItem *__qtablewidgetitem76 = new QTableWidgetItem();
-        tableWidget_camMatrix->setHorizontalHeaderItem(0, __qtablewidgetitem76);
-        QTableWidgetItem *__qtablewidgetitem77 = new QTableWidgetItem();
-        tableWidget_camMatrix->setHorizontalHeaderItem(1, __qtablewidgetitem77);
-        QTableWidgetItem *__qtablewidgetitem78 = new QTableWidgetItem();
-        tableWidget_camMatrix->setHorizontalHeaderItem(2, __qtablewidgetitem78);
+        QTableWidgetItem *__qtablewidgetitem42 = new QTableWidgetItem();
+        tableWidget_camMatrix->setHorizontalHeaderItem(0, __qtablewidgetitem42);
+        QTableWidgetItem *__qtablewidgetitem43 = new QTableWidgetItem();
+        tableWidget_camMatrix->setHorizontalHeaderItem(1, __qtablewidgetitem43);
+        QTableWidgetItem *__qtablewidgetitem44 = new QTableWidgetItem();
+        tableWidget_camMatrix->setHorizontalHeaderItem(2, __qtablewidgetitem44);
         if (tableWidget_camMatrix->rowCount() < 3)
             tableWidget_camMatrix->setRowCount(3);
-        QTableWidgetItem *__qtablewidgetitem79 = new QTableWidgetItem();
-        tableWidget_camMatrix->setVerticalHeaderItem(0, __qtablewidgetitem79);
-        QTableWidgetItem *__qtablewidgetitem80 = new QTableWidgetItem();
-        tableWidget_camMatrix->setVerticalHeaderItem(1, __qtablewidgetitem80);
-        QTableWidgetItem *__qtablewidgetitem81 = new QTableWidgetItem();
-        tableWidget_camMatrix->setVerticalHeaderItem(2, __qtablewidgetitem81);
+        QTableWidgetItem *__qtablewidgetitem45 = new QTableWidgetItem();
+        tableWidget_camMatrix->setVerticalHeaderItem(0, __qtablewidgetitem45);
+        QTableWidgetItem *__qtablewidgetitem46 = new QTableWidgetItem();
+        tableWidget_camMatrix->setVerticalHeaderItem(1, __qtablewidgetitem46);
+        QTableWidgetItem *__qtablewidgetitem47 = new QTableWidgetItem();
+        tableWidget_camMatrix->setVerticalHeaderItem(2, __qtablewidgetitem47);
         tableWidget_camMatrix->setObjectName(QStringLiteral("tableWidget_camMatrix"));
         tableWidget_camMatrix->setFrameShape(QFrame::NoFrame);
         tableWidget_camMatrix->setFrameShadow(QFrame::Sunken);
@@ -1257,20 +933,20 @@ public:
         tableWidget_camRotationMatrix = new QTableWidget(groupBox_2);
         if (tableWidget_camRotationMatrix->columnCount() < 3)
             tableWidget_camRotationMatrix->setColumnCount(3);
-        QTableWidgetItem *__qtablewidgetitem82 = new QTableWidgetItem();
-        tableWidget_camRotationMatrix->setHorizontalHeaderItem(0, __qtablewidgetitem82);
-        QTableWidgetItem *__qtablewidgetitem83 = new QTableWidgetItem();
-        tableWidget_camRotationMatrix->setHorizontalHeaderItem(1, __qtablewidgetitem83);
-        QTableWidgetItem *__qtablewidgetitem84 = new QTableWidgetItem();
-        tableWidget_camRotationMatrix->setHorizontalHeaderItem(2, __qtablewidgetitem84);
+        QTableWidgetItem *__qtablewidgetitem48 = new QTableWidgetItem();
+        tableWidget_camRotationMatrix->setHorizontalHeaderItem(0, __qtablewidgetitem48);
+        QTableWidgetItem *__qtablewidgetitem49 = new QTableWidgetItem();
+        tableWidget_camRotationMatrix->setHorizontalHeaderItem(1, __qtablewidgetitem49);
+        QTableWidgetItem *__qtablewidgetitem50 = new QTableWidgetItem();
+        tableWidget_camRotationMatrix->setHorizontalHeaderItem(2, __qtablewidgetitem50);
         if (tableWidget_camRotationMatrix->rowCount() < 3)
             tableWidget_camRotationMatrix->setRowCount(3);
-        QTableWidgetItem *__qtablewidgetitem85 = new QTableWidgetItem();
-        tableWidget_camRotationMatrix->setVerticalHeaderItem(0, __qtablewidgetitem85);
-        QTableWidgetItem *__qtablewidgetitem86 = new QTableWidgetItem();
-        tableWidget_camRotationMatrix->setVerticalHeaderItem(1, __qtablewidgetitem86);
-        QTableWidgetItem *__qtablewidgetitem87 = new QTableWidgetItem();
-        tableWidget_camRotationMatrix->setVerticalHeaderItem(2, __qtablewidgetitem87);
+        QTableWidgetItem *__qtablewidgetitem51 = new QTableWidgetItem();
+        tableWidget_camRotationMatrix->setVerticalHeaderItem(0, __qtablewidgetitem51);
+        QTableWidgetItem *__qtablewidgetitem52 = new QTableWidgetItem();
+        tableWidget_camRotationMatrix->setVerticalHeaderItem(1, __qtablewidgetitem52);
+        QTableWidgetItem *__qtablewidgetitem53 = new QTableWidgetItem();
+        tableWidget_camRotationMatrix->setVerticalHeaderItem(2, __qtablewidgetitem53);
         tableWidget_camRotationMatrix->setObjectName(QStringLiteral("tableWidget_camRotationMatrix"));
         tableWidget_camRotationMatrix->setFrameShape(QFrame::NoFrame);
         tableWidget_camRotationMatrix->setFrameShadow(QFrame::Sunken);
@@ -1317,16 +993,16 @@ public:
         tableWidget_camTranslationVector = new QTableWidget(groupBox_2);
         if (tableWidget_camTranslationVector->columnCount() < 1)
             tableWidget_camTranslationVector->setColumnCount(1);
-        QTableWidgetItem *__qtablewidgetitem88 = new QTableWidgetItem();
-        tableWidget_camTranslationVector->setHorizontalHeaderItem(0, __qtablewidgetitem88);
+        QTableWidgetItem *__qtablewidgetitem54 = new QTableWidgetItem();
+        tableWidget_camTranslationVector->setHorizontalHeaderItem(0, __qtablewidgetitem54);
         if (tableWidget_camTranslationVector->rowCount() < 3)
             tableWidget_camTranslationVector->setRowCount(3);
-        QTableWidgetItem *__qtablewidgetitem89 = new QTableWidgetItem();
-        tableWidget_camTranslationVector->setVerticalHeaderItem(0, __qtablewidgetitem89);
-        QTableWidgetItem *__qtablewidgetitem90 = new QTableWidgetItem();
-        tableWidget_camTranslationVector->setVerticalHeaderItem(1, __qtablewidgetitem90);
-        QTableWidgetItem *__qtablewidgetitem91 = new QTableWidgetItem();
-        tableWidget_camTranslationVector->setVerticalHeaderItem(2, __qtablewidgetitem91);
+        QTableWidgetItem *__qtablewidgetitem55 = new QTableWidgetItem();
+        tableWidget_camTranslationVector->setVerticalHeaderItem(0, __qtablewidgetitem55);
+        QTableWidgetItem *__qtablewidgetitem56 = new QTableWidgetItem();
+        tableWidget_camTranslationVector->setVerticalHeaderItem(1, __qtablewidgetitem56);
+        QTableWidgetItem *__qtablewidgetitem57 = new QTableWidgetItem();
+        tableWidget_camTranslationVector->setVerticalHeaderItem(2, __qtablewidgetitem57);
         tableWidget_camTranslationVector->setObjectName(QStringLiteral("tableWidget_camTranslationVector"));
         tableWidget_camTranslationVector->setEnabled(true);
         tableWidget_camTranslationVector->setFrameShape(QFrame::NoFrame);
@@ -1350,16 +1026,16 @@ public:
         tableWidget_camError = new QTableWidget(groupBox_2);
         if (tableWidget_camError->columnCount() < 1)
             tableWidget_camError->setColumnCount(1);
-        QTableWidgetItem *__qtablewidgetitem92 = new QTableWidgetItem();
-        tableWidget_camError->setHorizontalHeaderItem(0, __qtablewidgetitem92);
+        QTableWidgetItem *__qtablewidgetitem58 = new QTableWidgetItem();
+        tableWidget_camError->setHorizontalHeaderItem(0, __qtablewidgetitem58);
         if (tableWidget_camError->rowCount() < 3)
             tableWidget_camError->setRowCount(3);
-        QTableWidgetItem *__qtablewidgetitem93 = new QTableWidgetItem();
-        tableWidget_camError->setVerticalHeaderItem(0, __qtablewidgetitem93);
-        QTableWidgetItem *__qtablewidgetitem94 = new QTableWidgetItem();
-        tableWidget_camError->setVerticalHeaderItem(1, __qtablewidgetitem94);
-        QTableWidgetItem *__qtablewidgetitem95 = new QTableWidgetItem();
-        tableWidget_camError->setVerticalHeaderItem(2, __qtablewidgetitem95);
+        QTableWidgetItem *__qtablewidgetitem59 = new QTableWidgetItem();
+        tableWidget_camError->setVerticalHeaderItem(0, __qtablewidgetitem59);
+        QTableWidgetItem *__qtablewidgetitem60 = new QTableWidgetItem();
+        tableWidget_camError->setVerticalHeaderItem(1, __qtablewidgetitem60);
+        QTableWidgetItem *__qtablewidgetitem61 = new QTableWidgetItem();
+        tableWidget_camError->setVerticalHeaderItem(2, __qtablewidgetitem61);
         tableWidget_camError->setObjectName(QStringLiteral("tableWidget_camError"));
         tableWidget_camError->setEnabled(true);
         tableWidget_camError->setFrameShape(QFrame::NoFrame);
@@ -1395,37 +1071,37 @@ public:
         tableWidget_camDistortion = new QTableWidget(groupBox_2);
         if (tableWidget_camDistortion->columnCount() < 5)
             tableWidget_camDistortion->setColumnCount(5);
-        QTableWidgetItem *__qtablewidgetitem96 = new QTableWidgetItem();
-        tableWidget_camDistortion->setHorizontalHeaderItem(0, __qtablewidgetitem96);
-        QTableWidgetItem *__qtablewidgetitem97 = new QTableWidgetItem();
-        tableWidget_camDistortion->setHorizontalHeaderItem(1, __qtablewidgetitem97);
-        QTableWidgetItem *__qtablewidgetitem98 = new QTableWidgetItem();
-        tableWidget_camDistortion->setHorizontalHeaderItem(2, __qtablewidgetitem98);
-        QTableWidgetItem *__qtablewidgetitem99 = new QTableWidgetItem();
-        tableWidget_camDistortion->setHorizontalHeaderItem(3, __qtablewidgetitem99);
-        QTableWidgetItem *__qtablewidgetitem100 = new QTableWidgetItem();
-        tableWidget_camDistortion->setHorizontalHeaderItem(4, __qtablewidgetitem100);
+        QTableWidgetItem *__qtablewidgetitem62 = new QTableWidgetItem();
+        tableWidget_camDistortion->setHorizontalHeaderItem(0, __qtablewidgetitem62);
+        QTableWidgetItem *__qtablewidgetitem63 = new QTableWidgetItem();
+        tableWidget_camDistortion->setHorizontalHeaderItem(1, __qtablewidgetitem63);
+        QTableWidgetItem *__qtablewidgetitem64 = new QTableWidgetItem();
+        tableWidget_camDistortion->setHorizontalHeaderItem(2, __qtablewidgetitem64);
+        QTableWidgetItem *__qtablewidgetitem65 = new QTableWidgetItem();
+        tableWidget_camDistortion->setHorizontalHeaderItem(3, __qtablewidgetitem65);
+        QTableWidgetItem *__qtablewidgetitem66 = new QTableWidgetItem();
+        tableWidget_camDistortion->setHorizontalHeaderItem(4, __qtablewidgetitem66);
         if (tableWidget_camDistortion->rowCount() < 2)
             tableWidget_camDistortion->setRowCount(2);
-        QTableWidgetItem *__qtablewidgetitem101 = new QTableWidgetItem();
-        tableWidget_camDistortion->setVerticalHeaderItem(0, __qtablewidgetitem101);
-        QTableWidgetItem *__qtablewidgetitem102 = new QTableWidgetItem();
-        tableWidget_camDistortion->setVerticalHeaderItem(1, __qtablewidgetitem102);
-        QTableWidgetItem *__qtablewidgetitem103 = new QTableWidgetItem();
-        __qtablewidgetitem103->setBackground(brush4);
-        tableWidget_camDistortion->setItem(0, 0, __qtablewidgetitem103);
-        QTableWidgetItem *__qtablewidgetitem104 = new QTableWidgetItem();
-        __qtablewidgetitem104->setBackground(brush4);
-        tableWidget_camDistortion->setItem(0, 1, __qtablewidgetitem104);
-        QTableWidgetItem *__qtablewidgetitem105 = new QTableWidgetItem();
-        __qtablewidgetitem105->setBackground(brush4);
-        tableWidget_camDistortion->setItem(0, 2, __qtablewidgetitem105);
-        QTableWidgetItem *__qtablewidgetitem106 = new QTableWidgetItem();
-        __qtablewidgetitem106->setBackground(brush4);
-        tableWidget_camDistortion->setItem(0, 3, __qtablewidgetitem106);
-        QTableWidgetItem *__qtablewidgetitem107 = new QTableWidgetItem();
-        __qtablewidgetitem107->setBackground(brush4);
-        tableWidget_camDistortion->setItem(0, 4, __qtablewidgetitem107);
+        QTableWidgetItem *__qtablewidgetitem67 = new QTableWidgetItem();
+        tableWidget_camDistortion->setVerticalHeaderItem(0, __qtablewidgetitem67);
+        QTableWidgetItem *__qtablewidgetitem68 = new QTableWidgetItem();
+        tableWidget_camDistortion->setVerticalHeaderItem(1, __qtablewidgetitem68);
+        QTableWidgetItem *__qtablewidgetitem69 = new QTableWidgetItem();
+        __qtablewidgetitem69->setBackground(brush4);
+        tableWidget_camDistortion->setItem(0, 0, __qtablewidgetitem69);
+        QTableWidgetItem *__qtablewidgetitem70 = new QTableWidgetItem();
+        __qtablewidgetitem70->setBackground(brush4);
+        tableWidget_camDistortion->setItem(0, 1, __qtablewidgetitem70);
+        QTableWidgetItem *__qtablewidgetitem71 = new QTableWidgetItem();
+        __qtablewidgetitem71->setBackground(brush4);
+        tableWidget_camDistortion->setItem(0, 2, __qtablewidgetitem71);
+        QTableWidgetItem *__qtablewidgetitem72 = new QTableWidgetItem();
+        __qtablewidgetitem72->setBackground(brush4);
+        tableWidget_camDistortion->setItem(0, 3, __qtablewidgetitem72);
+        QTableWidgetItem *__qtablewidgetitem73 = new QTableWidgetItem();
+        __qtablewidgetitem73->setBackground(brush4);
+        tableWidget_camDistortion->setItem(0, 4, __qtablewidgetitem73);
         tableWidget_camDistortion->setObjectName(QStringLiteral("tableWidget_camDistortion"));
         tableWidget_camDistortion->setFrameShape(QFrame::NoFrame);
         tableWidget_camDistortion->setFrameShadow(QFrame::Sunken);
@@ -1476,32 +1152,32 @@ public:
         tableWidget_camSetting = new QTableWidget(groupBox_2);
         if (tableWidget_camSetting->columnCount() < 4)
             tableWidget_camSetting->setColumnCount(4);
-        QTableWidgetItem *__qtablewidgetitem108 = new QTableWidgetItem();
-        tableWidget_camSetting->setHorizontalHeaderItem(0, __qtablewidgetitem108);
-        QTableWidgetItem *__qtablewidgetitem109 = new QTableWidgetItem();
-        tableWidget_camSetting->setHorizontalHeaderItem(1, __qtablewidgetitem109);
-        QTableWidgetItem *__qtablewidgetitem110 = new QTableWidgetItem();
-        tableWidget_camSetting->setHorizontalHeaderItem(2, __qtablewidgetitem110);
-        QTableWidgetItem *__qtablewidgetitem111 = new QTableWidgetItem();
-        tableWidget_camSetting->setHorizontalHeaderItem(3, __qtablewidgetitem111);
+        QTableWidgetItem *__qtablewidgetitem74 = new QTableWidgetItem();
+        tableWidget_camSetting->setHorizontalHeaderItem(0, __qtablewidgetitem74);
+        QTableWidgetItem *__qtablewidgetitem75 = new QTableWidgetItem();
+        tableWidget_camSetting->setHorizontalHeaderItem(1, __qtablewidgetitem75);
+        QTableWidgetItem *__qtablewidgetitem76 = new QTableWidgetItem();
+        tableWidget_camSetting->setHorizontalHeaderItem(2, __qtablewidgetitem76);
+        QTableWidgetItem *__qtablewidgetitem77 = new QTableWidgetItem();
+        tableWidget_camSetting->setHorizontalHeaderItem(3, __qtablewidgetitem77);
         if (tableWidget_camSetting->rowCount() < 2)
             tableWidget_camSetting->setRowCount(2);
-        QTableWidgetItem *__qtablewidgetitem112 = new QTableWidgetItem();
-        tableWidget_camSetting->setVerticalHeaderItem(0, __qtablewidgetitem112);
-        QTableWidgetItem *__qtablewidgetitem113 = new QTableWidgetItem();
-        tableWidget_camSetting->setVerticalHeaderItem(1, __qtablewidgetitem113);
-        QTableWidgetItem *__qtablewidgetitem114 = new QTableWidgetItem();
-        __qtablewidgetitem114->setBackground(brush4);
-        tableWidget_camSetting->setItem(0, 0, __qtablewidgetitem114);
-        QTableWidgetItem *__qtablewidgetitem115 = new QTableWidgetItem();
-        __qtablewidgetitem115->setBackground(brush4);
-        tableWidget_camSetting->setItem(0, 1, __qtablewidgetitem115);
-        QTableWidgetItem *__qtablewidgetitem116 = new QTableWidgetItem();
-        __qtablewidgetitem116->setBackground(brush4);
-        tableWidget_camSetting->setItem(0, 2, __qtablewidgetitem116);
-        QTableWidgetItem *__qtablewidgetitem117 = new QTableWidgetItem();
-        __qtablewidgetitem117->setBackground(brush4);
-        tableWidget_camSetting->setItem(0, 3, __qtablewidgetitem117);
+        QTableWidgetItem *__qtablewidgetitem78 = new QTableWidgetItem();
+        tableWidget_camSetting->setVerticalHeaderItem(0, __qtablewidgetitem78);
+        QTableWidgetItem *__qtablewidgetitem79 = new QTableWidgetItem();
+        tableWidget_camSetting->setVerticalHeaderItem(1, __qtablewidgetitem79);
+        QTableWidgetItem *__qtablewidgetitem80 = new QTableWidgetItem();
+        __qtablewidgetitem80->setBackground(brush4);
+        tableWidget_camSetting->setItem(0, 0, __qtablewidgetitem80);
+        QTableWidgetItem *__qtablewidgetitem81 = new QTableWidgetItem();
+        __qtablewidgetitem81->setBackground(brush4);
+        tableWidget_camSetting->setItem(0, 1, __qtablewidgetitem81);
+        QTableWidgetItem *__qtablewidgetitem82 = new QTableWidgetItem();
+        __qtablewidgetitem82->setBackground(brush4);
+        tableWidget_camSetting->setItem(0, 2, __qtablewidgetitem82);
+        QTableWidgetItem *__qtablewidgetitem83 = new QTableWidgetItem();
+        __qtablewidgetitem83->setBackground(brush4);
+        tableWidget_camSetting->setItem(0, 3, __qtablewidgetitem83);
         tableWidget_camSetting->setObjectName(QStringLiteral("tableWidget_camSetting"));
         tableWidget_camSetting->setFrameShape(QFrame::NoFrame);
         tableWidget_camSetting->setFrameShadow(QFrame::Sunken);
@@ -1536,8 +1212,8 @@ public:
         toolButton_cam_intri = new QToolButton(groupBox_2);
         toolButton_cam_intri->setObjectName(QStringLiteral("toolButton_cam_intri"));
         toolButton_cam_intri->setEnabled(true);
-        sizePolicy2.setHeightForWidth(toolButton_cam_intri->sizePolicy().hasHeightForWidth());
-        toolButton_cam_intri->setSizePolicy(sizePolicy2);
+        sizePolicy1.setHeightForWidth(toolButton_cam_intri->sizePolicy().hasHeightForWidth());
+        toolButton_cam_intri->setSizePolicy(sizePolicy1);
         toolButton_cam_intri->setBaseSize(QSize(10, 10));
         toolButton_cam_intri->setFont(font6);
 
@@ -1564,8 +1240,8 @@ public:
         toolButton_cam_extri = new QToolButton(groupBox_2);
         toolButton_cam_extri->setObjectName(QStringLiteral("toolButton_cam_extri"));
         toolButton_cam_extri->setEnabled(true);
-        sizePolicy2.setHeightForWidth(toolButton_cam_extri->sizePolicy().hasHeightForWidth());
-        toolButton_cam_extri->setSizePolicy(sizePolicy2);
+        sizePolicy1.setHeightForWidth(toolButton_cam_extri->sizePolicy().hasHeightForWidth());
+        toolButton_cam_extri->setSizePolicy(sizePolicy1);
         toolButton_cam_extri->setBaseSize(QSize(10, 10));
         toolButton_cam_extri->setFont(font6);
 
@@ -1605,6 +1281,488 @@ public:
 
 
         gridLayout_5->addWidget(groupBox_2, 1, 0, 1, 1);
+
+        groupBox_3 = new QGroupBox(tab_1);
+        groupBox_3->setObjectName(QStringLiteral("groupBox_3"));
+        QPalette palette8;
+        palette8.setBrush(QPalette::Active, QPalette::Base, brush);
+        palette8.setBrush(QPalette::Active, QPalette::Window, brush);
+        palette8.setBrush(QPalette::Inactive, QPalette::Base, brush);
+        palette8.setBrush(QPalette::Inactive, QPalette::Window, brush);
+        palette8.setBrush(QPalette::Disabled, QPalette::Base, brush);
+        palette8.setBrush(QPalette::Disabled, QPalette::Window, brush);
+        groupBox_3->setPalette(palette8);
+        groupBox_3->setFont(font1);
+        groupBox_3->setAutoFillBackground(true);
+        verticalLayout_3 = new QVBoxLayout(groupBox_3);
+        verticalLayout_3->setSpacing(6);
+        verticalLayout_3->setContentsMargins(11, 11, 11, 11);
+        verticalLayout_3->setObjectName(QStringLiteral("verticalLayout_3"));
+        verticalLayout_12 = new QVBoxLayout();
+        verticalLayout_12->setSpacing(6);
+        verticalLayout_12->setObjectName(QStringLiteral("verticalLayout_12"));
+        label_camMatrix_3 = new QLabel(groupBox_3);
+        label_camMatrix_3->setObjectName(QStringLiteral("label_camMatrix_3"));
+        label_camMatrix_3->setFont(font4);
+
+        verticalLayout_12->addWidget(label_camMatrix_3);
+
+        tableWidget_camMatrix_3 = new QTableWidget(groupBox_3);
+        if (tableWidget_camMatrix_3->columnCount() < 3)
+            tableWidget_camMatrix_3->setColumnCount(3);
+        QTableWidgetItem *__qtablewidgetitem84 = new QTableWidgetItem();
+        tableWidget_camMatrix_3->setHorizontalHeaderItem(0, __qtablewidgetitem84);
+        QTableWidgetItem *__qtablewidgetitem85 = new QTableWidgetItem();
+        tableWidget_camMatrix_3->setHorizontalHeaderItem(1, __qtablewidgetitem85);
+        QTableWidgetItem *__qtablewidgetitem86 = new QTableWidgetItem();
+        tableWidget_camMatrix_3->setHorizontalHeaderItem(2, __qtablewidgetitem86);
+        if (tableWidget_camMatrix_3->rowCount() < 3)
+            tableWidget_camMatrix_3->setRowCount(3);
+        QTableWidgetItem *__qtablewidgetitem87 = new QTableWidgetItem();
+        tableWidget_camMatrix_3->setVerticalHeaderItem(0, __qtablewidgetitem87);
+        QTableWidgetItem *__qtablewidgetitem88 = new QTableWidgetItem();
+        tableWidget_camMatrix_3->setVerticalHeaderItem(1, __qtablewidgetitem88);
+        QTableWidgetItem *__qtablewidgetitem89 = new QTableWidgetItem();
+        tableWidget_camMatrix_3->setVerticalHeaderItem(2, __qtablewidgetitem89);
+        tableWidget_camMatrix_3->setObjectName(QStringLiteral("tableWidget_camMatrix_3"));
+        tableWidget_camMatrix_3->setFrameShape(QFrame::NoFrame);
+        tableWidget_camMatrix_3->setFrameShadow(QFrame::Sunken);
+        tableWidget_camMatrix_3->setMidLineWidth(1);
+        tableWidget_camMatrix_3->setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
+        tableWidget_camMatrix_3->setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
+        tableWidget_camMatrix_3->setSizeAdjustPolicy(QAbstractScrollArea::AdjustToContents);
+        tableWidget_camMatrix_3->setAutoScroll(true);
+        tableWidget_camMatrix_3->setProperty("showDropIndicator", QVariant(true));
+        tableWidget_camMatrix_3->setShowGrid(true);
+        tableWidget_camMatrix_3->setGridStyle(Qt::SolidLine);
+        tableWidget_camMatrix_3->setWordWrap(true);
+        tableWidget_camMatrix_3->setCornerButtonEnabled(true);
+        tableWidget_camMatrix_3->horizontalHeader()->setVisible(false);
+        tableWidget_camMatrix_3->verticalHeader()->setVisible(false);
+        tableWidget_camMatrix_3->verticalHeader()->setHighlightSections(true);
+
+        verticalLayout_12->addWidget(tableWidget_camMatrix_3);
+
+        label_camRotationMatrix_3 = new QLabel(groupBox_3);
+        label_camRotationMatrix_3->setObjectName(QStringLiteral("label_camRotationMatrix_3"));
+        label_camRotationMatrix_3->setFont(font4);
+
+        verticalLayout_12->addWidget(label_camRotationMatrix_3);
+
+        tableWidget_camRotationMatrix_3 = new QTableWidget(groupBox_3);
+        if (tableWidget_camRotationMatrix_3->columnCount() < 3)
+            tableWidget_camRotationMatrix_3->setColumnCount(3);
+        QTableWidgetItem *__qtablewidgetitem90 = new QTableWidgetItem();
+        tableWidget_camRotationMatrix_3->setHorizontalHeaderItem(0, __qtablewidgetitem90);
+        QTableWidgetItem *__qtablewidgetitem91 = new QTableWidgetItem();
+        tableWidget_camRotationMatrix_3->setHorizontalHeaderItem(1, __qtablewidgetitem91);
+        QTableWidgetItem *__qtablewidgetitem92 = new QTableWidgetItem();
+        tableWidget_camRotationMatrix_3->setHorizontalHeaderItem(2, __qtablewidgetitem92);
+        if (tableWidget_camRotationMatrix_3->rowCount() < 3)
+            tableWidget_camRotationMatrix_3->setRowCount(3);
+        QTableWidgetItem *__qtablewidgetitem93 = new QTableWidgetItem();
+        tableWidget_camRotationMatrix_3->setVerticalHeaderItem(0, __qtablewidgetitem93);
+        QTableWidgetItem *__qtablewidgetitem94 = new QTableWidgetItem();
+        tableWidget_camRotationMatrix_3->setVerticalHeaderItem(1, __qtablewidgetitem94);
+        QTableWidgetItem *__qtablewidgetitem95 = new QTableWidgetItem();
+        tableWidget_camRotationMatrix_3->setVerticalHeaderItem(2, __qtablewidgetitem95);
+        tableWidget_camRotationMatrix_3->setObjectName(QStringLiteral("tableWidget_camRotationMatrix_3"));
+        tableWidget_camRotationMatrix_3->setFrameShape(QFrame::NoFrame);
+        tableWidget_camRotationMatrix_3->setFrameShadow(QFrame::Sunken);
+        tableWidget_camRotationMatrix_3->setMidLineWidth(1);
+        tableWidget_camRotationMatrix_3->setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
+        tableWidget_camRotationMatrix_3->setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
+        tableWidget_camRotationMatrix_3->setSizeAdjustPolicy(QAbstractScrollArea::AdjustToContents);
+        tableWidget_camRotationMatrix_3->setAutoScroll(true);
+        tableWidget_camRotationMatrix_3->setProperty("showDropIndicator", QVariant(true));
+        tableWidget_camRotationMatrix_3->setShowGrid(true);
+        tableWidget_camRotationMatrix_3->setGridStyle(Qt::SolidLine);
+        tableWidget_camRotationMatrix_3->setWordWrap(true);
+        tableWidget_camRotationMatrix_3->setCornerButtonEnabled(true);
+        tableWidget_camRotationMatrix_3->horizontalHeader()->setVisible(false);
+        tableWidget_camRotationMatrix_3->verticalHeader()->setVisible(false);
+        tableWidget_camRotationMatrix_3->verticalHeader()->setHighlightSections(true);
+
+        verticalLayout_12->addWidget(tableWidget_camRotationMatrix_3);
+
+        verticalLayout_30 = new QVBoxLayout();
+        verticalLayout_30->setSpacing(6);
+        verticalLayout_30->setObjectName(QStringLiteral("verticalLayout_30"));
+        horizontalLayout_24 = new QHBoxLayout();
+        horizontalLayout_24->setSpacing(6);
+        horizontalLayout_24->setObjectName(QStringLiteral("horizontalLayout_24"));
+        label_camTranslationVector_3 = new QLabel(groupBox_3);
+        label_camTranslationVector_3->setObjectName(QStringLiteral("label_camTranslationVector_3"));
+        label_camTranslationVector_3->setFont(font4);
+
+        horizontalLayout_24->addWidget(label_camTranslationVector_3);
+
+        label_camError_3 = new QLabel(groupBox_3);
+        label_camError_3->setObjectName(QStringLiteral("label_camError_3"));
+        label_camError_3->setFont(font4);
+
+        horizontalLayout_24->addWidget(label_camError_3);
+
+
+        verticalLayout_30->addLayout(horizontalLayout_24);
+
+        horizontalLayout_25 = new QHBoxLayout();
+        horizontalLayout_25->setSpacing(6);
+        horizontalLayout_25->setObjectName(QStringLiteral("horizontalLayout_25"));
+        tableWidget_camTranslationVector_3 = new QTableWidget(groupBox_3);
+        if (tableWidget_camTranslationVector_3->columnCount() < 1)
+            tableWidget_camTranslationVector_3->setColumnCount(1);
+        QTableWidgetItem *__qtablewidgetitem96 = new QTableWidgetItem();
+        tableWidget_camTranslationVector_3->setHorizontalHeaderItem(0, __qtablewidgetitem96);
+        if (tableWidget_camTranslationVector_3->rowCount() < 3)
+            tableWidget_camTranslationVector_3->setRowCount(3);
+        QTableWidgetItem *__qtablewidgetitem97 = new QTableWidgetItem();
+        tableWidget_camTranslationVector_3->setVerticalHeaderItem(0, __qtablewidgetitem97);
+        QTableWidgetItem *__qtablewidgetitem98 = new QTableWidgetItem();
+        tableWidget_camTranslationVector_3->setVerticalHeaderItem(1, __qtablewidgetitem98);
+        QTableWidgetItem *__qtablewidgetitem99 = new QTableWidgetItem();
+        tableWidget_camTranslationVector_3->setVerticalHeaderItem(2, __qtablewidgetitem99);
+        tableWidget_camTranslationVector_3->setObjectName(QStringLiteral("tableWidget_camTranslationVector_3"));
+        tableWidget_camTranslationVector_3->setEnabled(true);
+        tableWidget_camTranslationVector_3->setFrameShape(QFrame::NoFrame);
+        tableWidget_camTranslationVector_3->setFrameShadow(QFrame::Sunken);
+        tableWidget_camTranslationVector_3->setMidLineWidth(1);
+        tableWidget_camTranslationVector_3->setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
+        tableWidget_camTranslationVector_3->setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
+        tableWidget_camTranslationVector_3->setSizeAdjustPolicy(QAbstractScrollArea::AdjustToContents);
+        tableWidget_camTranslationVector_3->setAutoScroll(true);
+        tableWidget_camTranslationVector_3->setProperty("showDropIndicator", QVariant(true));
+        tableWidget_camTranslationVector_3->setShowGrid(true);
+        tableWidget_camTranslationVector_3->setGridStyle(Qt::SolidLine);
+        tableWidget_camTranslationVector_3->setWordWrap(true);
+        tableWidget_camTranslationVector_3->setCornerButtonEnabled(true);
+        tableWidget_camTranslationVector_3->horizontalHeader()->setVisible(false);
+        tableWidget_camTranslationVector_3->verticalHeader()->setVisible(false);
+        tableWidget_camTranslationVector_3->verticalHeader()->setHighlightSections(true);
+
+        horizontalLayout_25->addWidget(tableWidget_camTranslationVector_3);
+
+        tableWidget_camError_3 = new QTableWidget(groupBox_3);
+        if (tableWidget_camError_3->columnCount() < 1)
+            tableWidget_camError_3->setColumnCount(1);
+        QTableWidgetItem *__qtablewidgetitem100 = new QTableWidgetItem();
+        tableWidget_camError_3->setHorizontalHeaderItem(0, __qtablewidgetitem100);
+        if (tableWidget_camError_3->rowCount() < 3)
+            tableWidget_camError_3->setRowCount(3);
+        QTableWidgetItem *__qtablewidgetitem101 = new QTableWidgetItem();
+        tableWidget_camError_3->setVerticalHeaderItem(0, __qtablewidgetitem101);
+        QTableWidgetItem *__qtablewidgetitem102 = new QTableWidgetItem();
+        tableWidget_camError_3->setVerticalHeaderItem(1, __qtablewidgetitem102);
+        QTableWidgetItem *__qtablewidgetitem103 = new QTableWidgetItem();
+        tableWidget_camError_3->setVerticalHeaderItem(2, __qtablewidgetitem103);
+        tableWidget_camError_3->setObjectName(QStringLiteral("tableWidget_camError_3"));
+        tableWidget_camError_3->setEnabled(true);
+        tableWidget_camError_3->setFrameShape(QFrame::NoFrame);
+        tableWidget_camError_3->setFrameShadow(QFrame::Sunken);
+        tableWidget_camError_3->setMidLineWidth(1);
+        tableWidget_camError_3->setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
+        tableWidget_camError_3->setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
+        tableWidget_camError_3->setSizeAdjustPolicy(QAbstractScrollArea::AdjustToContents);
+        tableWidget_camError_3->setAutoScroll(true);
+        tableWidget_camError_3->setProperty("showDropIndicator", QVariant(true));
+        tableWidget_camError_3->setShowGrid(true);
+        tableWidget_camError_3->setGridStyle(Qt::SolidLine);
+        tableWidget_camError_3->setWordWrap(true);
+        tableWidget_camError_3->setCornerButtonEnabled(true);
+        tableWidget_camError_3->horizontalHeader()->setVisible(false);
+        tableWidget_camError_3->verticalHeader()->setVisible(false);
+        tableWidget_camError_3->verticalHeader()->setHighlightSections(true);
+
+        horizontalLayout_25->addWidget(tableWidget_camError_3);
+
+
+        verticalLayout_30->addLayout(horizontalLayout_25);
+
+
+        verticalLayout_12->addLayout(verticalLayout_30);
+
+        label_camDistortion_3 = new QLabel(groupBox_3);
+        label_camDistortion_3->setObjectName(QStringLiteral("label_camDistortion_3"));
+        label_camDistortion_3->setFont(font4);
+
+        verticalLayout_12->addWidget(label_camDistortion_3);
+
+        tableWidget_camDistortion_3 = new QTableWidget(groupBox_3);
+        if (tableWidget_camDistortion_3->columnCount() < 5)
+            tableWidget_camDistortion_3->setColumnCount(5);
+        QTableWidgetItem *__qtablewidgetitem104 = new QTableWidgetItem();
+        tableWidget_camDistortion_3->setHorizontalHeaderItem(0, __qtablewidgetitem104);
+        QTableWidgetItem *__qtablewidgetitem105 = new QTableWidgetItem();
+        tableWidget_camDistortion_3->setHorizontalHeaderItem(1, __qtablewidgetitem105);
+        QTableWidgetItem *__qtablewidgetitem106 = new QTableWidgetItem();
+        tableWidget_camDistortion_3->setHorizontalHeaderItem(2, __qtablewidgetitem106);
+        QTableWidgetItem *__qtablewidgetitem107 = new QTableWidgetItem();
+        tableWidget_camDistortion_3->setHorizontalHeaderItem(3, __qtablewidgetitem107);
+        QTableWidgetItem *__qtablewidgetitem108 = new QTableWidgetItem();
+        tableWidget_camDistortion_3->setHorizontalHeaderItem(4, __qtablewidgetitem108);
+        if (tableWidget_camDistortion_3->rowCount() < 2)
+            tableWidget_camDistortion_3->setRowCount(2);
+        QTableWidgetItem *__qtablewidgetitem109 = new QTableWidgetItem();
+        tableWidget_camDistortion_3->setVerticalHeaderItem(0, __qtablewidgetitem109);
+        QTableWidgetItem *__qtablewidgetitem110 = new QTableWidgetItem();
+        tableWidget_camDistortion_3->setVerticalHeaderItem(1, __qtablewidgetitem110);
+        QTableWidgetItem *__qtablewidgetitem111 = new QTableWidgetItem();
+        __qtablewidgetitem111->setBackground(brush4);
+        tableWidget_camDistortion_3->setItem(0, 0, __qtablewidgetitem111);
+        QTableWidgetItem *__qtablewidgetitem112 = new QTableWidgetItem();
+        __qtablewidgetitem112->setBackground(brush4);
+        tableWidget_camDistortion_3->setItem(0, 1, __qtablewidgetitem112);
+        QTableWidgetItem *__qtablewidgetitem113 = new QTableWidgetItem();
+        __qtablewidgetitem113->setBackground(brush4);
+        tableWidget_camDistortion_3->setItem(0, 2, __qtablewidgetitem113);
+        QTableWidgetItem *__qtablewidgetitem114 = new QTableWidgetItem();
+        __qtablewidgetitem114->setBackground(brush4);
+        tableWidget_camDistortion_3->setItem(0, 3, __qtablewidgetitem114);
+        QTableWidgetItem *__qtablewidgetitem115 = new QTableWidgetItem();
+        __qtablewidgetitem115->setBackground(brush4);
+        tableWidget_camDistortion_3->setItem(0, 4, __qtablewidgetitem115);
+        tableWidget_camDistortion_3->setObjectName(QStringLiteral("tableWidget_camDistortion_3"));
+        tableWidget_camDistortion_3->setFrameShape(QFrame::NoFrame);
+        tableWidget_camDistortion_3->setFrameShadow(QFrame::Sunken);
+        tableWidget_camDistortion_3->setMidLineWidth(1);
+        tableWidget_camDistortion_3->setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
+        tableWidget_camDistortion_3->setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
+        tableWidget_camDistortion_3->setSizeAdjustPolicy(QAbstractScrollArea::AdjustToContents);
+        tableWidget_camDistortion_3->setAutoScroll(true);
+        tableWidget_camDistortion_3->setProperty("showDropIndicator", QVariant(true));
+        tableWidget_camDistortion_3->setShowGrid(true);
+        tableWidget_camDistortion_3->setGridStyle(Qt::SolidLine);
+        tableWidget_camDistortion_3->setWordWrap(true);
+        tableWidget_camDistortion_3->setCornerButtonEnabled(true);
+        tableWidget_camDistortion_3->horizontalHeader()->setVisible(false);
+        tableWidget_camDistortion_3->verticalHeader()->setVisible(false);
+        tableWidget_camDistortion_3->verticalHeader()->setHighlightSections(true);
+
+        verticalLayout_12->addWidget(tableWidget_camDistortion_3);
+
+        horizontalLayout_15 = new QHBoxLayout();
+        horizontalLayout_15->setSpacing(6);
+        horizontalLayout_15->setObjectName(QStringLiteral("horizontalLayout_15"));
+        label_camSetting_3 = new QLabel(groupBox_3);
+        label_camSetting_3->setObjectName(QStringLiteral("label_camSetting_3"));
+        label_camSetting_3->setFont(font4);
+
+        horizontalLayout_15->addWidget(label_camSetting_3);
+
+        pushButton_camReadSetting_3 = new QPushButton(groupBox_3);
+        pushButton_camReadSetting_3->setObjectName(QStringLiteral("pushButton_camReadSetting_3"));
+        pushButton_camReadSetting_3->setFont(font4);
+
+        horizontalLayout_15->addWidget(pushButton_camReadSetting_3);
+
+        pushButton_camWriteSetting_3 = new QPushButton(groupBox_3);
+        pushButton_camWriteSetting_3->setObjectName(QStringLiteral("pushButton_camWriteSetting_3"));
+        pushButton_camWriteSetting_3->setFont(font4);
+
+        horizontalLayout_15->addWidget(pushButton_camWriteSetting_3);
+
+        horizontalSpacer_17 = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
+
+        horizontalLayout_15->addItem(horizontalSpacer_17);
+
+
+        verticalLayout_12->addLayout(horizontalLayout_15);
+
+        tableWidget_camSetting_3 = new QTableWidget(groupBox_3);
+        if (tableWidget_camSetting_3->columnCount() < 6)
+            tableWidget_camSetting_3->setColumnCount(6);
+        QTableWidgetItem *__qtablewidgetitem116 = new QTableWidgetItem();
+        tableWidget_camSetting_3->setHorizontalHeaderItem(0, __qtablewidgetitem116);
+        QTableWidgetItem *__qtablewidgetitem117 = new QTableWidgetItem();
+        tableWidget_camSetting_3->setHorizontalHeaderItem(1, __qtablewidgetitem117);
+        QTableWidgetItem *__qtablewidgetitem118 = new QTableWidgetItem();
+        tableWidget_camSetting_3->setHorizontalHeaderItem(2, __qtablewidgetitem118);
+        QTableWidgetItem *__qtablewidgetitem119 = new QTableWidgetItem();
+        tableWidget_camSetting_3->setHorizontalHeaderItem(3, __qtablewidgetitem119);
+        QTableWidgetItem *__qtablewidgetitem120 = new QTableWidgetItem();
+        tableWidget_camSetting_3->setHorizontalHeaderItem(4, __qtablewidgetitem120);
+        QTableWidgetItem *__qtablewidgetitem121 = new QTableWidgetItem();
+        tableWidget_camSetting_3->setHorizontalHeaderItem(5, __qtablewidgetitem121);
+        if (tableWidget_camSetting_3->rowCount() < 2)
+            tableWidget_camSetting_3->setRowCount(2);
+        QTableWidgetItem *__qtablewidgetitem122 = new QTableWidgetItem();
+        tableWidget_camSetting_3->setVerticalHeaderItem(0, __qtablewidgetitem122);
+        QTableWidgetItem *__qtablewidgetitem123 = new QTableWidgetItem();
+        tableWidget_camSetting_3->setVerticalHeaderItem(1, __qtablewidgetitem123);
+        QTableWidgetItem *__qtablewidgetitem124 = new QTableWidgetItem();
+        __qtablewidgetitem124->setBackground(brush4);
+        tableWidget_camSetting_3->setItem(0, 0, __qtablewidgetitem124);
+        QTableWidgetItem *__qtablewidgetitem125 = new QTableWidgetItem();
+        __qtablewidgetitem125->setBackground(brush4);
+        tableWidget_camSetting_3->setItem(0, 1, __qtablewidgetitem125);
+        QTableWidgetItem *__qtablewidgetitem126 = new QTableWidgetItem();
+        __qtablewidgetitem126->setBackground(brush4);
+        tableWidget_camSetting_3->setItem(0, 2, __qtablewidgetitem126);
+        QTableWidgetItem *__qtablewidgetitem127 = new QTableWidgetItem();
+        __qtablewidgetitem127->setBackground(brush4);
+        tableWidget_camSetting_3->setItem(0, 3, __qtablewidgetitem127);
+        QTableWidgetItem *__qtablewidgetitem128 = new QTableWidgetItem();
+        __qtablewidgetitem128->setBackground(brush4);
+        tableWidget_camSetting_3->setItem(0, 4, __qtablewidgetitem128);
+        QTableWidgetItem *__qtablewidgetitem129 = new QTableWidgetItem();
+        __qtablewidgetitem129->setBackground(brush4);
+        tableWidget_camSetting_3->setItem(0, 5, __qtablewidgetitem129);
+        tableWidget_camSetting_3->setObjectName(QStringLiteral("tableWidget_camSetting_3"));
+        tableWidget_camSetting_3->setFrameShape(QFrame::NoFrame);
+        tableWidget_camSetting_3->setFrameShadow(QFrame::Sunken);
+        tableWidget_camSetting_3->setMidLineWidth(1);
+        tableWidget_camSetting_3->setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
+        tableWidget_camSetting_3->setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
+        tableWidget_camSetting_3->setSizeAdjustPolicy(QAbstractScrollArea::AdjustToContents);
+        tableWidget_camSetting_3->setAutoScroll(true);
+        tableWidget_camSetting_3->setProperty("showDropIndicator", QVariant(true));
+        tableWidget_camSetting_3->setShowGrid(true);
+        tableWidget_camSetting_3->setGridStyle(Qt::SolidLine);
+        tableWidget_camSetting_3->setWordWrap(true);
+        tableWidget_camSetting_3->setCornerButtonEnabled(true);
+        tableWidget_camSetting_3->horizontalHeader()->setVisible(false);
+        tableWidget_camSetting_3->verticalHeader()->setVisible(false);
+        tableWidget_camSetting_3->verticalHeader()->setHighlightSections(true);
+
+        verticalLayout_12->addWidget(tableWidget_camSetting_3);
+
+
+        verticalLayout_3->addLayout(verticalLayout_12);
+
+        horizontalLayout_26 = new QHBoxLayout();
+        horizontalLayout_26->setSpacing(6);
+        horizontalLayout_26->setObjectName(QStringLiteral("horizontalLayout_26"));
+        label_3 = new QLabel(groupBox_3);
+        label_3->setObjectName(QStringLiteral("label_3"));
+        label_3->setFont(font5);
+
+        horizontalLayout_26->addWidget(label_3);
+
+        toolButton_projector_homo_dir = new QToolButton(groupBox_3);
+        toolButton_projector_homo_dir->setObjectName(QStringLiteral("toolButton_projector_homo_dir"));
+        toolButton_projector_homo_dir->setEnabled(true);
+        sizePolicy1.setHeightForWidth(toolButton_projector_homo_dir->sizePolicy().hasHeightForWidth());
+        toolButton_projector_homo_dir->setSizePolicy(sizePolicy1);
+        toolButton_projector_homo_dir->setBaseSize(QSize(10, 10));
+        toolButton_projector_homo_dir->setFont(font6);
+
+        horizontalLayout_26->addWidget(toolButton_projector_homo_dir);
+
+        lineEdit_projector_homo_dir = new QLineEdit(groupBox_3);
+        lineEdit_projector_homo_dir->setObjectName(QStringLiteral("lineEdit_projector_homo_dir"));
+        lineEdit_projector_homo_dir->setFont(font4);
+
+        horizontalLayout_26->addWidget(lineEdit_projector_homo_dir);
+
+
+        verticalLayout_3->addLayout(horizontalLayout_26);
+
+        horizontalLayout_19 = new QHBoxLayout();
+        horizontalLayout_19->setSpacing(6);
+        horizontalLayout_19->setObjectName(QStringLiteral("horizontalLayout_19"));
+        label_2 = new QLabel(groupBox_3);
+        label_2->setObjectName(QStringLiteral("label_2"));
+        label_2->setFont(font5);
+
+        horizontalLayout_19->addWidget(label_2);
+
+        toolButton_projector_imgPath = new QToolButton(groupBox_3);
+        toolButton_projector_imgPath->setObjectName(QStringLiteral("toolButton_projector_imgPath"));
+        toolButton_projector_imgPath->setEnabled(true);
+        sizePolicy1.setHeightForWidth(toolButton_projector_imgPath->sizePolicy().hasHeightForWidth());
+        toolButton_projector_imgPath->setSizePolicy(sizePolicy1);
+        toolButton_projector_imgPath->setBaseSize(QSize(10, 10));
+        toolButton_projector_imgPath->setFont(font6);
+
+        horizontalLayout_19->addWidget(toolButton_projector_imgPath);
+
+        lineEdit_projector_imgPath = new QLineEdit(groupBox_3);
+        lineEdit_projector_imgPath->setObjectName(QStringLiteral("lineEdit_projector_imgPath"));
+        lineEdit_projector_imgPath->setFont(font4);
+
+        horizontalLayout_19->addWidget(lineEdit_projector_imgPath);
+
+
+        verticalLayout_3->addLayout(horizontalLayout_19);
+
+        horizontalLayout_16 = new QHBoxLayout();
+        horizontalLayout_16->setSpacing(6);
+        horizontalLayout_16->setObjectName(QStringLiteral("horizontalLayout_16"));
+        pushButton_cam_intri_3 = new QPushButton(groupBox_3);
+        pushButton_cam_intri_3->setObjectName(QStringLiteral("pushButton_cam_intri_3"));
+        pushButton_cam_intri_3->setFont(font5);
+
+        horizontalLayout_16->addWidget(pushButton_cam_intri_3);
+
+        toolButton_cam_intri_3 = new QToolButton(groupBox_3);
+        toolButton_cam_intri_3->setObjectName(QStringLiteral("toolButton_cam_intri_3"));
+        toolButton_cam_intri_3->setEnabled(true);
+        sizePolicy1.setHeightForWidth(toolButton_cam_intri_3->sizePolicy().hasHeightForWidth());
+        toolButton_cam_intri_3->setSizePolicy(sizePolicy1);
+        toolButton_cam_intri_3->setBaseSize(QSize(10, 10));
+        toolButton_cam_intri_3->setFont(font6);
+
+        horizontalLayout_16->addWidget(toolButton_cam_intri_3);
+
+        lineEdit_cam_intri_3 = new QLineEdit(groupBox_3);
+        lineEdit_cam_intri_3->setObjectName(QStringLiteral("lineEdit_cam_intri_3"));
+        lineEdit_cam_intri_3->setFont(font4);
+
+        horizontalLayout_16->addWidget(lineEdit_cam_intri_3);
+
+
+        verticalLayout_3->addLayout(horizontalLayout_16);
+
+        horizontalLayout_17 = new QHBoxLayout();
+        horizontalLayout_17->setSpacing(6);
+        horizontalLayout_17->setObjectName(QStringLiteral("horizontalLayout_17"));
+        pushButton_cam_extri_3 = new QPushButton(groupBox_3);
+        pushButton_cam_extri_3->setObjectName(QStringLiteral("pushButton_cam_extri_3"));
+        pushButton_cam_extri_3->setFont(font5);
+
+        horizontalLayout_17->addWidget(pushButton_cam_extri_3);
+
+        toolButton_cam_extri_3 = new QToolButton(groupBox_3);
+        toolButton_cam_extri_3->setObjectName(QStringLiteral("toolButton_cam_extri_3"));
+        toolButton_cam_extri_3->setEnabled(true);
+        sizePolicy1.setHeightForWidth(toolButton_cam_extri_3->sizePolicy().hasHeightForWidth());
+        toolButton_cam_extri_3->setSizePolicy(sizePolicy1);
+        toolButton_cam_extri_3->setBaseSize(QSize(10, 10));
+        toolButton_cam_extri_3->setFont(font6);
+
+        horizontalLayout_17->addWidget(toolButton_cam_extri_3);
+
+        lineEdit_cam_extri_3 = new QLineEdit(groupBox_3);
+        lineEdit_cam_extri_3->setObjectName(QStringLiteral("lineEdit_cam_extri_3"));
+        lineEdit_cam_extri_3->setFont(font4);
+
+        horizontalLayout_17->addWidget(lineEdit_cam_extri_3);
+
+
+        verticalLayout_3->addLayout(horizontalLayout_17);
+
+        horizontalLayout_18 = new QHBoxLayout();
+        horizontalLayout_18->setSpacing(6);
+        horizontalLayout_18->setObjectName(QStringLiteral("horizontalLayout_18"));
+        pushButton_cam_save_3 = new QPushButton(groupBox_3);
+        pushButton_cam_save_3->setObjectName(QStringLiteral("pushButton_cam_save_3"));
+        pushButton_cam_save_3->setFont(font5);
+
+        horizontalLayout_18->addWidget(pushButton_cam_save_3);
+
+        horizontalSpacer_14 = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
+
+        horizontalLayout_18->addItem(horizontalSpacer_14);
+
+
+        verticalLayout_3->addLayout(horizontalLayout_18);
+
+        verticalSpacer_6 = new QSpacerItem(20, 40, QSizePolicy::Minimum, QSizePolicy::Expanding);
+
+        verticalLayout_3->addItem(verticalSpacer_6);
+
+
+        gridLayout_5->addWidget(groupBox_3, 1, 2, 1, 1);
 
         tabWidget->addTab(tab_1, QString());
         tab_2 = new QWidget();
@@ -1799,8 +1957,8 @@ public:
 
         label_img_7 = new QLabel(tab_3);
         label_img_7->setObjectName(QStringLiteral("label_img_7"));
-        sizePolicy2.setHeightForWidth(label_img_7->sizePolicy().hasHeightForWidth());
-        label_img_7->setSizePolicy(sizePolicy2);
+        sizePolicy1.setHeightForWidth(label_img_7->sizePolicy().hasHeightForWidth());
+        label_img_7->setSizePolicy(sizePolicy1);
         QPalette palette16;
         palette16.setBrush(QPalette::Active, QPalette::Base, brush);
         palette16.setBrush(QPalette::Active, QPalette::Window, brush3);
@@ -2029,13 +2187,13 @@ public:
         const bool __sortingEnabled1 = tableWidget_camSetting_2->isSortingEnabled();
         tableWidget_camSetting_2->setSortingEnabled(false);
         QTableWidgetItem *___qtablewidgetitem38 = tableWidget_camSetting_2->item(0, 0);
-        ___qtablewidgetitem38->setText(QApplication::translate("MainWindow", "k1", Q_NULLPTR));
+        ___qtablewidgetitem38->setText(QApplication::translate("MainWindow", "\350\241\214\346\240\274\347\202\271\346\225\260", Q_NULLPTR));
         QTableWidgetItem *___qtablewidgetitem39 = tableWidget_camSetting_2->item(0, 1);
-        ___qtablewidgetitem39->setText(QApplication::translate("MainWindow", "k2", Q_NULLPTR));
+        ___qtablewidgetitem39->setText(QApplication::translate("MainWindow", "\345\210\227\346\240\274\347\202\271\346\225\260", Q_NULLPTR));
         QTableWidgetItem *___qtablewidgetitem40 = tableWidget_camSetting_2->item(0, 2);
-        ___qtablewidgetitem40->setText(QApplication::translate("MainWindow", "p1", Q_NULLPTR));
+        ___qtablewidgetitem40->setText(QApplication::translate("MainWindow", "\346\240\274\345\256\275\345\272\246(mm)", Q_NULLPTR));
         QTableWidgetItem *___qtablewidgetitem41 = tableWidget_camSetting_2->item(0, 3);
-        ___qtablewidgetitem41->setText(QApplication::translate("MainWindow", "p2", Q_NULLPTR));
+        ___qtablewidgetitem41->setText(QApplication::translate("MainWindow", "\346\240\274\351\253\230\345\272\246(mm)", Q_NULLPTR));
         tableWidget_camSetting_2->setSortingEnabled(__sortingEnabled1);
 
         pushButton_cam_intri_2->setText(QApplication::translate("MainWindow", "\346\240\207\345\256\232\345\206\205\345\217\202", Q_NULLPTR));
@@ -2045,200 +2203,108 @@ public:
         toolButton_cam_extri_2->setText(QApplication::translate("MainWindow", "...", Q_NULLPTR));
         lineEdit_cam_extri_2->setText(QApplication::translate("MainWindow", "../Pictures/Grap_frame", Q_NULLPTR));
         pushButton_cam_save_2->setText(QApplication::translate("MainWindow", "\344\277\235\345\255\230\347\273\223\346\236\234", Q_NULLPTR));
-        groupBox_3->setTitle(QApplication::translate("MainWindow", "Projector_Data", Q_NULLPTR));
-        label_camMatrix_3->setText(QApplication::translate("MainWindow", "projectorIntrinsicMatrix:", Q_NULLPTR));
-        QTableWidgetItem *___qtablewidgetitem42 = tableWidget_camMatrix_3->horizontalHeaderItem(0);
-        ___qtablewidgetitem42->setText(QApplication::translate("MainWindow", "1", Q_NULLPTR));
-        QTableWidgetItem *___qtablewidgetitem43 = tableWidget_camMatrix_3->horizontalHeaderItem(1);
-        ___qtablewidgetitem43->setText(QApplication::translate("MainWindow", "2", Q_NULLPTR));
-        QTableWidgetItem *___qtablewidgetitem44 = tableWidget_camMatrix_3->horizontalHeaderItem(2);
-        ___qtablewidgetitem44->setText(QApplication::translate("MainWindow", "3", Q_NULLPTR));
-        QTableWidgetItem *___qtablewidgetitem45 = tableWidget_camMatrix_3->verticalHeaderItem(0);
-        ___qtablewidgetitem45->setText(QApplication::translate("MainWindow", "1", Q_NULLPTR));
-        QTableWidgetItem *___qtablewidgetitem46 = tableWidget_camMatrix_3->verticalHeaderItem(1);
-        ___qtablewidgetitem46->setText(QApplication::translate("MainWindow", "2", Q_NULLPTR));
-        QTableWidgetItem *___qtablewidgetitem47 = tableWidget_camMatrix_3->verticalHeaderItem(2);
-        ___qtablewidgetitem47->setText(QApplication::translate("MainWindow", "3", Q_NULLPTR));
-        label_camRotationMatrix_3->setText(QApplication::translate("MainWindow", "projectorRotationMatrix:", Q_NULLPTR));
-        QTableWidgetItem *___qtablewidgetitem48 = tableWidget_camRotationMatrix_3->horizontalHeaderItem(0);
-        ___qtablewidgetitem48->setText(QApplication::translate("MainWindow", "1", Q_NULLPTR));
-        QTableWidgetItem *___qtablewidgetitem49 = tableWidget_camRotationMatrix_3->horizontalHeaderItem(1);
-        ___qtablewidgetitem49->setText(QApplication::translate("MainWindow", "2", Q_NULLPTR));
-        QTableWidgetItem *___qtablewidgetitem50 = tableWidget_camRotationMatrix_3->horizontalHeaderItem(2);
-        ___qtablewidgetitem50->setText(QApplication::translate("MainWindow", "3", Q_NULLPTR));
-        QTableWidgetItem *___qtablewidgetitem51 = tableWidget_camRotationMatrix_3->verticalHeaderItem(0);
-        ___qtablewidgetitem51->setText(QApplication::translate("MainWindow", "1", Q_NULLPTR));
-        QTableWidgetItem *___qtablewidgetitem52 = tableWidget_camRotationMatrix_3->verticalHeaderItem(1);
-        ___qtablewidgetitem52->setText(QApplication::translate("MainWindow", "2", Q_NULLPTR));
-        QTableWidgetItem *___qtablewidgetitem53 = tableWidget_camRotationMatrix_3->verticalHeaderItem(2);
-        ___qtablewidgetitem53->setText(QApplication::translate("MainWindow", "3", Q_NULLPTR));
-        label_camTranslationVector_3->setText(QApplication::translate("MainWindow", "projectorTranslationVector:", Q_NULLPTR));
-        QTableWidgetItem *___qtablewidgetitem54 = tableWidget_camTranslationVector_3->horizontalHeaderItem(0);
-        ___qtablewidgetitem54->setText(QApplication::translate("MainWindow", "1", Q_NULLPTR));
-        QTableWidgetItem *___qtablewidgetitem55 = tableWidget_camTranslationVector_3->verticalHeaderItem(0);
-        ___qtablewidgetitem55->setText(QApplication::translate("MainWindow", "1", Q_NULLPTR));
-        QTableWidgetItem *___qtablewidgetitem56 = tableWidget_camTranslationVector_3->verticalHeaderItem(1);
-        ___qtablewidgetitem56->setText(QApplication::translate("MainWindow", "2", Q_NULLPTR));
-        QTableWidgetItem *___qtablewidgetitem57 = tableWidget_camTranslationVector_3->verticalHeaderItem(2);
-        ___qtablewidgetitem57->setText(QApplication::translate("MainWindow", "3", Q_NULLPTR));
-        label_camDistortion_3->setText(QApplication::translate("MainWindow", "projectorDistortion:", Q_NULLPTR));
-        QTableWidgetItem *___qtablewidgetitem58 = tableWidget_camDistortion_3->horizontalHeaderItem(0);
-        ___qtablewidgetitem58->setText(QApplication::translate("MainWindow", "1", Q_NULLPTR));
-        QTableWidgetItem *___qtablewidgetitem59 = tableWidget_camDistortion_3->horizontalHeaderItem(1);
-        ___qtablewidgetitem59->setText(QApplication::translate("MainWindow", "2", Q_NULLPTR));
-        QTableWidgetItem *___qtablewidgetitem60 = tableWidget_camDistortion_3->horizontalHeaderItem(2);
-        ___qtablewidgetitem60->setText(QApplication::translate("MainWindow", "3", Q_NULLPTR));
-        QTableWidgetItem *___qtablewidgetitem61 = tableWidget_camDistortion_3->horizontalHeaderItem(3);
-        ___qtablewidgetitem61->setText(QApplication::translate("MainWindow", "4", Q_NULLPTR));
-        QTableWidgetItem *___qtablewidgetitem62 = tableWidget_camDistortion_3->horizontalHeaderItem(4);
-        ___qtablewidgetitem62->setText(QApplication::translate("MainWindow", "5", Q_NULLPTR));
-        QTableWidgetItem *___qtablewidgetitem63 = tableWidget_camDistortion_3->verticalHeaderItem(0);
-        ___qtablewidgetitem63->setText(QApplication::translate("MainWindow", "1", Q_NULLPTR));
-        QTableWidgetItem *___qtablewidgetitem64 = tableWidget_camDistortion_3->verticalHeaderItem(1);
-        ___qtablewidgetitem64->setText(QApplication::translate("MainWindow", "2", Q_NULLPTR));
-
-        const bool __sortingEnabled2 = tableWidget_camDistortion_3->isSortingEnabled();
-        tableWidget_camDistortion_3->setSortingEnabled(false);
-        QTableWidgetItem *___qtablewidgetitem65 = tableWidget_camDistortion_3->item(0, 0);
-        ___qtablewidgetitem65->setText(QApplication::translate("MainWindow", "k1", Q_NULLPTR));
-        QTableWidgetItem *___qtablewidgetitem66 = tableWidget_camDistortion_3->item(0, 1);
-        ___qtablewidgetitem66->setText(QApplication::translate("MainWindow", "k2", Q_NULLPTR));
-        QTableWidgetItem *___qtablewidgetitem67 = tableWidget_camDistortion_3->item(0, 2);
-        ___qtablewidgetitem67->setText(QApplication::translate("MainWindow", "p1", Q_NULLPTR));
-        QTableWidgetItem *___qtablewidgetitem68 = tableWidget_camDistortion_3->item(0, 3);
-        ___qtablewidgetitem68->setText(QApplication::translate("MainWindow", "p2", Q_NULLPTR));
-        QTableWidgetItem *___qtablewidgetitem69 = tableWidget_camDistortion_3->item(0, 4);
-        ___qtablewidgetitem69->setText(QApplication::translate("MainWindow", "k3", Q_NULLPTR));
-        tableWidget_camDistortion_3->setSortingEnabled(__sortingEnabled2);
-
-        label_camError_3->setText(QApplication::translate("MainWindow", "projectorError:", Q_NULLPTR));
-        QTableWidgetItem *___qtablewidgetitem70 = tableWidget_camError_3->horizontalHeaderItem(0);
-        ___qtablewidgetitem70->setText(QApplication::translate("MainWindow", "1", Q_NULLPTR));
-        QTableWidgetItem *___qtablewidgetitem71 = tableWidget_camError_3->horizontalHeaderItem(1);
-        ___qtablewidgetitem71->setText(QApplication::translate("MainWindow", "2", Q_NULLPTR));
-        QTableWidgetItem *___qtablewidgetitem72 = tableWidget_camError_3->verticalHeaderItem(0);
-        ___qtablewidgetitem72->setText(QApplication::translate("MainWindow", "1", Q_NULLPTR));
-        QTableWidgetItem *___qtablewidgetitem73 = tableWidget_camError_3->verticalHeaderItem(1);
-        ___qtablewidgetitem73->setText(QApplication::translate("MainWindow", "2", Q_NULLPTR));
-
-        const bool __sortingEnabled3 = tableWidget_camError_3->isSortingEnabled();
-        tableWidget_camError_3->setSortingEnabled(false);
-        QTableWidgetItem *___qtablewidgetitem74 = tableWidget_camError_3->item(0, 0);
-        ___qtablewidgetitem74->setText(QApplication::translate("MainWindow", "Error", Q_NULLPTR));
-        QTableWidgetItem *___qtablewidgetitem75 = tableWidget_camError_3->item(0, 1);
-        ___qtablewidgetitem75->setText(QApplication::translate("MainWindow", "exError", Q_NULLPTR));
-        tableWidget_camError_3->setSortingEnabled(__sortingEnabled3);
-
-        pushButton_cam_intri_3->setText(QApplication::translate("MainWindow", "\346\240\207\345\256\232\345\206\205\345\217\202", Q_NULLPTR));
-        toolButton_cam_intri_3->setText(QApplication::translate("MainWindow", "...", Q_NULLPTR));
-        lineEdit_cam_intri_3->setText(QApplication::translate("MainWindow", "../Pictures/Grap_frame", Q_NULLPTR));
-        pushButton_cam_extri_3->setText(QApplication::translate("MainWindow", "\346\240\207\345\256\232\345\244\226\345\217\202", Q_NULLPTR));
-        toolButton_cam_extri_3->setText(QApplication::translate("MainWindow", "...", Q_NULLPTR));
-        lineEdit_cam_extri_3->setText(QApplication::translate("MainWindow", "../Pictures/Grap_frame", Q_NULLPTR));
-        pushButton_cam_save_3->setText(QApplication::translate("MainWindow", "\344\277\235\345\255\230\347\273\223\346\236\234", Q_NULLPTR));
-        pushButton_cam_flush_3->setText(QApplication::translate("MainWindow", "\345\210\267\346\226\260\346\230\276\347\244\272", Q_NULLPTR));
         groupBox_2->setTitle(QApplication::translate("MainWindow", "Camera_1_Data", Q_NULLPTR));
         label_camMatrix->setText(QApplication::translate("MainWindow", "camIntrinsicMatrix:", Q_NULLPTR));
-        QTableWidgetItem *___qtablewidgetitem76 = tableWidget_camMatrix->horizontalHeaderItem(0);
-        ___qtablewidgetitem76->setText(QApplication::translate("MainWindow", "1", Q_NULLPTR));
-        QTableWidgetItem *___qtablewidgetitem77 = tableWidget_camMatrix->horizontalHeaderItem(1);
-        ___qtablewidgetitem77->setText(QApplication::translate("MainWindow", "2", Q_NULLPTR));
-        QTableWidgetItem *___qtablewidgetitem78 = tableWidget_camMatrix->horizontalHeaderItem(2);
-        ___qtablewidgetitem78->setText(QApplication::translate("MainWindow", "3", Q_NULLPTR));
-        QTableWidgetItem *___qtablewidgetitem79 = tableWidget_camMatrix->verticalHeaderItem(0);
-        ___qtablewidgetitem79->setText(QApplication::translate("MainWindow", "1", Q_NULLPTR));
-        QTableWidgetItem *___qtablewidgetitem80 = tableWidget_camMatrix->verticalHeaderItem(1);
-        ___qtablewidgetitem80->setText(QApplication::translate("MainWindow", "2", Q_NULLPTR));
-        QTableWidgetItem *___qtablewidgetitem81 = tableWidget_camMatrix->verticalHeaderItem(2);
-        ___qtablewidgetitem81->setText(QApplication::translate("MainWindow", "3", Q_NULLPTR));
+        QTableWidgetItem *___qtablewidgetitem42 = tableWidget_camMatrix->horizontalHeaderItem(0);
+        ___qtablewidgetitem42->setText(QApplication::translate("MainWindow", "1", Q_NULLPTR));
+        QTableWidgetItem *___qtablewidgetitem43 = tableWidget_camMatrix->horizontalHeaderItem(1);
+        ___qtablewidgetitem43->setText(QApplication::translate("MainWindow", "2", Q_NULLPTR));
+        QTableWidgetItem *___qtablewidgetitem44 = tableWidget_camMatrix->horizontalHeaderItem(2);
+        ___qtablewidgetitem44->setText(QApplication::translate("MainWindow", "3", Q_NULLPTR));
+        QTableWidgetItem *___qtablewidgetitem45 = tableWidget_camMatrix->verticalHeaderItem(0);
+        ___qtablewidgetitem45->setText(QApplication::translate("MainWindow", "1", Q_NULLPTR));
+        QTableWidgetItem *___qtablewidgetitem46 = tableWidget_camMatrix->verticalHeaderItem(1);
+        ___qtablewidgetitem46->setText(QApplication::translate("MainWindow", "2", Q_NULLPTR));
+        QTableWidgetItem *___qtablewidgetitem47 = tableWidget_camMatrix->verticalHeaderItem(2);
+        ___qtablewidgetitem47->setText(QApplication::translate("MainWindow", "3", Q_NULLPTR));
         label_camRotationMatrix->setText(QApplication::translate("MainWindow", "camRotationMatrix:", Q_NULLPTR));
-        QTableWidgetItem *___qtablewidgetitem82 = tableWidget_camRotationMatrix->horizontalHeaderItem(0);
-        ___qtablewidgetitem82->setText(QApplication::translate("MainWindow", "1", Q_NULLPTR));
-        QTableWidgetItem *___qtablewidgetitem83 = tableWidget_camRotationMatrix->horizontalHeaderItem(1);
-        ___qtablewidgetitem83->setText(QApplication::translate("MainWindow", "2", Q_NULLPTR));
-        QTableWidgetItem *___qtablewidgetitem84 = tableWidget_camRotationMatrix->horizontalHeaderItem(2);
-        ___qtablewidgetitem84->setText(QApplication::translate("MainWindow", "3", Q_NULLPTR));
-        QTableWidgetItem *___qtablewidgetitem85 = tableWidget_camRotationMatrix->verticalHeaderItem(0);
-        ___qtablewidgetitem85->setText(QApplication::translate("MainWindow", "1", Q_NULLPTR));
-        QTableWidgetItem *___qtablewidgetitem86 = tableWidget_camRotationMatrix->verticalHeaderItem(1);
-        ___qtablewidgetitem86->setText(QApplication::translate("MainWindow", "2", Q_NULLPTR));
-        QTableWidgetItem *___qtablewidgetitem87 = tableWidget_camRotationMatrix->verticalHeaderItem(2);
-        ___qtablewidgetitem87->setText(QApplication::translate("MainWindow", "3", Q_NULLPTR));
+        QTableWidgetItem *___qtablewidgetitem48 = tableWidget_camRotationMatrix->horizontalHeaderItem(0);
+        ___qtablewidgetitem48->setText(QApplication::translate("MainWindow", "1", Q_NULLPTR));
+        QTableWidgetItem *___qtablewidgetitem49 = tableWidget_camRotationMatrix->horizontalHeaderItem(1);
+        ___qtablewidgetitem49->setText(QApplication::translate("MainWindow", "2", Q_NULLPTR));
+        QTableWidgetItem *___qtablewidgetitem50 = tableWidget_camRotationMatrix->horizontalHeaderItem(2);
+        ___qtablewidgetitem50->setText(QApplication::translate("MainWindow", "3", Q_NULLPTR));
+        QTableWidgetItem *___qtablewidgetitem51 = tableWidget_camRotationMatrix->verticalHeaderItem(0);
+        ___qtablewidgetitem51->setText(QApplication::translate("MainWindow", "1", Q_NULLPTR));
+        QTableWidgetItem *___qtablewidgetitem52 = tableWidget_camRotationMatrix->verticalHeaderItem(1);
+        ___qtablewidgetitem52->setText(QApplication::translate("MainWindow", "2", Q_NULLPTR));
+        QTableWidgetItem *___qtablewidgetitem53 = tableWidget_camRotationMatrix->verticalHeaderItem(2);
+        ___qtablewidgetitem53->setText(QApplication::translate("MainWindow", "3", Q_NULLPTR));
         label_camTranslationVector->setText(QApplication::translate("MainWindow", "camTranslationVector:", Q_NULLPTR));
         label_camError->setText(QApplication::translate("MainWindow", "camError:", Q_NULLPTR));
-        QTableWidgetItem *___qtablewidgetitem88 = tableWidget_camTranslationVector->horizontalHeaderItem(0);
-        ___qtablewidgetitem88->setText(QApplication::translate("MainWindow", "1", Q_NULLPTR));
-        QTableWidgetItem *___qtablewidgetitem89 = tableWidget_camTranslationVector->verticalHeaderItem(0);
-        ___qtablewidgetitem89->setText(QApplication::translate("MainWindow", "1", Q_NULLPTR));
-        QTableWidgetItem *___qtablewidgetitem90 = tableWidget_camTranslationVector->verticalHeaderItem(1);
-        ___qtablewidgetitem90->setText(QApplication::translate("MainWindow", "2", Q_NULLPTR));
-        QTableWidgetItem *___qtablewidgetitem91 = tableWidget_camTranslationVector->verticalHeaderItem(2);
-        ___qtablewidgetitem91->setText(QApplication::translate("MainWindow", "3", Q_NULLPTR));
-        QTableWidgetItem *___qtablewidgetitem92 = tableWidget_camError->horizontalHeaderItem(0);
-        ___qtablewidgetitem92->setText(QApplication::translate("MainWindow", "1", Q_NULLPTR));
-        QTableWidgetItem *___qtablewidgetitem93 = tableWidget_camError->verticalHeaderItem(0);
-        ___qtablewidgetitem93->setText(QApplication::translate("MainWindow", "1", Q_NULLPTR));
-        QTableWidgetItem *___qtablewidgetitem94 = tableWidget_camError->verticalHeaderItem(1);
-        ___qtablewidgetitem94->setText(QApplication::translate("MainWindow", "2", Q_NULLPTR));
-        QTableWidgetItem *___qtablewidgetitem95 = tableWidget_camError->verticalHeaderItem(2);
-        ___qtablewidgetitem95->setText(QApplication::translate("MainWindow", "3", Q_NULLPTR));
+        QTableWidgetItem *___qtablewidgetitem54 = tableWidget_camTranslationVector->horizontalHeaderItem(0);
+        ___qtablewidgetitem54->setText(QApplication::translate("MainWindow", "1", Q_NULLPTR));
+        QTableWidgetItem *___qtablewidgetitem55 = tableWidget_camTranslationVector->verticalHeaderItem(0);
+        ___qtablewidgetitem55->setText(QApplication::translate("MainWindow", "1", Q_NULLPTR));
+        QTableWidgetItem *___qtablewidgetitem56 = tableWidget_camTranslationVector->verticalHeaderItem(1);
+        ___qtablewidgetitem56->setText(QApplication::translate("MainWindow", "2", Q_NULLPTR));
+        QTableWidgetItem *___qtablewidgetitem57 = tableWidget_camTranslationVector->verticalHeaderItem(2);
+        ___qtablewidgetitem57->setText(QApplication::translate("MainWindow", "3", Q_NULLPTR));
+        QTableWidgetItem *___qtablewidgetitem58 = tableWidget_camError->horizontalHeaderItem(0);
+        ___qtablewidgetitem58->setText(QApplication::translate("MainWindow", "1", Q_NULLPTR));
+        QTableWidgetItem *___qtablewidgetitem59 = tableWidget_camError->verticalHeaderItem(0);
+        ___qtablewidgetitem59->setText(QApplication::translate("MainWindow", "1", Q_NULLPTR));
+        QTableWidgetItem *___qtablewidgetitem60 = tableWidget_camError->verticalHeaderItem(1);
+        ___qtablewidgetitem60->setText(QApplication::translate("MainWindow", "2", Q_NULLPTR));
+        QTableWidgetItem *___qtablewidgetitem61 = tableWidget_camError->verticalHeaderItem(2);
+        ___qtablewidgetitem61->setText(QApplication::translate("MainWindow", "3", Q_NULLPTR));
         label_camDistortion->setText(QApplication::translate("MainWindow", "camDistortion:", Q_NULLPTR));
-        QTableWidgetItem *___qtablewidgetitem96 = tableWidget_camDistortion->horizontalHeaderItem(0);
-        ___qtablewidgetitem96->setText(QApplication::translate("MainWindow", "1", Q_NULLPTR));
-        QTableWidgetItem *___qtablewidgetitem97 = tableWidget_camDistortion->horizontalHeaderItem(1);
-        ___qtablewidgetitem97->setText(QApplication::translate("MainWindow", "2", Q_NULLPTR));
-        QTableWidgetItem *___qtablewidgetitem98 = tableWidget_camDistortion->horizontalHeaderItem(2);
-        ___qtablewidgetitem98->setText(QApplication::translate("MainWindow", "3", Q_NULLPTR));
-        QTableWidgetItem *___qtablewidgetitem99 = tableWidget_camDistortion->horizontalHeaderItem(3);
-        ___qtablewidgetitem99->setText(QApplication::translate("MainWindow", "4", Q_NULLPTR));
-        QTableWidgetItem *___qtablewidgetitem100 = tableWidget_camDistortion->horizontalHeaderItem(4);
-        ___qtablewidgetitem100->setText(QApplication::translate("MainWindow", "5", Q_NULLPTR));
-        QTableWidgetItem *___qtablewidgetitem101 = tableWidget_camDistortion->verticalHeaderItem(0);
-        ___qtablewidgetitem101->setText(QApplication::translate("MainWindow", "1", Q_NULLPTR));
-        QTableWidgetItem *___qtablewidgetitem102 = tableWidget_camDistortion->verticalHeaderItem(1);
-        ___qtablewidgetitem102->setText(QApplication::translate("MainWindow", "2", Q_NULLPTR));
+        QTableWidgetItem *___qtablewidgetitem62 = tableWidget_camDistortion->horizontalHeaderItem(0);
+        ___qtablewidgetitem62->setText(QApplication::translate("MainWindow", "1", Q_NULLPTR));
+        QTableWidgetItem *___qtablewidgetitem63 = tableWidget_camDistortion->horizontalHeaderItem(1);
+        ___qtablewidgetitem63->setText(QApplication::translate("MainWindow", "2", Q_NULLPTR));
+        QTableWidgetItem *___qtablewidgetitem64 = tableWidget_camDistortion->horizontalHeaderItem(2);
+        ___qtablewidgetitem64->setText(QApplication::translate("MainWindow", "3", Q_NULLPTR));
+        QTableWidgetItem *___qtablewidgetitem65 = tableWidget_camDistortion->horizontalHeaderItem(3);
+        ___qtablewidgetitem65->setText(QApplication::translate("MainWindow", "4", Q_NULLPTR));
+        QTableWidgetItem *___qtablewidgetitem66 = tableWidget_camDistortion->horizontalHeaderItem(4);
+        ___qtablewidgetitem66->setText(QApplication::translate("MainWindow", "5", Q_NULLPTR));
+        QTableWidgetItem *___qtablewidgetitem67 = tableWidget_camDistortion->verticalHeaderItem(0);
+        ___qtablewidgetitem67->setText(QApplication::translate("MainWindow", "1", Q_NULLPTR));
+        QTableWidgetItem *___qtablewidgetitem68 = tableWidget_camDistortion->verticalHeaderItem(1);
+        ___qtablewidgetitem68->setText(QApplication::translate("MainWindow", "2", Q_NULLPTR));
 
-        const bool __sortingEnabled4 = tableWidget_camDistortion->isSortingEnabled();
+        const bool __sortingEnabled2 = tableWidget_camDistortion->isSortingEnabled();
         tableWidget_camDistortion->setSortingEnabled(false);
-        QTableWidgetItem *___qtablewidgetitem103 = tableWidget_camDistortion->item(0, 0);
-        ___qtablewidgetitem103->setText(QApplication::translate("MainWindow", "k1", Q_NULLPTR));
-        QTableWidgetItem *___qtablewidgetitem104 = tableWidget_camDistortion->item(0, 1);
-        ___qtablewidgetitem104->setText(QApplication::translate("MainWindow", "k2", Q_NULLPTR));
-        QTableWidgetItem *___qtablewidgetitem105 = tableWidget_camDistortion->item(0, 2);
-        ___qtablewidgetitem105->setText(QApplication::translate("MainWindow", "p1", Q_NULLPTR));
-        QTableWidgetItem *___qtablewidgetitem106 = tableWidget_camDistortion->item(0, 3);
-        ___qtablewidgetitem106->setText(QApplication::translate("MainWindow", "p2", Q_NULLPTR));
-        QTableWidgetItem *___qtablewidgetitem107 = tableWidget_camDistortion->item(0, 4);
-        ___qtablewidgetitem107->setText(QApplication::translate("MainWindow", "k3", Q_NULLPTR));
-        tableWidget_camDistortion->setSortingEnabled(__sortingEnabled4);
+        QTableWidgetItem *___qtablewidgetitem69 = tableWidget_camDistortion->item(0, 0);
+        ___qtablewidgetitem69->setText(QApplication::translate("MainWindow", "k1", Q_NULLPTR));
+        QTableWidgetItem *___qtablewidgetitem70 = tableWidget_camDistortion->item(0, 1);
+        ___qtablewidgetitem70->setText(QApplication::translate("MainWindow", "k2", Q_NULLPTR));
+        QTableWidgetItem *___qtablewidgetitem71 = tableWidget_camDistortion->item(0, 2);
+        ___qtablewidgetitem71->setText(QApplication::translate("MainWindow", "p1", Q_NULLPTR));
+        QTableWidgetItem *___qtablewidgetitem72 = tableWidget_camDistortion->item(0, 3);
+        ___qtablewidgetitem72->setText(QApplication::translate("MainWindow", "p2", Q_NULLPTR));
+        QTableWidgetItem *___qtablewidgetitem73 = tableWidget_camDistortion->item(0, 4);
+        ___qtablewidgetitem73->setText(QApplication::translate("MainWindow", "k3", Q_NULLPTR));
+        tableWidget_camDistortion->setSortingEnabled(__sortingEnabled2);
 
         label_camSetting->setText(QApplication::translate("MainWindow", "camSetting:", Q_NULLPTR));
         pushButton_camReadSetting->setText(QApplication::translate("MainWindow", "readSetting", Q_NULLPTR));
         pushButton_camWriteSetting->setText(QApplication::translate("MainWindow", "writeSetting", Q_NULLPTR));
-        QTableWidgetItem *___qtablewidgetitem108 = tableWidget_camSetting->horizontalHeaderItem(0);
-        ___qtablewidgetitem108->setText(QApplication::translate("MainWindow", "1", Q_NULLPTR));
-        QTableWidgetItem *___qtablewidgetitem109 = tableWidget_camSetting->horizontalHeaderItem(1);
-        ___qtablewidgetitem109->setText(QApplication::translate("MainWindow", "2", Q_NULLPTR));
-        QTableWidgetItem *___qtablewidgetitem110 = tableWidget_camSetting->horizontalHeaderItem(2);
-        ___qtablewidgetitem110->setText(QApplication::translate("MainWindow", "3", Q_NULLPTR));
-        QTableWidgetItem *___qtablewidgetitem111 = tableWidget_camSetting->horizontalHeaderItem(3);
-        ___qtablewidgetitem111->setText(QApplication::translate("MainWindow", "4", Q_NULLPTR));
-        QTableWidgetItem *___qtablewidgetitem112 = tableWidget_camSetting->verticalHeaderItem(0);
-        ___qtablewidgetitem112->setText(QApplication::translate("MainWindow", "1", Q_NULLPTR));
-        QTableWidgetItem *___qtablewidgetitem113 = tableWidget_camSetting->verticalHeaderItem(1);
-        ___qtablewidgetitem113->setText(QApplication::translate("MainWindow", "2", Q_NULLPTR));
+        QTableWidgetItem *___qtablewidgetitem74 = tableWidget_camSetting->horizontalHeaderItem(0);
+        ___qtablewidgetitem74->setText(QApplication::translate("MainWindow", "1", Q_NULLPTR));
+        QTableWidgetItem *___qtablewidgetitem75 = tableWidget_camSetting->horizontalHeaderItem(1);
+        ___qtablewidgetitem75->setText(QApplication::translate("MainWindow", "2", Q_NULLPTR));
+        QTableWidgetItem *___qtablewidgetitem76 = tableWidget_camSetting->horizontalHeaderItem(2);
+        ___qtablewidgetitem76->setText(QApplication::translate("MainWindow", "3", Q_NULLPTR));
+        QTableWidgetItem *___qtablewidgetitem77 = tableWidget_camSetting->horizontalHeaderItem(3);
+        ___qtablewidgetitem77->setText(QApplication::translate("MainWindow", "4", Q_NULLPTR));
+        QTableWidgetItem *___qtablewidgetitem78 = tableWidget_camSetting->verticalHeaderItem(0);
+        ___qtablewidgetitem78->setText(QApplication::translate("MainWindow", "1", Q_NULLPTR));
+        QTableWidgetItem *___qtablewidgetitem79 = tableWidget_camSetting->verticalHeaderItem(1);
+        ___qtablewidgetitem79->setText(QApplication::translate("MainWindow", "2", Q_NULLPTR));
 
-        const bool __sortingEnabled5 = tableWidget_camSetting->isSortingEnabled();
+        const bool __sortingEnabled3 = tableWidget_camSetting->isSortingEnabled();
         tableWidget_camSetting->setSortingEnabled(false);
-        QTableWidgetItem *___qtablewidgetitem114 = tableWidget_camSetting->item(0, 0);
-        ___qtablewidgetitem114->setText(QApplication::translate("MainWindow", "\350\241\214\346\240\274\347\202\271\346\225\260", Q_NULLPTR));
-        QTableWidgetItem *___qtablewidgetitem115 = tableWidget_camSetting->item(0, 1);
-        ___qtablewidgetitem115->setText(QApplication::translate("MainWindow", "\345\210\227\346\240\274\347\202\271\346\225\260", Q_NULLPTR));
-        QTableWidgetItem *___qtablewidgetitem116 = tableWidget_camSetting->item(0, 2);
-        ___qtablewidgetitem116->setText(QApplication::translate("MainWindow", "\346\240\274\345\256\275\345\272\246(mm)", Q_NULLPTR));
-        QTableWidgetItem *___qtablewidgetitem117 = tableWidget_camSetting->item(0, 3);
-        ___qtablewidgetitem117->setText(QApplication::translate("MainWindow", "\346\240\274\351\253\230\345\272\246(mm)", Q_NULLPTR));
-        tableWidget_camSetting->setSortingEnabled(__sortingEnabled5);
+        QTableWidgetItem *___qtablewidgetitem80 = tableWidget_camSetting->item(0, 0);
+        ___qtablewidgetitem80->setText(QApplication::translate("MainWindow", "\350\241\214\346\240\274\347\202\271\346\225\260", Q_NULLPTR));
+        QTableWidgetItem *___qtablewidgetitem81 = tableWidget_camSetting->item(0, 1);
+        ___qtablewidgetitem81->setText(QApplication::translate("MainWindow", "\345\210\227\346\240\274\347\202\271\346\225\260", Q_NULLPTR));
+        QTableWidgetItem *___qtablewidgetitem82 = tableWidget_camSetting->item(0, 2);
+        ___qtablewidgetitem82->setText(QApplication::translate("MainWindow", "\346\240\274\345\256\275\345\272\246(mm)", Q_NULLPTR));
+        QTableWidgetItem *___qtablewidgetitem83 = tableWidget_camSetting->item(0, 3);
+        ___qtablewidgetitem83->setText(QApplication::translate("MainWindow", "\346\240\274\351\253\230\345\272\246(mm)", Q_NULLPTR));
+        tableWidget_camSetting->setSortingEnabled(__sortingEnabled3);
 
         pushButton_cam_intri->setText(QApplication::translate("MainWindow", "\346\240\207\345\256\232\345\206\205\345\217\202", Q_NULLPTR));
         toolButton_cam_intri->setText(QApplication::translate("MainWindow", "...", Q_NULLPTR));
@@ -2247,6 +2313,130 @@ public:
         toolButton_cam_extri->setText(QApplication::translate("MainWindow", "...", Q_NULLPTR));
         lineEdit_cam_extri->setText(QApplication::translate("MainWindow", "../Pictures/Grap_frame", Q_NULLPTR));
         pushButton_cam_save->setText(QApplication::translate("MainWindow", "\344\277\235\345\255\230\347\273\223\346\236\234", Q_NULLPTR));
+        groupBox_3->setTitle(QApplication::translate("MainWindow", "Projector_Data", Q_NULLPTR));
+        label_camMatrix_3->setText(QApplication::translate("MainWindow", "projectorIntrinsicMatrix:", Q_NULLPTR));
+        QTableWidgetItem *___qtablewidgetitem84 = tableWidget_camMatrix_3->horizontalHeaderItem(0);
+        ___qtablewidgetitem84->setText(QApplication::translate("MainWindow", "1", Q_NULLPTR));
+        QTableWidgetItem *___qtablewidgetitem85 = tableWidget_camMatrix_3->horizontalHeaderItem(1);
+        ___qtablewidgetitem85->setText(QApplication::translate("MainWindow", "2", Q_NULLPTR));
+        QTableWidgetItem *___qtablewidgetitem86 = tableWidget_camMatrix_3->horizontalHeaderItem(2);
+        ___qtablewidgetitem86->setText(QApplication::translate("MainWindow", "3", Q_NULLPTR));
+        QTableWidgetItem *___qtablewidgetitem87 = tableWidget_camMatrix_3->verticalHeaderItem(0);
+        ___qtablewidgetitem87->setText(QApplication::translate("MainWindow", "1", Q_NULLPTR));
+        QTableWidgetItem *___qtablewidgetitem88 = tableWidget_camMatrix_3->verticalHeaderItem(1);
+        ___qtablewidgetitem88->setText(QApplication::translate("MainWindow", "2", Q_NULLPTR));
+        QTableWidgetItem *___qtablewidgetitem89 = tableWidget_camMatrix_3->verticalHeaderItem(2);
+        ___qtablewidgetitem89->setText(QApplication::translate("MainWindow", "3", Q_NULLPTR));
+        label_camRotationMatrix_3->setText(QApplication::translate("MainWindow", "projectorRotationMatrix:", Q_NULLPTR));
+        QTableWidgetItem *___qtablewidgetitem90 = tableWidget_camRotationMatrix_3->horizontalHeaderItem(0);
+        ___qtablewidgetitem90->setText(QApplication::translate("MainWindow", "1", Q_NULLPTR));
+        QTableWidgetItem *___qtablewidgetitem91 = tableWidget_camRotationMatrix_3->horizontalHeaderItem(1);
+        ___qtablewidgetitem91->setText(QApplication::translate("MainWindow", "2", Q_NULLPTR));
+        QTableWidgetItem *___qtablewidgetitem92 = tableWidget_camRotationMatrix_3->horizontalHeaderItem(2);
+        ___qtablewidgetitem92->setText(QApplication::translate("MainWindow", "3", Q_NULLPTR));
+        QTableWidgetItem *___qtablewidgetitem93 = tableWidget_camRotationMatrix_3->verticalHeaderItem(0);
+        ___qtablewidgetitem93->setText(QApplication::translate("MainWindow", "1", Q_NULLPTR));
+        QTableWidgetItem *___qtablewidgetitem94 = tableWidget_camRotationMatrix_3->verticalHeaderItem(1);
+        ___qtablewidgetitem94->setText(QApplication::translate("MainWindow", "2", Q_NULLPTR));
+        QTableWidgetItem *___qtablewidgetitem95 = tableWidget_camRotationMatrix_3->verticalHeaderItem(2);
+        ___qtablewidgetitem95->setText(QApplication::translate("MainWindow", "3", Q_NULLPTR));
+        label_camTranslationVector_3->setText(QApplication::translate("MainWindow", "proTranslationVector:", Q_NULLPTR));
+        label_camError_3->setText(QApplication::translate("MainWindow", "proError:", Q_NULLPTR));
+        QTableWidgetItem *___qtablewidgetitem96 = tableWidget_camTranslationVector_3->horizontalHeaderItem(0);
+        ___qtablewidgetitem96->setText(QApplication::translate("MainWindow", "1", Q_NULLPTR));
+        QTableWidgetItem *___qtablewidgetitem97 = tableWidget_camTranslationVector_3->verticalHeaderItem(0);
+        ___qtablewidgetitem97->setText(QApplication::translate("MainWindow", "1", Q_NULLPTR));
+        QTableWidgetItem *___qtablewidgetitem98 = tableWidget_camTranslationVector_3->verticalHeaderItem(1);
+        ___qtablewidgetitem98->setText(QApplication::translate("MainWindow", "2", Q_NULLPTR));
+        QTableWidgetItem *___qtablewidgetitem99 = tableWidget_camTranslationVector_3->verticalHeaderItem(2);
+        ___qtablewidgetitem99->setText(QApplication::translate("MainWindow", "3", Q_NULLPTR));
+        QTableWidgetItem *___qtablewidgetitem100 = tableWidget_camError_3->horizontalHeaderItem(0);
+        ___qtablewidgetitem100->setText(QApplication::translate("MainWindow", "1", Q_NULLPTR));
+        QTableWidgetItem *___qtablewidgetitem101 = tableWidget_camError_3->verticalHeaderItem(0);
+        ___qtablewidgetitem101->setText(QApplication::translate("MainWindow", "1", Q_NULLPTR));
+        QTableWidgetItem *___qtablewidgetitem102 = tableWidget_camError_3->verticalHeaderItem(1);
+        ___qtablewidgetitem102->setText(QApplication::translate("MainWindow", "2", Q_NULLPTR));
+        QTableWidgetItem *___qtablewidgetitem103 = tableWidget_camError_3->verticalHeaderItem(2);
+        ___qtablewidgetitem103->setText(QApplication::translate("MainWindow", "3", Q_NULLPTR));
+        label_camDistortion_3->setText(QApplication::translate("MainWindow", "projectorDistortion:", Q_NULLPTR));
+        QTableWidgetItem *___qtablewidgetitem104 = tableWidget_camDistortion_3->horizontalHeaderItem(0);
+        ___qtablewidgetitem104->setText(QApplication::translate("MainWindow", "1", Q_NULLPTR));
+        QTableWidgetItem *___qtablewidgetitem105 = tableWidget_camDistortion_3->horizontalHeaderItem(1);
+        ___qtablewidgetitem105->setText(QApplication::translate("MainWindow", "2", Q_NULLPTR));
+        QTableWidgetItem *___qtablewidgetitem106 = tableWidget_camDistortion_3->horizontalHeaderItem(2);
+        ___qtablewidgetitem106->setText(QApplication::translate("MainWindow", "3", Q_NULLPTR));
+        QTableWidgetItem *___qtablewidgetitem107 = tableWidget_camDistortion_3->horizontalHeaderItem(3);
+        ___qtablewidgetitem107->setText(QApplication::translate("MainWindow", "4", Q_NULLPTR));
+        QTableWidgetItem *___qtablewidgetitem108 = tableWidget_camDistortion_3->horizontalHeaderItem(4);
+        ___qtablewidgetitem108->setText(QApplication::translate("MainWindow", "5", Q_NULLPTR));
+        QTableWidgetItem *___qtablewidgetitem109 = tableWidget_camDistortion_3->verticalHeaderItem(0);
+        ___qtablewidgetitem109->setText(QApplication::translate("MainWindow", "1", Q_NULLPTR));
+        QTableWidgetItem *___qtablewidgetitem110 = tableWidget_camDistortion_3->verticalHeaderItem(1);
+        ___qtablewidgetitem110->setText(QApplication::translate("MainWindow", "2", Q_NULLPTR));
+
+        const bool __sortingEnabled4 = tableWidget_camDistortion_3->isSortingEnabled();
+        tableWidget_camDistortion_3->setSortingEnabled(false);
+        QTableWidgetItem *___qtablewidgetitem111 = tableWidget_camDistortion_3->item(0, 0);
+        ___qtablewidgetitem111->setText(QApplication::translate("MainWindow", "k1", Q_NULLPTR));
+        QTableWidgetItem *___qtablewidgetitem112 = tableWidget_camDistortion_3->item(0, 1);
+        ___qtablewidgetitem112->setText(QApplication::translate("MainWindow", "k2", Q_NULLPTR));
+        QTableWidgetItem *___qtablewidgetitem113 = tableWidget_camDistortion_3->item(0, 2);
+        ___qtablewidgetitem113->setText(QApplication::translate("MainWindow", "p1", Q_NULLPTR));
+        QTableWidgetItem *___qtablewidgetitem114 = tableWidget_camDistortion_3->item(0, 3);
+        ___qtablewidgetitem114->setText(QApplication::translate("MainWindow", "p2", Q_NULLPTR));
+        QTableWidgetItem *___qtablewidgetitem115 = tableWidget_camDistortion_3->item(0, 4);
+        ___qtablewidgetitem115->setText(QApplication::translate("MainWindow", "k3", Q_NULLPTR));
+        tableWidget_camDistortion_3->setSortingEnabled(__sortingEnabled4);
+
+        label_camSetting_3->setText(QApplication::translate("MainWindow", "proSetting:", Q_NULLPTR));
+        pushButton_camReadSetting_3->setText(QApplication::translate("MainWindow", "readSetting", Q_NULLPTR));
+        pushButton_camWriteSetting_3->setText(QApplication::translate("MainWindow", "writeSetting", Q_NULLPTR));
+        QTableWidgetItem *___qtablewidgetitem116 = tableWidget_camSetting_3->horizontalHeaderItem(0);
+        ___qtablewidgetitem116->setText(QApplication::translate("MainWindow", "1", Q_NULLPTR));
+        QTableWidgetItem *___qtablewidgetitem117 = tableWidget_camSetting_3->horizontalHeaderItem(1);
+        ___qtablewidgetitem117->setText(QApplication::translate("MainWindow", "2", Q_NULLPTR));
+        QTableWidgetItem *___qtablewidgetitem118 = tableWidget_camSetting_3->horizontalHeaderItem(2);
+        ___qtablewidgetitem118->setText(QApplication::translate("MainWindow", "3", Q_NULLPTR));
+        QTableWidgetItem *___qtablewidgetitem119 = tableWidget_camSetting_3->horizontalHeaderItem(3);
+        ___qtablewidgetitem119->setText(QApplication::translate("MainWindow", "4", Q_NULLPTR));
+        QTableWidgetItem *___qtablewidgetitem120 = tableWidget_camSetting_3->horizontalHeaderItem(4);
+        ___qtablewidgetitem120->setText(QApplication::translate("MainWindow", "5", Q_NULLPTR));
+        QTableWidgetItem *___qtablewidgetitem121 = tableWidget_camSetting_3->horizontalHeaderItem(5);
+        ___qtablewidgetitem121->setText(QApplication::translate("MainWindow", "6", Q_NULLPTR));
+        QTableWidgetItem *___qtablewidgetitem122 = tableWidget_camSetting_3->verticalHeaderItem(0);
+        ___qtablewidgetitem122->setText(QApplication::translate("MainWindow", "1", Q_NULLPTR));
+        QTableWidgetItem *___qtablewidgetitem123 = tableWidget_camSetting_3->verticalHeaderItem(1);
+        ___qtablewidgetitem123->setText(QApplication::translate("MainWindow", "2", Q_NULLPTR));
+
+        const bool __sortingEnabled5 = tableWidget_camSetting_3->isSortingEnabled();
+        tableWidget_camSetting_3->setSortingEnabled(false);
+        QTableWidgetItem *___qtablewidgetitem124 = tableWidget_camSetting_3->item(0, 0);
+        ___qtablewidgetitem124->setText(QApplication::translate("MainWindow", "\350\241\214\346\240\274\347\202\271\346\225\260", Q_NULLPTR));
+        QTableWidgetItem *___qtablewidgetitem125 = tableWidget_camSetting_3->item(0, 1);
+        ___qtablewidgetitem125->setText(QApplication::translate("MainWindow", "\345\210\227\346\240\274\347\202\271\346\225\260", Q_NULLPTR));
+        QTableWidgetItem *___qtablewidgetitem126 = tableWidget_camSetting_3->item(0, 2);
+        ___qtablewidgetitem126->setText(QApplication::translate("MainWindow", "\346\240\274\345\256\275\345\272\246(mm)", Q_NULLPTR));
+        QTableWidgetItem *___qtablewidgetitem127 = tableWidget_camSetting_3->item(0, 3);
+        ___qtablewidgetitem127->setText(QApplication::translate("MainWindow", "\346\240\274\351\253\230\345\272\246(mm)", Q_NULLPTR));
+        QTableWidgetItem *___qtablewidgetitem128 = tableWidget_camSetting_3->item(0, 4);
+        ___qtablewidgetitem128->setText(QApplication::translate("MainWindow", "\346\212\225\345\275\261\350\241\214\346\240\274\347\202\271\346\225\260", Q_NULLPTR));
+        QTableWidgetItem *___qtablewidgetitem129 = tableWidget_camSetting_3->item(0, 5);
+        ___qtablewidgetitem129->setText(QApplication::translate("MainWindow", "\346\212\225\345\275\261\345\210\227\346\240\274\347\202\271\346\225\260", Q_NULLPTR));
+        tableWidget_camSetting_3->setSortingEnabled(__sortingEnabled5);
+
+        label_3->setText(QApplication::translate("MainWindow", "Homography_Dir:", Q_NULLPTR));
+        toolButton_projector_homo_dir->setText(QApplication::translate("MainWindow", "...", Q_NULLPTR));
+        lineEdit_projector_homo_dir->setText(QApplication::translate("MainWindow", "../Pictures/Grap_frame/projector", Q_NULLPTR));
+        label_2->setText(QApplication::translate("MainWindow", "\346\212\225\345\275\261\345\233\276\347\211\207:", Q_NULLPTR));
+        toolButton_projector_imgPath->setText(QApplication::translate("MainWindow", "...", Q_NULLPTR));
+        lineEdit_projector_imgPath->setText(QApplication::translate("MainWindow", "../Pictures/Grap_frame/projector", Q_NULLPTR));
+        pushButton_cam_intri_3->setText(QApplication::translate("MainWindow", "\346\240\207\345\256\232\345\206\205\345\217\202", Q_NULLPTR));
+        toolButton_cam_intri_3->setText(QApplication::translate("MainWindow", "...", Q_NULLPTR));
+        lineEdit_cam_intri_3->setText(QApplication::translate("MainWindow", "../Pictures/Grap_frame/projector", Q_NULLPTR));
+        pushButton_cam_extri_3->setText(QApplication::translate("MainWindow", "\346\240\207\345\256\232\345\244\226\345\217\202", Q_NULLPTR));
+        toolButton_cam_extri_3->setText(QApplication::translate("MainWindow", "...", Q_NULLPTR));
+        lineEdit_cam_extri_3->setText(QApplication::translate("MainWindow", "../Pictures/Grap_frame/projector", Q_NULLPTR));
+        pushButton_cam_save_3->setText(QApplication::translate("MainWindow", "\344\277\235\345\255\230\347\273\223\346\236\234", Q_NULLPTR));
         tabWidget->setTabText(tabWidget->indexOf(tab_1), QApplication::translate("MainWindow", "\347\233\270\346\234\272/\346\212\225\345\275\261\344\273\252", Q_NULLPTR));
         label_10->setText(QApplication::translate("MainWindow", "TextLabel", Q_NULLPTR));
         tabWidget->setTabText(tabWidget->indexOf(tab_2), QApplication::translate("MainWindow", "\347\263\273\347\273\237\346\240\207\345\256\232", Q_NULLPTR));

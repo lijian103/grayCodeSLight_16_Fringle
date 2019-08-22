@@ -53,7 +53,8 @@ SOURCES += \
         toolSource/structured_light/camera_calibration.cpp \
         toolSource/structured_light/virtualCamera.cpp \
     toolSource/python_to_cplusplus/python_to_cplusplus.cpp \
-    softEntry.cpp
+    softEntry.cpp \
+    toolSource/structured_light/projector_calibration.cpp
 
 HEADERS += \
         mainwindow.h \
@@ -63,7 +64,8 @@ HEADERS += \
         toolSource/structured_light/camera_calibration.h \
         toolSource/structured_light/virtualCamera.h \
     toolSource/python_to_cplusplus/python_to_cplusplus.h \
-    softEntry.h
+    softEntry.h \
+    toolSource/structured_light/projector_calibration.h
 
 
 FORMS += \

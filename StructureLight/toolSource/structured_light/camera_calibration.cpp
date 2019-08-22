@@ -133,11 +133,13 @@ void CameraCalibration::unloadCameraExtriImg()
     cv::cvtColor( img, img_grey, cv::COLOR_BGR2GRAY );
     img.copyTo(img_copy);//img_copy=img.clone();
 
+
     //show img to user
     static int img_index=-1;
     img_index++;
     cv::namedWindow("origin_img"+std::to_string(img_index), cv::WINDOW_AUTOSIZE );
     cv::imshow("origin_img"+std::to_string(img_index),img);
+
     cv::waitKey(20);
 
 
@@ -363,6 +365,7 @@ void CameraCalibration::unloadCameraExtriImg()
 
  void CameraCalibration::perspectiveTransformation(std::vector<cv::Point2f> corners_in,cv::Mat homoMatrix, std::vector<cv::Point3f> &points_out)
  {
+    points_out.clear();
     int type = homoMatrix.type();
     if(type==CV_32F)
     {
@@ -569,6 +572,19 @@ void CameraCalibration::loadCameraConfig(const char *path,std::vector<std::strin
     node["calibPath"] >> cameraParam[4];
     node["exCalibPath"] >> cameraParam[5];
 
+    if(cameraParam.size() == 10)
+    {
+        node = fs["ProjectorImgCorners"];
+        node["numOfProjectorImgCornersX"] >> cameraParam[6];
+        node["numOfProjectorImgCornersY"] >> cameraParam[7];
+
+        node = fs["ProjectImgPath"];
+        node["Path"] >> cameraParam[8];
+
+        node = fs["ProjectHomoDir"];
+        node["DirPath"] >> cameraParam[9];
+    }
+
 
     fs.release();
 }
@@ -588,8 +604,28 @@ void CameraCalibration::saveCameraConfig(const char *path, std::vector<std::stri
     fs << "calibrationPath" << "{:";
         fs << "calibPath" << cameraParam[4] << "exCalibPath" << cameraParam[5];
     fs<<"}";
+
+    if(cameraParam.size() == 10)
+    {
+        fs << "ProjectorImgCorners" << "{:";
+            fs << "numOfProjectorImgCornersX" << cameraParam[6] << "numOfProjectorImgCornersY" << cameraParam[7];
+        fs<<"}";
+
+        fs << "ProjectImgPath" << "{:";
+            fs << "Path" << cameraParam[8];
+        fs<<"}";
+
+        fs << "ProjectHomoDir" << "{:";
+            fs << "DirPath" << cameraParam[9];
+        fs<<"}";
+
+    }
+
     fs.release();
 }
+
+
+
 
 
 
