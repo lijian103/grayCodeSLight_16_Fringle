@@ -4,6 +4,6 @@
   <numOfCornersY>"7"</numOfCornersY></NumOfCorners_for_each_img>
 <BoardSquare><Height>"11"</Height>
   <Width>"11"</Width></BoardSquare>
-<calibrationPath><calibPath>D:/Trunk/Products/grayCodeSLight_16_Fringle/Pictures/Grap_frame/camera_1</calibPath>
-  <exCalibPath>D:/Trunk/Products/grayCodeSLight_16_Fringle/Pictures/Grap_frame/projector/camera/20190821141138_0.bmp</exCalibPath></calibrationPath>
+<calibrationPath><calibPath>D:/Trunk/Products/grayCodeSLight_16_Fringle_each_pixel/Pictures/Grap_frame/camera_1</calibPath>
+  <exCalibPath>D:/Trunk/Products/grayCodeSLight_16_Fringle_each_pixel/Pictures/Grap_frame/projector/camera/20190829110246_0.bmp</exCalibPath></calibrationPath>
 </opencv_storage>

@@ -21,22 +21,22 @@
     <cols>1</cols>
     <dt>d</dt>
     <data>
-      -6.7980476500808450e+01 -5.8785938751271203e+01
-      5.1887228729344770e+02</data></Translation>
+      -5.4532175512650703e+01 -4.4283780356154743e+01
+      5.1718161875580313e+02</data></Translation>
   <Rotation type_id="opencv-matrix">
     <rows>3</rows>
     <cols>3</cols>
     <dt>d</dt>
     <data>
-      9.9869821265207281e-01 4.6487827429201607e-02
-      -2.0994331293659744e-02 -4.1728950040226191e-02
-      9.8130706154605030e-01 1.8787002338956713e-01
-      2.9335554777359791e-02 -1.8674938516838271e-01
-      9.8196949665716993e-01</data></Rotation>
+      9.9961926401239465e-01 -2.4604297572685875e-02
+      -1.2488216697075366e-02 2.6394902702252837e-02
+      9.8457269500471989e-01 1.7297374761067469e-01
+      8.0396596107667230e-03 -1.7323751554469230e-01
+      9.8484726078780638e-01</data></Rotation>
   <Height>1140</Height>
   <Width>912</Width>
   <total_err>1.9616063345049173e-01</total_err>
-  <err_of_extrImg>2.3487829168107147e-01</err_of_extrImg></Camera>
+  <err_of_extrImg>2.2864687069686912e-01</err_of_extrImg></Camera>
 <BoardSquare><Height>11.</Height>
   <Width>11.</Width></BoardSquare>
 <NumOfCorners_for_each_img><numOfCornersX>7</numOfCornersX>

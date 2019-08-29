@@ -52,9 +52,13 @@ SOURCES += \
         toolSource/structured_light/utilities.cpp \
         toolSource/structured_light/camera_calibration.cpp \
         toolSource/structured_light/virtualCamera.cpp \
-    toolSource/python_to_cplusplus/python_to_cplusplus.cpp \
-    softEntry.cpp \
-    toolSource/structured_light/projector_calibration.cpp
+        toolSource/python_to_cplusplus/python_to_cplusplus.cpp \
+        softEntry.cpp \
+        toolSource/structured_light/projector_calibration.cpp\
+        toolSource/structured_light/PointCloudImage.cpp\
+        toolSource/structured_light/MeshCreator.cpp\
+        toolSource/structured_light/GrayCodes.cpp \
+    toolSource/structured_light/reconstructor.cpp
 
 HEADERS += \
         mainwindow.h \
@@ -65,7 +69,11 @@ HEADERS += \
         toolSource/structured_light/virtualCamera.h \
     toolSource/python_to_cplusplus/python_to_cplusplus.h \
     softEntry.h \
-    toolSource/structured_light/projector_calibration.h
+    toolSource/structured_light/projector_calibration.h\
+        toolSource/structured_light/PointCloudImage.h\
+        toolSource/structured_light/MeshCreator.h\
+        toolSource/structured_light/GrayCodes.h \
+    toolSource/structured_light/reconstructor.h
 
 
 FORMS += \

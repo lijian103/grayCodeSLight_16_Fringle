@@ -218,6 +218,7 @@ Makefile: ..\StructureLight\StructureLight.pro ..\..\..\..\Qt\Qt5.9.8\5.9.8\msvc
 		..\..\..\..\Qt\Qt5.9.8\5.9.8\msvc2017_64\mkspecs\features\qt_config.prf \
 		..\..\..\..\Qt\Qt5.9.8\5.9.8\msvc2017_64\mkspecs\win32-msvc\qmake.conf \
 		..\..\..\..\Qt\Qt5.9.8\5.9.8\msvc2017_64\mkspecs\features\spec_post.prf \
+		.qmake.stash \
 		..\..\..\..\Qt\Qt5.9.8\5.9.8\msvc2017_64\mkspecs\features\exclusive_builds.prf \
 		..\..\..\..\Qt\Qt5.9.8\5.9.8\msvc2017_64\mkspecs\common\msvc-version.conf \
 		..\..\..\..\Qt\Qt5.9.8\5.9.8\msvc2017_64\mkspecs\features\toolchain.prf \
@@ -390,6 +391,7 @@ Makefile: ..\StructureLight\StructureLight.pro ..\..\..\..\Qt\Qt5.9.8\5.9.8\msvc
 ..\..\..\..\Qt\Qt5.9.8\5.9.8\msvc2017_64\mkspecs\features\qt_config.prf:
 ..\..\..\..\Qt\Qt5.9.8\5.9.8\msvc2017_64\mkspecs\win32-msvc\qmake.conf:
 ..\..\..\..\Qt\Qt5.9.8\5.9.8\msvc2017_64\mkspecs\features\spec_post.prf:
+.qmake.stash:
 ..\..\..\..\Qt\Qt5.9.8\5.9.8\msvc2017_64\mkspecs\features\exclusive_builds.prf:
 ..\..\..\..\Qt\Qt5.9.8\5.9.8\msvc2017_64\mkspecs\common\msvc-version.conf:
 ..\..\..\..\Qt\Qt5.9.8\5.9.8\msvc2017_64\mkspecs\features\toolchain.prf:

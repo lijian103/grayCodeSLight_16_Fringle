@@ -3,16 +3,34 @@
 
 int  nBuffersInQueue_total = 0;
 int  image_id = 0;
-String img_name[8]={
-    "cos_wave_Period_16_initial_phase_0.bmp",
-    "cos_wave_Period_16_initial_phase_1.5707963267948966.bmp",
-    "cos_wave_Period_16_initial_phase_3.141592653589793.bmp",
-    "cos_wave_Period_16_initial_phase_4.71238898038469.bmp",
+String img_name[22]={
+    "01.bmp",
+    "02.bmp",
+    "03.bmp",
+    "04.bmp",
 
-    "grayCode_G0.bmp",
-    "grayCode_G1.bmp",
-    "grayCode_G2.bmp",
-    "grayCode_G3.bmp",
+    "05.bmp",
+    "06.bmp",
+    "07.bmp",
+    "08.bmp",
+
+    "09.bmp",
+    "10.bmp",
+
+    "11.bmp",
+    "12.bmp",
+    "13.bmp",
+    "14.bmp",
+
+    "15.bmp",
+    "16.bmp",
+    "17.bmp",
+    "18.bmp",
+
+    "19.bmp",
+    "20.bmp",
+    "21.bmp",
+    "22.bmp"
                    };
 PylonCamera::PylonCamera()
 {
@@ -35,7 +53,7 @@ void PylonCamera::initCameraGrap()
     cout << "Using device " << this->ptrCamera->GetDeviceInfo().GetModelName() << endl;
     // The parameter MaxNumBuffer can be used to control the count of buffers
     // allocated for grabbing. The default value of this parameter is 10.
-    this->ptrCamera->MaxNumBuffer = 10;
+    this->ptrCamera->MaxNumBuffer = 25;
 
     // Start the grabbing of c_countOfImagesToGrab images.
     // The camera device is parameterized with a default configuration which
@@ -169,7 +187,7 @@ int PylonCamera::Grab_Strategies( )
                 myMutex.unlock();
                 cout << "Retrieved " << nBuffersInQueue << " grab results from output queue." << endl << endl;
                 nBuffersInQueue_total = nBuffersInQueue_total + nBuffersInQueue;
-                if(nBuffersInQueue_total == 8)
+                if(nBuffersInQueue_total == 22)
                 {
                     cout << "成功进行一次图像序列采集，采集图像数为："<< nBuffersInQueue_total<< endl ;
                     nBuffersInQueue_total = 0;

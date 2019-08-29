@@ -16,7 +16,7 @@
 #include <opencv2/video/video.hpp>
 using namespace cv;
 extern int image_id;
-extern String img_name[8];
+extern String img_name[22];
 
 // Namespace for using cout.
 using namespace std;

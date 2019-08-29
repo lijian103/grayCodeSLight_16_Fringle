@@ -28,28 +28,6 @@ int main(int argc, char *argv[])
     thread_soft_1.detach();
     thread thread_soft_2(low_soft_entry,false);
     thread_soft_2.detach();
-
-
-
-//    Mat imgtemp=cv::imread("../Pictures/Grap_frame/20190821141647_3.bmp") ;
-//    Mat img_grey;
-//    Mat img_grey_all;
-
-//    cv::cvtColor(imgtemp, img_grey, cv::COLOR_BGR2GRAY );
-
-//    int threshold_type = 0;
-//    int const max_binary_value = 255;
-
-//    cv::threshold(img_grey, img_grey_all,66, max_binary_value, threshold_type );
-////    adaptiveThreshold(img_grey, img_grey_auto, 255, cv::ADAPTIVE_THRESH_MEAN_C, cv::THRESH_BINARY, 31, 10);//自适应阈值分割
-//    cv::imwrite("../Pictures/Grap_frame/20190821093809_02.bmp",img_grey_all);
-////    cv::imwrite("../Pictures/Grap_frame/20190821093809_03.bmp",img_grey_auto);
-
-//    PythonToCplusplus mytest;
-//    mytest.Py_plotShowWave("../Pictures/Grap_frame/20190821093809_03.bmp","00",781);
-//    mytest.pltShow();
-//    mytest.pyFinalize();
-
     MainWindow w;
     w.show();
     return a.exec();

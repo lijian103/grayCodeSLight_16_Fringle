@@ -14,6 +14,8 @@
 #include "toolSource/structured_light/virtualCamera.h"
 #include "toolSource/structured_light/camera_calibration.h"
 #include "toolSource/structured_light/projector_calibration.h"
+#include "toolSource/structured_light/reconstructor.h"
+#include "toolSource/timeMeasurement/time_measurement.h"
 
 
 using namespace cv;
@@ -153,6 +155,16 @@ MainWindow::MainWindow(QWidget *parent) :
     ui->lineEdit_cam_intri->setText(QString::fromStdString(cameraParam[4]));
     ui->lineEdit_cam_extri->setText(QString::fromStdString(cameraParam[5]));
 
+    std::vector<std::string> cameraParam_2(6,"#####");
+    CameraCalibration::loadCameraConfig("../calibrationData/camera2/input/camConfig.xml",cameraParam_2);
+
+    for(size_t i = 0; i < cameraParam_2.size()-2; i++)
+    {
+         ui->tableWidget_camSetting_2->setItem(1,i,new QTableWidgetItem(QString::fromStdString(cameraParam_2[i])));
+    }
+    ui->lineEdit_cam_intri_2->setText(QString::fromStdString(cameraParam_2[4]));
+    ui->lineEdit_cam_extri_2->setText(QString::fromStdString(cameraParam_2[5]));
+
 
 
 
@@ -237,10 +249,11 @@ void MainWindow::showGrapPictures()
         if(ui->checkBox->isChecked()==true)
         {
             videoCap>>MainWindow::openCvImage;
+            Mat temp;
             if(MainWindow::openCvImage.data)
             {
-                cvtColor(MainWindow::openCvImage, MainWindow::openCvImage, cv::COLOR_BGR2GRAY);//Qt中支持的是RGB图像, OpenCV中支持的是BGR
-                QImage disImage = QImage((uchar*)(MainWindow::openCvImage.data), MainWindow::openCvImage.cols, MainWindow::openCvImage.rows, QImage::Format_Grayscale8);
+                cvtColor(MainWindow::openCvImage,temp, cv::COLOR_BGR2RGB);//Qt中支持的是RGB图像, OpenCV中支持的是BGR
+                QImage disImage = QImage((uchar*)(temp.data), temp.cols, temp.rows, QImage::Format_RGB888);
                 ui->label_9->setPixmap(QPixmap::fromImage(disImage));
             }
         }
@@ -315,14 +328,21 @@ void MainWindow::saveFourPictures()
 
 void MainWindow::selectDirPathDialg()
 {
-    QString file_path = QFileDialog::getExistingDirectory(this,QString::fromStdWString(L"请选择文件夹路径"), "../../../Pictures/Hardware_trigger_frame/");
-    ui->lineEdit_2->setText(file_path);
+    QString file_path = QFileDialog::getExistingDirectory(this,QString::fromStdWString(L"请选择文件夹路径"), "../Pictures/Hardware_trigger_frame/");
+    if(file_path != "")
+    {
+        ui->lineEdit_2->setText(file_path);
+    }
+
 }
 
 void MainWindow::selectDirPathDialg_grapMode()
 {
-    QString file_path = QFileDialog::getExistingDirectory(this,QString::fromStdWString(L"请选择文件夹路径"), "../../../Pictures/");
-    ui->lineEdit->setText(file_path);
+    QString file_path = QFileDialog::getExistingDirectory(this,QString::fromStdWString(L"请选择文件夹路径"), "../Pictures/");
+    if(file_path != "")
+    {
+        ui->lineEdit->setText(file_path);
+    }
 }
 
 void MainWindow::cameraModeChoose()
@@ -699,15 +719,40 @@ void MainWindow::generate3DCloud()
 {
     ui->tabWidget->setCurrentIndex(4);
     ui->tabWidget->currentIndex();
+    //开一个新进程，用于三维重建
+    if(this->ptrThread_cameraCalibration == nullptr)
+    {
+        this->ptrThread_cameraCalibration = new std::thread(&MainWindow::generate3DCloud_1_Thread,this);
+        this->ptrThread_cameraCalibration->detach();
+    }
+    else
+    {
+        std::cout<<"*****************正在三维重建******************************"<<std::endl;
+    }
+
+}
+
+void MainWindow::generate3DCloud_1_Thread()
+{
+    mytool::TimeMeasurement t1;
+    Reconstructor Recon3DCloud;
+
+    Recon3DCloud.runReconstruction();
+
+    t1.PrintTimeConsumption();
+
+    delete this->ptrThread_cameraCalibration;
+    this->ptrThread_cameraCalibration=nullptr;
 }
 
 
 //****************相机标定，标定相机内参**************
+
 void MainWindow::on_pushButton_cam_intri_clicked()
 {
 
     //开一个新进程，用于相机标定，在标定未完成前，继续按标定按钮无效，标定完，可以继续标定
-    if(this->ptrThread_cameraCalibration==nullptr)
+    if(this->ptrThread_cameraCalibration == nullptr)
     {
         this->ptrThread_cameraCalibration = new std::thread(&MainWindow::cameraCalibration_1_Thread,this,true);
         this->ptrThread_cameraCalibration->detach();
@@ -983,15 +1028,25 @@ void MainWindow::on_pushButton_camReadSetting_clicked()
 
 void MainWindow::on_toolButton_cam_intri_clicked()
 {
-    QString file_path = QFileDialog::getExistingDirectory(this,QString::fromStdWString(L"请选择文件夹路径"), "../Pictures/");
-    ui->lineEdit_cam_intri->setText(file_path);
+    QString file_path = QFileDialog::getExistingDirectory(this,QString::fromStdWString(L"请选择文件夹路径"), "../Pictures/Grap_frame/");
+
+    if(file_path != "")
+    {
+         ui->lineEdit_cam_intri->setText(file_path);
+         on_pushButton_camWriteSetting_clicked();
+    }
 
 }
 
 void MainWindow::on_toolButton_cam_extri_clicked()
 {
-    QString file_path = QFileDialog::getOpenFileName(this,QString::fromStdWString(L"请选择外参文件路径"), "../Pictures/Grap_frame/");
-    ui->lineEdit_cam_extri->setText(file_path);
+    QString file_path = QFileDialog::getOpenFileName(this,QString::fromStdWString(L"请选择外参文件路径"), "../Pictures/Grap_frame/camera_1/");
+
+    if(file_path != "")
+    {
+         ui->lineEdit_cam_extri->setText(file_path);
+         on_pushButton_camWriteSetting_clicked();
+    }
 
 }
 
@@ -1054,33 +1109,52 @@ void MainWindow::on_pushButton_camWriteSetting_3_clicked()
 
 }
 
-void MainWindow::on_pushButton_camReadSetting_2_clicked()
-{
-
-}
 
 void MainWindow::on_toolButton_cam_intri_3_clicked()
 {
     QString file_path = QFileDialog::getExistingDirectory(this,QString::fromStdWString(L"请选择文件夹路径"), "../Pictures/Grap_frame/projector/");
-    ui->lineEdit_cam_intri_3->setText(file_path);
+    if(file_path != "")
+    {
+        ui->lineEdit_cam_intri_3->setText(file_path);
+        on_pushButton_camWriteSetting_3_clicked();
+    }
+
 }
 
 void MainWindow::on_toolButton_projector_homo_dir_clicked()
 {
     QString file_path = QFileDialog::getExistingDirectory(this,QString::fromStdWString(L"请选择文件夹路径"), "../Pictures/Grap_frame/projector/");
-    ui->lineEdit_projector_homo_dir->setText(file_path);
+
+    if(file_path != "")
+    {
+        ui->lineEdit_projector_homo_dir->setText(file_path);
+        on_pushButton_camWriteSetting_3_clicked();
+    }
+
 }
 
 void MainWindow::on_toolButton_projector_imgPath_clicked()
 {
     QString file_path = QFileDialog::getOpenFileName(this,QString::fromStdWString(L"请选择外参文件路径"), "../calibrationData/projector/input/");
-    ui->lineEdit_projector_imgPath->setText(file_path);
+    if(file_path != "")
+    {
+        ui->lineEdit_projector_imgPath->setText(file_path);
+        on_pushButton_camWriteSetting_3_clicked();
+    }
+
+
 }
 
 void MainWindow::on_toolButton_cam_extri_3_clicked()
 {
-    QString file_path = QFileDialog::getOpenFileName(this,QString::fromStdWString(L"请选择外参文件路径"), "../Pictures/Grap_frame/projector/projector/");
-    ui->lineEdit_cam_extri_3->setText(file_path);
+    QString file_path = QFileDialog::getOpenFileName(this,QString::fromStdWString(L"请选择外参文件路径"), "../Pictures/Grap_frame/projector/camera/");
+
+    if(file_path != "")
+    {
+        ui->lineEdit_cam_extri_3->setText(file_path);
+        on_pushButton_camWriteSetting_3_clicked();
+    }
+
 }
 
 void MainWindow::on_pushButton_cam_intri_3_clicked()
@@ -1199,8 +1273,9 @@ void MainWindow::projectorCalibration_1_Thread(bool isIntri)
     {
         //标定外参
         ProjectorCalib_1.loadProjectorImgs(QString::fromStdString(cameraParam[8]));
-        //外参图片
-        ProjectorCalib_1.loadCameraExtriImgs(QString::fromStdString(cameraParam[5]));
+
+        //外参图片,修改后再函数findProjectorExtrisics()里面导入，外参图片统一为camera图片，不为projector图片，最后转换为projector图片
+//        ProjectorCalib_1.loadCameraExtriImgs(QString::fromStdString(cameraParam[5]));
 
         ProjectorCalib_1.findProjectorExtrisics(QString::fromStdString(cameraParam[4]),QString::fromStdString(cameraParam[9]),cameraParam[5]);
 
@@ -1253,5 +1328,210 @@ void MainWindow::on_pushButton_cam_save_3_clicked()
     if(this->ptrThread_cameraCalibration != nullptr)
     {
         this->saveFileFlag = 1;
+    }
+}
+
+
+void MainWindow::on_pushButton_camReadSetting_2_clicked()
+{
+    std::vector<std::string> cameraParam(6,"#####");
+    CameraCalibration::loadCameraConfig("../calibrationData/camera2/input/camConfig.xml",cameraParam);
+
+    for(size_t i = 0; i < cameraParam.size()-2; i++)
+    {
+         ui->tableWidget_camSetting_2->setItem(1,i,new QTableWidgetItem(QString::fromStdString(cameraParam[i])));
+    }
+    ui->lineEdit_cam_intri_2->setText(QString::fromStdString(cameraParam[4]));
+    ui->lineEdit_cam_extri_2->setText(QString::fromStdString(cameraParam[5]));
+
+}
+
+void MainWindow::on_pushButton_camWriteSetting_2_clicked()
+{
+    std::vector<std::string> cameraParam;
+    cameraParam.push_back((this->ui->tableWidget_camSetting_2->item(1,0)->text()).toStdString());
+    cameraParam.push_back((this->ui->tableWidget_camSetting_2->item(1,1)->text()).toStdString());
+    cameraParam.push_back((this->ui->tableWidget_camSetting_2->item(1,2)->text()).toStdString());
+    cameraParam.push_back((this->ui->tableWidget_camSetting_2->item(1,3)->text()).toStdString());
+    cameraParam.push_back((this->ui->lineEdit_cam_intri_2->text()).toStdString());
+    cameraParam.push_back((this->ui->lineEdit_cam_extri_2->text()).toStdString());
+    CameraCalibration::saveCameraConfig("../calibrationData/camera2/input/camConfig.xml",cameraParam);
+    CameraCalibration::loadCameraConfig("../calibrationData/camera2/input/camConfig.xml",cameraParam);
+
+    for(size_t i = 0; i < cameraParam.size()-2; i++)
+    {
+         ui->tableWidget_camSetting_2->setItem(1,i,new QTableWidgetItem(QString::fromStdString(cameraParam[i])));
+    }
+    ui->lineEdit_cam_intri_2->setText(QString::fromStdString(cameraParam[4]));
+    ui->lineEdit_cam_extri_2->setText(QString::fromStdString(cameraParam[5]));
+}
+
+void MainWindow::on_toolButton_cam_intri_2_clicked()
+{
+    QString file_path = QFileDialog::getExistingDirectory(this,QString::fromStdWString(L"请选择文件夹路径"), "../Pictures/Grap_frame/");
+
+    if(file_path != "")
+    {
+         ui->lineEdit_cam_intri_2->setText(file_path);
+         on_pushButton_camWriteSetting_2_clicked();
+    }
+
+}
+
+void MainWindow::on_toolButton_cam_extri_2_clicked()
+{
+    QString file_path = QFileDialog::getOpenFileName(this,QString::fromStdWString(L"请选择外参文件路径"), "../Pictures/Grap_frame/camera_2/");
+
+    if(file_path != "")
+    {
+         ui->lineEdit_cam_extri_2->setText(file_path);
+         on_pushButton_camWriteSetting_2_clicked();
+    }
+}
+
+void MainWindow::on_pushButton_cam_intri_2_clicked()
+{
+    //开一个新进程，用于相机标定，在标定未完成前，继续按标定按钮无效，标定完，可以继续标定
+    if(this->ptrThread_cameraCalibration==nullptr)
+    {
+        this->ptrThread_cameraCalibration = new std::thread(&MainWindow::cameraCalibration_2_Thread,this,true);
+        this->ptrThread_cameraCalibration->detach();
+    }
+    else
+    {
+        std::cout<<"*****************正在标定******************************"<<std::endl;
+    }
+}
+
+void MainWindow::cameraCalibration_2_Thread(bool isIntri)
+{
+    CameraCalibration CameraCalib_2;
+    CameraCalib_2.loadCalibData("../calibrationData/camera2/output/calib.xml");
+
+    std::vector<std::string> cameraParam(6,"#####");
+    CameraCalibration::loadCameraConfig("../calibrationData/camera2/input/camConfig.xml",cameraParam);
+
+
+    //开启相机标定
+    CameraCalib_2.setSquareSize(cv::Size2d(atof(cameraParam[2].c_str()),atof(cameraParam[3].c_str())));
+    CameraCalib_2.setCornersSize(cv::Size(atoi(cameraParam[0].c_str()),atoi(cameraParam[1].c_str())));
+
+    if(isIntri)
+    {
+        //导入所需要的图片到Mat
+        CameraCalib_2.loadCameraImgs(QString::fromStdString(cameraParam[4]));
+
+        //标定内参，可以不需要导入外参图片
+        //CameraCalib_1.loadCameraExtriImgs(QString::fromStdString(cameraParam[5]));
+
+        CameraCalib_2.extractImageCorners();
+        CameraCalib_2.calibrateCamera();
+        foreach (double var, CameraCalib_2.err_of_each_calibImgs)
+        {
+            std::cout<<var<<std::endl;
+        }
+        //保存内参、畸变参数、内参误差
+        CameraCalib_2.exportTxtFiles("../calibrationData/camera2/output/cam_matrix.txt",CAMCALIB_OUT_MATRIX);
+        CameraCalib_2.exportTxtFiles("../calibrationData/camera2/output/cam_distortion.txt",CAMCALIB_OUT_DISTORTION);
+        CameraCalib_2.exportTxtFiles("../calibrationData/camera2/output/cam_error.txt",CAMCALIB_OUT_ERROR);
+
+        while(1)
+        {
+
+            std::cout<<"Esc键不保存标定结果...\nEenter键保存标定结果...\n保存按钮保存标定结果..."<<std::endl;
+            if(this->saveFileFlag==1)
+            {
+                //保存xml文件
+                std::cout<<"保存标定结果"<<std::endl;
+                CameraCalib_2.saveCalibData("../calibrationData/camera2/output/calib.xml");
+                this->saveFileFlag=0;
+                break;
+            }
+            Sleep(2000);
+
+            if(cv::waitKey(10)==27)
+            {
+                std::cout<<"不保存标定结果"<<std::endl;
+                this->saveFileFlag=0;
+                break;
+            }
+
+            if(cv::waitKey(10)==13)
+            {
+                std::cout<<"保存标定结果"<<std::endl;
+                CameraCalib_2.saveCalibData("../calibrationData/camera2/output/calib.xml");
+                this->saveFileFlag=0;
+                break;
+            }
+        }
+    }
+    else
+    {
+        //标定外参
+        CameraCalib_2.loadCameraExtriImgs(QString::fromStdString(cameraParam[5]));
+
+        CameraCalib_2.findCameraExtrisics();
+
+        //保存外参、外参误差
+//        CameraCalib_2.exportTxtFiles("../calibrationData/camera2/output/cam_matrix.txt",CAMCALIB_OUT_MATRIX);
+//        CameraCalib_2.exportTxtFiles("../calibrationData/camera2/output/cam_distortion.txt",CAMCALIB_OUT_DISTORTION);
+        CameraCalib_2.exportTxtFiles("../calibrationData/camera2/output/cam_error.txt",CAMCALIB_OUT_ERROR);
+        CameraCalib_2.exportTxtFiles("../calibrationData/camera2/output/cam_rotation_matrix.txt",CAMCALIB_OUT_ROTATION);
+        CameraCalib_2.exportTxtFiles("../calibrationData/camera2/output/cam_trans_vectror.txt",CAMCALIB_OUT_TRANSLATION);
+
+        while(1)
+        {
+
+            std::cout<<"Esc键不保存标定结果...\nEenter键保存标定结果...\n保存按钮保存标定结果..."<<std::endl;
+            if(this->saveFileFlag==1)
+            {
+                //保存xml文件
+                std::cout<<"保存标定结果"<<std::endl;
+                CameraCalib_2.saveCalibData("../calibrationData/camera2/output/calib.xml");
+                this->saveFileFlag=0;
+                break;
+            }
+            Sleep(3000);
+
+            if(cv::waitKey(10)==27)
+            {
+                std::cout<<"不保存标定结果"<<std::endl;
+                this->saveFileFlag=0;
+                break;
+            }
+
+            if(cv::waitKey(10)==13)
+            {
+                std::cout<<"保存标定结果"<<std::endl;
+                CameraCalib_2.saveCalibData("../calibrationData/camera2/output/calib.xml");
+                this->saveFileFlag=0;
+                break;
+            }
+        }
+    }
+    delete this->ptrThread_cameraCalibration;
+    this->ptrThread_cameraCalibration=nullptr;
+}
+
+
+void MainWindow::on_pushButton_cam_extri_2_clicked()
+{
+    //开一个新进程，用于相机标定，在标定未完成前，继续按标定按钮无效，标定完，可以继续标定
+    if(this->ptrThread_cameraCalibration==nullptr)
+    {
+        this->ptrThread_cameraCalibration = new std::thread(&MainWindow::cameraCalibration_2_Thread,this,false);
+        this->ptrThread_cameraCalibration->detach();
+    }
+    else
+    {
+        std::cout<<"*****************正在标定******************************"<<std::endl;
+    }
+}
+
+void MainWindow::on_pushButton_cam_save_2_clicked()
+{
+    if(this->ptrThread_cameraCalibration != nullptr)
+    {
+        this->saveFileFlag=1;
     }
 }

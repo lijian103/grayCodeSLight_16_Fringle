@@ -106,7 +106,7 @@ bool ProjectorCalibration::findCornersInCamImg_projector(cv::Mat img,std::vector
 
     cv::waitKey(20);
 
-
+    camCorners->clear();
     if (cv::findChessboardCorners(img_grey, cv::Size(this->numOfCornersX,this->numOfCornersY), *camCorners, cv::CALIB_CB_ADAPTIVE_THRESH) == false)
     {
          std::cout << "can not find chessboard corners!\n";   //找不到角点
@@ -183,13 +183,13 @@ bool ProjectorCalibration::findProjectorExtrisics(const QString  projectorFilesD
     Utilities::folderScan(cameraFilesDir,&cameraFiles);
 
     int i=0;
-    for(i; i < projectorFiles.size(); i++)
+    for(i; i < cameraFiles.size(); i++)
     {
 
-        std::cout<<projectorFiles[i]<<std::endl;
+        std::cout<<cameraFiles[i]<<std::endl;
         std::cout<<exPath<<std::endl;
 
-        if(projectorFiles[i] == exPath)
+        if(cameraFiles[i] == exPath)
         {
             index = i;
             break;
@@ -197,12 +197,12 @@ bool ProjectorCalibration::findProjectorExtrisics(const QString  projectorFilesD
 
     }
 
-    if(i == projectorFiles.size())
+    if(i == cameraFiles.size())
     {
         std::cout<<"不存在外参文件"<<std::endl;
         exit(-1);
     }
-    cv::Mat projectorFile=cv::imread(projectorFiles[index].c_str());
+
     cv::Mat cameraFile=cv::imread(cameraFiles[index].c_str());
 
     std::vector<cv::Point2f> tempimgPoints;
@@ -215,6 +215,8 @@ bool ProjectorCalibration::findProjectorExtrisics(const QString  projectorFilesD
     //求完homo后，重新设置格点数
     this->reSetProjectParm();
 
+    //外参图片
+    loadCameraExtriImgs(QString::fromStdString(projectorFiles[index]));
 
     //74为阈值
     this->findCornersInCamImg_projector(extrImg, &imgPoints,74);

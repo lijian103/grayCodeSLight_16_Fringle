@@ -37,7 +37,9 @@ public:
     ~MainWindow();
     void TestThread_1();
     void cameraCalibration_1_Thread(bool isIntri);
+    void cameraCalibration_2_Thread(bool isIntri);
     void projectorCalibration_1_Thread(bool isIntri);
+    void generate3DCloud_1_Thread();
     static int cameraMode;
     static int cameraModeOlder ;
     static int thread_mode;
@@ -90,6 +92,12 @@ private slots:
     void on_pushButton_cam_intri_3_clicked();
     void on_pushButton_cam_extri_3_clicked();
     void on_pushButton_cam_save_3_clicked();
+    void on_pushButton_camWriteSetting_2_clicked();
+    void on_toolButton_cam_intri_2_clicked();
+    void on_toolButton_cam_extri_2_clicked();
+    void on_pushButton_cam_intri_2_clicked();
+    void on_pushButton_cam_extri_2_clicked();
+    void on_pushButton_cam_save_2_clicked();
 };
 
 

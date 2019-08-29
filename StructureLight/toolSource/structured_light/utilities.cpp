@@ -117,16 +117,16 @@ cv::Point2f Utilities::undistortPoints( cv::Point2f p,  VirtualCamera cam)
 }
 
 //calculate the intersection point of a ray and a plane, given the normal and a point of the plane, and a point and the vector of the ray
-cv::Scalar Utilities::planeRayInter(cv::Scalar planeNormal,cv::Scalar planePoint, cv::Scalar rayVector, cv::Scalar rayPoint)
+cv::Point3f Utilities::planeRayInter(cv::Scalar planeNormal,cv::Point3f planePoint, cv::Scalar rayVector, cv::Point3f rayPoint)
 {
 	double l;
-    cv::Scalar point;
+    cv::Point3f point;
 
     cv::Scalar pSub;
 
-	pSub.val[0] = - rayPoint.val[0] + planePoint.val[0];
-	pSub.val[1] = - rayPoint.val[1] + planePoint.val[1];
-	pSub.val[2] = - rayPoint.val[2] + planePoint.val[2];
+    pSub.val[0] = - rayPoint.x + planePoint.x;
+    pSub.val[1] = - rayPoint.y + planePoint.y;
+    pSub.val[2] = - rayPoint.z + planePoint.z;
 
 	double dotProd1 = pSub.val[0] * planeNormal.val[0] + pSub.val[1] * planeNormal.val[1] + pSub.val[2] * planeNormal.val[2];
 	double dotProd2 = rayVector.val[0] * planeNormal.val[0] + rayVector.val[1] * planeNormal.val[1] + rayVector.val[2] * planeNormal.val[2];
@@ -135,17 +135,17 @@ cv::Scalar Utilities::planeRayInter(cv::Scalar planeNormal,cv::Scalar planePoint
 	{
 		std::cout<<"Error 10\n";
 		//getch();
-		point.val[0]=0;
-		point.val[1]=0;
-		point.val[2]=0;
+        point.x=0;
+        point.y=0;
+        point.z=0;
 		return point;
 	}
 
 	l = dotProd1 / dotProd2;
 
-	point.val[0] = rayPoint.val[0] + l * rayVector.val[0]; 
-	point.val[1] = rayPoint.val[1] + l * rayVector.val[1]; 
-	point.val[2] = rayPoint.val[2] + l * rayVector.val[2]; 
+    point.x = rayPoint.x + l * rayVector.val[0];
+    point.y = rayPoint.y + l * rayVector.val[1];
+    point.z = rayPoint.z + l * rayVector.val[2];
 
 	return point;
 }
@@ -374,11 +374,17 @@ void Utilities::autoContrast(cv::Mat img_in, cv::Mat &img_out)
     for(int i=0; i<3; i++)
     {
         cv::minMaxIdx(bgr[i],&min,&max);
-        min += 255*0.05;
-
-        double a = 255/(max-min);
-        bgr[i]-=min;
-        bgr[i]*=a;
+        if(max > 250 && min >250)
+        {
+            bgr[i]=bgr[i];
+        }
+        else
+        {
+            min += 255*0.05;
+            double a = 255/(max-min);
+            bgr[i]-=min;
+            bgr[i]*=a;
+        }
     }
 
     cv::merge(bgr,img_out);
@@ -428,7 +434,7 @@ bool Utilities::line_lineIntersection(cv::Point3f p1, cv::Vec3f v1, cv::Point3f 
 
     denom = v1_dot_v1 * v2_dot_v2 - v1_dot_v2 * v1_dot_v2;
 
-    if(abs(denom)<0.1)
+    if(abs(denom) < 0.1)//abs(denom)<0.1
         return false;
 
     s =  (v1_dot_v2/denom) * v12_dot_v2 - (v2_dot_v2/denom) * v12_dot_v1;
@@ -473,6 +479,7 @@ void Utilities::folderScan(const QString dirPath,std::vector<std::string> *files
     QStringList nameFilters;
     nameFilters << "*.*" << "*.png"<< "*.bmp";// "*.*" 任意类型文件
     QStringList files= dir.entryList(nameFilters, QDir::NoSymLinks|QDir::Files|QDir::Readable|QDir::NoDotAndDotDot , QDir::Name);
+    filesPath->clear();
     for (int i=0; i < files.length();i++)
     {
         std::string temp = dirPath.toStdString()+"/"+files[i].toStdString();

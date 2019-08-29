@@ -32,7 +32,7 @@ using namespace std;
 
 // Namespace for using opencv.
 using namespace cv;
-extern String img_name[8];
+extern String img_name[22];
 extern int  nBuffersInQueue_total;
 extern int  image_id ;
 namespace Ui {

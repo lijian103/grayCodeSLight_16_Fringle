@@ -366,6 +366,8 @@ void CameraCalibration::unloadCameraExtriImg()
  void CameraCalibration::perspectiveTransformation(std::vector<cv::Point2f> corners_in,cv::Mat homoMatrix, std::vector<cv::Point3f> &points_out)
  {
     points_out.clear();
+
+    //opencv 求homo是double，VirtualCamera类里面求投影矩阵是float
     int type = homoMatrix.type();
     if(type==CV_32F)
     {
