@@ -19,6 +19,9 @@
 
 
 using namespace cv;
+
+int progressBar_num=0;
+
 std::mutex myMutex;//线程锁
 int grapFlag = 1;
 QImage disImage = QImage(10,10,QImage::Format_Grayscale8);
@@ -62,7 +65,6 @@ MainWindow::MainWindow(QWidget *parent) :
    ui->tableWidget_camSetting->setColumnWidth(1,76);
    ui->tableWidget_camSetting->setColumnWidth(2,76);
    ui->tableWidget_camSetting->setColumnWidth(3,76);
-
 
 
 
@@ -180,7 +182,7 @@ MainWindow::MainWindow(QWidget *parent) :
     ui->tableWidget_camSetting_3->setItem(1,4,new QTableWidgetItem(QString::fromStdString(projectorParam[6])));
     ui->tableWidget_camSetting_3->setItem(1,5,new QTableWidgetItem(QString::fromStdString(projectorParam[7])));
     ui->lineEdit_projector_imgPath->setText(QString::fromStdString(projectorParam[8]));
-     ui->lineEdit_projector_homo_dir->setText(QString::fromStdString(projectorParam[9]));
+    ui->lineEdit_projector_homo_dir->setText(QString::fromStdString(projectorParam[9]));
 }
 
 MainWindow::~MainWindow()
@@ -196,6 +198,11 @@ void MainWindow::timerUpDate()
     QString str = time.toString("yyyy-MM-dd hh:mm:ss dddd");
     //设置系统时间显示格式
     ui->label->setText(str);
+
+    if(ui->tabWidget->currentIndex() == 4)
+    {
+      this->ui->progressBar->setValue(progressBar_num);
+    }
 
 }
 
@@ -351,7 +358,7 @@ void MainWindow::cameraModeChoose()
       {
           case 0:
               MainWindow::cameraMode = 0;
-              ui->tabWidget->setCurrentIndex(0);
+//              ui->tabWidget->setCurrentIndex(0);
               break;
           case 1:
               MainWindow::cameraMode = 1;
@@ -719,22 +726,30 @@ void MainWindow::generate3DCloud()
 {
     ui->tabWidget->setCurrentIndex(4);
     ui->tabWidget->currentIndex();
+    this->ui->progressBar->setValue(0);
+    progressBar_num=0;
     //开一个新进程，用于三维重建
     if(this->ptrThread_cameraCalibration == nullptr)
     {
         this->ptrThread_cameraCalibration = new std::thread(&MainWindow::generate3DCloud_1_Thread,this);
         this->ptrThread_cameraCalibration->detach();
+        this->ui->progressBar->setMinimum(0);
+        this->ui->progressBar->setMaximum(100);
+        this->ui->progressBar->setValue(0);
     }
     else
     {
         std::cout<<"*****************正在三维重建******************************"<<std::endl;
+
     }
+
 
 }
 
 void MainWindow::generate3DCloud_1_Thread()
 {
     mytool::TimeMeasurement t1;
+
     Reconstructor Recon3DCloud;
 
     Recon3DCloud.runReconstruction();

@@ -104,7 +104,7 @@ ThreadTest::~ThreadTest()
 
 
 
-void realtine_soft_entry(bool loop)
+void realtime_soft_entry(bool loop)
 {
     while(loop)
     {
@@ -116,11 +116,25 @@ void realtine_soft_entry(bool loop)
 void high_soft_entry(bool loop)
 {
 
-   GrayCodes test(912,1140,"D:/Trunk/Pictures/test/");
-   test.generateGrays();
-   test.save();
+//   GrayCodes test(912,1140,"D:/Trunk/Pictures/test/");
+//   test.generateGrays();
+//   test.save();
+
+
+
 
     my_main();
+    cv::Mat M(2,2,CV_8UC3,cv::Scalar::all(0));
+
+    std::cout<<"M="<<""<<M<<endl<<endl;
+
+    std::vector<cv::Point2f> vPoints(20);
+   for (size_t i = 0; i < vPoints.size(); ++i)
+       vPoints[i] = cv::Point2f((float)(i * 5), (float)(i % 7));
+   cout << "A vector of 2D Points = " << cv::Mat(vPoints) << endl << endl;
+
+   cv::Point2f tt(2,4);
+   std::cout<<tt<<std::endl;
 
     while(loop)
     {
@@ -131,7 +145,21 @@ void high_soft_entry(bool loop)
 
 void low_soft_entry(bool loop)
 {
+    //***********
 
+
+
+    cv::Mat t1(2,3,CV_8U,cv::Scalar(5));
+    cv::Mat t2(2,3,CV_8U,cv::Scalar(255));
+    std::cout<<t1+t2<<std::endl;
+
+    uchar t3=6;
+    uchar t4=255;
+    uchar t5=cv::saturate_cast<uchar>(t3+t4);
+    std::cout<<"t3+t4"<<(int)t5<<"t3+t4"<<std::endl;
+
+
+    //***************
     while(loop)
     {
         std::cout<<"low_soft_entry"<<std::endl;
@@ -147,16 +175,23 @@ void my_main()
     cv::Vec3f c3= c1.cross(c2);
     std::cout<<c3<<std::endl;
 
-        cv::Mat imgtemp=cv::imread("../Pictures/Grap_frame/20190821141647_3.bmp") ;
-        cv::Mat img_grey;
-        cv::Mat img_grey_all;
+    cv::Mat imgtemp=cv::imread("../Pictures/Grap_frame/20190821141647_3.bmp") ;
+    cv::Scalar intensity = imgtemp.at<cv::Vec3b>(cv::Point(4, 5));
+    int blue = intensity.val[0];
+    int green = intensity.val[1];
+    int red = intensity.val[2];
+    std::cout<<intensity<<std::endl<<blue<<std::endl<<green<<std::endl<<red<<std::endl;
 
-        cv::cvtColor(imgtemp, img_grey, cv::COLOR_BGR2GRAY );
-        std::cout<<img_grey.channels()<<std::endl<<std::endl;
-        std::cout<<img_grey.channels()<<std::endl<<std::endl;
 
-        int threshold_type = 0;
-        int const max_binary_value = 255;
+    cv::Mat img_grey;
+    cv::Mat img_grey_all;
+
+    cv::cvtColor(imgtemp, img_grey, cv::COLOR_BGR2GRAY );
+    std::cout<<img_grey.channels()<<std::endl<<std::endl;
+    std::cout<<img_grey.channels()<<std::endl<<std::endl;
+
+    int threshold_type = 0;
+    int const max_binary_value = 255;
 
         cv::threshold(img_grey, img_grey_all,66, max_binary_value, threshold_type );
     //    adaptiveThreshold(img_grey, img_grey_auto, 255, cv::ADAPTIVE_THRESH_MEAN_C, cv::THRESH_BINARY, 31, 10);//自适应阈值分割

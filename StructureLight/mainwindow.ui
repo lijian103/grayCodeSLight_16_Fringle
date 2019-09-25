@@ -206,7 +206,7 @@ QTabBar::tab:!selected{margin-top:8px;margin-bottom:-8px;}</string>
          <enum>QTabWidget::Rounded</enum>
         </property>
         <property name="currentIndex">
-         <number>3</number>
+         <number>2</number>
         </property>
         <property name="documentMode">
          <bool>true</bool>
@@ -3648,6 +3648,16 @@ QTabBar::tab:!selected{margin-top:8px;margin-bottom:-8px;}</string>
            <bool>true</bool>
           </property>
          </widget>
+         <widget class="QComboBox" name="comboBox">
+          <property name="geometry">
+           <rect>
+            <x>270</x>
+            <y>150</y>
+            <width>69</width>
+            <height>22</height>
+           </rect>
+          </property>
+         </widget>
         </widget>
         <widget class="QWidget" name="tab_3">
          <property name="autoFillBackground">
@@ -4412,6 +4422,19 @@ QTabBar::tab:!selected{margin-top:8px;margin-bottom:-8px;}</string>
          <attribute name="title">
           <string>3D点云显示</string>
          </attribute>
+         <widget class="QProgressBar" name="progressBar">
+          <property name="geometry">
+           <rect>
+            <x>80</x>
+            <y>60</y>
+            <width>881</width>
+            <height>16</height>
+           </rect>
+          </property>
+          <property name="value">
+           <number>24</number>
+          </property>
+         </widget>
         </widget>
        </widget>
       </item>

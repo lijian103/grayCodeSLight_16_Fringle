@@ -5,7 +5,7 @@
 <BoardSquare><Height>"11"</Height>
   <Width>"11"</Width></BoardSquare>
 <calibrationPath><calibPath>D:/Trunk/Products/grayCodeSLight_16_Fringle_each_pixel/Pictures/Grap_frame/projector/projector</calibPath>
-  <exCalibPath>D:/Trunk/Products/grayCodeSLight_16_Fringle_each_pixel/Pictures/Grap_frame/projector/camera/20190829110246_0.bmp</exCalibPath></calibrationPath>
+  <exCalibPath>D:/Trunk/Products/grayCodeSLight_16_Fringle_each_pixel/Pictures/Grap_frame/projector/camera/20190909184717_1.bmp</exCalibPath></calibrationPath>
 <ProjectorImgCorners><numOfProjectorImgCornersX>"7"</numOfProjectorImgCornersX>
   <numOfProjectorImgCornersY>"9"</numOfProjectorImgCornersY></ProjectorImgCorners>
 <ProjectImgPath><Path>D:/Trunk/Products/grayCodeSLight_16_Fringle_each_pixel/calibrationData/projector/input/wave_grid0_M2.bmp</Path></ProjectImgPath>

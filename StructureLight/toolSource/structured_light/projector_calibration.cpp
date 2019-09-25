@@ -103,7 +103,6 @@ bool ProjectorCalibration::findCornersInCamImg_projector(cv::Mat img,std::vector
     cv::namedWindow("threshold_img"+std::to_string(img_index), cv::WINDOW_AUTOSIZE );
     cv::imshow("threshold_img"+std::to_string(img_index),img_grey);
 
-
     cv::waitKey(20);
 
     camCorners->clear();
@@ -185,7 +184,6 @@ bool ProjectorCalibration::findProjectorExtrisics(const QString  projectorFilesD
     int i=0;
     for(i; i < cameraFiles.size(); i++)
     {
-
         std::cout<<cameraFiles[i]<<std::endl;
         std::cout<<exPath<<std::endl;
 
@@ -224,8 +222,6 @@ bool ProjectorCalibration::findProjectorExtrisics(const QString  projectorFilesD
 
     //ÇóÍ¼ÏñµÄµã
     findCornersInCamImg(projectorImg,&imgPoints);
-
-
 
     //find extrinsics rotation & translation
     bool reslut = cv::solvePnP(objPoints3D,imgPoints,camMatrix,distortion,rotationVector,translationVector);

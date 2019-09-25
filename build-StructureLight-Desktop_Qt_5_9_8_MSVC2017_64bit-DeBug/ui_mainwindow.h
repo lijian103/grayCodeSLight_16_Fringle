@@ -14,6 +14,7 @@
 #include <QtWidgets/QApplication>
 #include <QtWidgets/QButtonGroup>
 #include <QtWidgets/QCheckBox>
+#include <QtWidgets/QComboBox>
 #include <QtWidgets/QFrame>
 #include <QtWidgets/QGridLayout>
 #include <QtWidgets/QGroupBox>
@@ -23,6 +24,7 @@
 #include <QtWidgets/QLineEdit>
 #include <QtWidgets/QMainWindow>
 #include <QtWidgets/QMenuBar>
+#include <QtWidgets/QProgressBar>
 #include <QtWidgets/QPushButton>
 #include <QtWidgets/QRadioButton>
 #include <QtWidgets/QSpacerItem>
@@ -175,6 +177,7 @@ public:
     QSpacerItem *verticalSpacer_6;
     QWidget *tab_2;
     QLabel *label_10;
+    QComboBox *comboBox;
     QWidget *tab_3;
     QGridLayout *gridLayout_3;
     QVBoxLayout *verticalLayout_2;
@@ -196,6 +199,7 @@ public:
     QLabel *label_img_8;
     QLabel *label_img_7;
     QWidget *tab_4;
+    QProgressBar *progressBar;
     QVBoxLayout *verticalLayout_5;
     QGroupBox *groupBox;
     QVBoxLayout *verticalLayout_4;
@@ -1777,6 +1781,9 @@ public:
         label_10->setObjectName(QStringLiteral("label_10"));
         label_10->setGeometry(QRect(40, 20, 61, 491));
         label_10->setScaledContents(true);
+        comboBox = new QComboBox(tab_2);
+        comboBox->setObjectName(QStringLiteral("comboBox"));
+        comboBox->setGeometry(QRect(270, 150, 69, 22));
         tabWidget->addTab(tab_2, QString());
         tab_3 = new QWidget();
         tab_3->setObjectName(QStringLiteral("tab_3"));
@@ -1979,6 +1986,10 @@ public:
         tab_4 = new QWidget();
         tab_4->setObjectName(QStringLiteral("tab_4"));
         tab_4->setAutoFillBackground(true);
+        progressBar = new QProgressBar(tab_4);
+        progressBar->setObjectName(QStringLiteral("progressBar"));
+        progressBar->setGeometry(QRect(80, 60, 881, 16));
+        progressBar->setValue(24);
         tabWidget->addTab(tab_4, QString());
 
         horizontalLayout->addWidget(tabWidget);
@@ -2074,7 +2085,7 @@ public:
 
         retranslateUi(MainWindow);
 
-        tabWidget->setCurrentIndex(3);
+        tabWidget->setCurrentIndex(2);
 
 
         QMetaObject::connectSlotsByName(MainWindow);

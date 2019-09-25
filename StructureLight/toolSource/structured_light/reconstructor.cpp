@@ -7,6 +7,9 @@
 #include "reconstructor.h"
 #include "utilities.h"
 #include <Windows.h>
+#include <QtCore>
+
+extern int progressBar_num;
 
 Reconstructor::Reconstructor()
 {
@@ -330,13 +333,6 @@ void Reconstructor::runReconstruction()
     std::cout<<"generate3DCloud_1_Thread()"<<std::endl;
     this->saveShadowImg("../Pictures/shadow/shadow3.bmp");
 
-//    std::cout<<this->camPixels.size()<<"\n"<<this->projectorPixels.size()<<"\n";
-//    std::cout<<this->camPixels[0].size()<<"\n"<<this->projectorPixels[0].size()<<"\n";
-//    std::cout<<this->camPixels[100].size()<<"\n"<<this->projectorPixels[100].size()<<"\n";
-//    std::cout<<this->camPixels[400].size()<<"\n"<<this->projectorPixels[400].size()<<"\n";
-//    std::cout<<this->camPixels[600].size()<<"\n"<<this->projectorPixels[600].size()<<"\n";
-
-
 
     //reconstruct
     points3DProjView = new PointCloudImage(this->cam.width, this->cam.height , true );
@@ -344,10 +340,12 @@ void Reconstructor::runReconstruction()
 
     triangulation(this->camPixels,this->cam,this->projectorPixels,this->projector);
 
-    std::string temp3DPath="../Pictures/test_3D_2.xyz";
+    QDateTime time = QDateTime::currentDateTime();
+    QString strTime = time.toString("yyyyMMddhhmmss");
+    std::string temp3DPath="../Pictures/test_3D_";
 
-
-    points3DProjView->exportXYZ(temp3DPath.c_str(),1,1);
+    temp3DPath = temp3DPath + strTime.toStdString();
+    points3DProjView->exportXYZ((temp3DPath+".xyz").c_str(),1,1);
 
     delete points3DProjView;
     points3DProjView=nullptr;
@@ -377,6 +375,7 @@ void Reconstructor::cam2WorldSpace(VirtualCamera cam, cv::Point3f &p)
 
 }
 
+
 void Reconstructor::triangulation(std::vector<std::vector<cv::Point>> &cam1Pixels, VirtualCamera camera1, std::vector<std::vector<cv::Point>> &cam2Pixels, VirtualCamera camera2)
 {
     //camera1为相机，camera2为投影仪
@@ -396,12 +395,13 @@ void Reconstructor::triangulation(std::vector<std::vector<cv::Point>> &cam1Pixel
     for(int i=0; i<w; i++)
     {
 
-              int j=0;
-//            if(load != (int)((float)i*100/w) )
-//            {
-//                load =  (int)((float)i*100/w);
-                std::cout<<"Computing 3D Cloud "<<i<< "col\n\n\n\n\n";
-//            }
+
+            if(load != (int)((float)i*100/w) )
+            {
+                load =  (int)((float)i*100/w);
+                std::cout<<"Computing 3D Cloud ："<<load<< "%\n\n";
+                progressBar_num = load;
+            }
 
             std::vector<cv::Point> cam1Pixs,cam2Pixs;
 
@@ -432,7 +432,6 @@ void Reconstructor::triangulation(std::vector<std::vector<cv::Point>> &cam1Pixel
 
             cv::Vec3f color;
 
-
             for(int c1=0; c1 < cam1Pixs.size(); c1++)
             {
 
@@ -451,7 +450,8 @@ void Reconstructor::triangulation(std::vector<std::vector<cv::Point>> &cam1Pixel
 
                 if(interPoint != cv::Point3f(0,0,0))
                 {
-                    std::cout<<interPoint<<"\t"<<i<<"\t"<<c1<<std::endl;
+
+//                    std::cout<<interPoint<<"\t"<<i<<"\t"<<c1<<std::endl;
                     points3DProjView->addPoint(cam1Pixs[c1].x,cam1Pixs[c1].y,interPoint, color);
                 }
             }
@@ -462,7 +462,7 @@ void Reconstructor::triangulation(std::vector<std::vector<cv::Point>> &cam1Pixel
 
     system("cls");
     std::cout<<"Computing 3D Cloud 100%\n";
-
+    progressBar_num=100;
 
 }
 
